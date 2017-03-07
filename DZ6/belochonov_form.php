@@ -4,38 +4,35 @@
 Данные, которые передаются формой либо через адресную строку, необходимо проверять на корректность (валидировать) на сервере. Валидацию можно проводить единожды и затем использовать для решения задач.
 По клику на кнопку sumbit вам необходимо выполнить следующие задачи:*/
 ?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>My form</title>
-    </head>
-    <body>
-    <form action="belochonov_form.php" method="post">
-        <p>Введите дату</p>
-        <input name="date1" /><br>
-        <br>
-        <input name="date2" /><br>
-        <br>
-        <input type="radio" checked name="dva" id="dva1"/><label>день месц Год</label>
-        <br>
-        <input type="radio" name="dva" id="dva2"/><label>Год месяц день</label>
-        <br>
-        <br>
-        <input type="submit"/>
-        
-    </form>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My form</title>
+</head>
+<body>
+<form action="belochonov_form.php" method="post">
+    <p>Введите дату</p>
+    <input name="date1"/><br>
+    <br>
+    <input name="date2"/><br>
+    <br>
+    <input type="radio" checked name="dva" id="dva1"/><label>день месц Год</label>
+    <br>
+    <input type="radio" name="dva" id="dva2"/><label>Год месяц день</label>
+    <br>
+    <br>
+    <input type="submit"/>
 
-
+</form>
+</body>
+</html>
 
 
 <?php
 
-$date1=trim(strip_tags($_POST["date1"]));
+$date1 = trim(strip_tags($_POST["date1"]));
 echo $date1;
-
 
 
 /*1. Пользователь вводит число, а скрипт определяет високосный ли год. Сделать проверку на формат и количество введенных значений. Если есть ошибка - уведомить об этом пользователя.*/
