@@ -1,8 +1,22 @@
 <?php
+
+$login = 'login';
+$pass = 'pass';
+
+if(($_SERVER['PHP_AUTH_PW']!= $pass || $_SERVER['PHP_AUTH_USER'] != $login)|| !$_SERVER['PHP_AUTH_USER'])
+{
+    header('WWW-Authenticate: Basic realm="Test auth"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Вы не афторизированны';
+    exit;
+}
+
 /*Создайте html-форму. Сделайте на форме два поля ввода Date 1 и Date 2. Через поля ввода будут передаваться даты в формате 'год-месяц-день'.
 Добавьте на форму два элемента типа radio. Задайте элементы label для этих кнопок: dd.mm.YY и YY.mm.dd соответственно. Радио кнопки будут отвечать за формат даты, в котором будут выводится даты пользователю на экран.
 Данные, которые передаются формой либо через адресную строку, необходимо проверять на корректность (валидировать) на сервере. Валидацию можно проводить единожды и затем использовать для решения задач.
 По клику на кнопку sumbit вам необходимо выполнить следующие задачи:*/
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +31,9 @@
     <br>
     <input name="date2"/><br>
     <br>
-    <input type="radio" checked name="dva" id="dva1"/><label>день месц Год</label>
+    <input type="radio" checked id="dmY"/><label>день месц Год</label>
     <br>
-    <input type="radio" name="dva" id="dva2"/><label>Год месяц день</label>
+    <input type="radio" id="Ymd"/><label>Год месяц день</label>
     <br>
     <br>
     <input type="submit"/>
@@ -30,12 +44,17 @@
 
 
 <?php
+//if (!empty($_POST))
+//{$date1=empty($_POST['date1'])?'':trim(strip_tags($_POST['date1']));echo $date1;}
+//
+//if (!empty($_POST))
+//{$date2=empty($_POST['date2'])?'':trim(strip_tags($_POST['date2']));echo $date2;}
 
-$date1 = trim(strip_tags($_POST["date1"]));
-echo $date1;
 
 
 /*1. Пользователь вводит число, а скрипт определяет високосный ли год. Сделать проверку на формат и количество введенных значений. Если есть ошибка - уведомить об этом пользователя.*/
+
+
 
 /*2. Пользователь передает две даты. Первую дату запишите в переменную $date1, а вторую в $date2. Сравните, какая из введенных дат больше. С помощью функций explode и mktime переведите большую дату в формат timestamp. По этому timestamp узнайте день недели (словом, латиницей) и выведите его на экран.*/
 
