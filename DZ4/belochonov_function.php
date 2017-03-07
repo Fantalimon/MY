@@ -41,22 +41,34 @@
 ////-----------------------------------------------------------------------------------------------------------------------------
 
 /*4. Сделайте функцию, которая на вход принимает параметр в виде массива, разворачивает массив и возвращает результат.*/
-$myarray_worck=[];
-for ($i=0;$i<=25;$i++){$myarray_worck[$i]=rand(-120,19);}
-function getmass ($arr = array(1,2,4,5,))
+
+//Вот же оно исправление
+$myarray_worck = [];
+for ($i = 0; $i <= 25; $i++) {
+    $myarray_worck[$i] = rand(-120, 19);
+}
+function getmass($arr = array(1, 2, 4, 5,))
 {
-    $ctn = count($arr)-1;
-    $reverse=[];
-    for($j=0,$i=$ctn;$i>=0;$j++,$i--)
-    {
-        $reverse[$j]=$arr[$i];
+    $ctn = count($arr) - 1;
+    $reverse = [];
+    for ($j = 0, $i = $ctn; $i >= 0; $j++, $i--) {
+        $reverse[$j] = $arr[$i];
     }
+    
     return $reverse;
-};
+}
+
+;
 getmass();
-$revers_massive  = getmass($myarray_worck);
-print_r ($revers_massive);
-echo "<br>";echo "<br>";echo"<br>";echo"<br>";echo"<br>";echo"<br>";echo"<br>";
+$revers_massive = getmass($myarray_worck);
+print_r($revers_massive);
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
@@ -253,7 +265,7 @@ echo "<br>";echo "<br>";echo"<br>";echo"<br>";echo"<br>";echo"<br>";echo"<br>";
 //-------------------------------------------------------------------------------------------------------------------------------
 /*12. Написать функцию, которая возвращает массив длиной $length, заполненный случайными числам
 и (можно воспользоваться функцией rand).*/
- /*Нашел у себя ошибку, выводило на 1 значение больше */
+/*Нашел у себя ошибку, выводило на 1 значение больше */
 
 //function arrlength($lenght = 30)
 //{
@@ -278,55 +290,54 @@ echo "<br>";echo "<br>";echo"<br>";echo"<br>";echo"<br>";echo"<br>";echo"<br>";
 /*13. Написать функцию, которая в качестве параметра принимает массив из задачи №4.
 Функция находит максимальное и минимальное значение массива и меняет их местами.*/
 //
-function max_min_array_return($arr = array(1,2,4,-143,2,6,21))
+function max_min_array_return($arr = array(1, 2, 4, -143, 2, 6, 21))
 {
     print_r($arr);
     echo "<br>";
-  $count_myarr=count($arr);
-
-         $max = $min = $arr[0];
-        $index_max = $index_min = 0;
-
-    for ($i=0;$i<$count_myarr;$i++)
-    {
-       if ($arr[$i] > $max) {
-                             $index_max=$i;
-                             $max = $arr[$i];
-                            }
-
-                   if($arr[$i]<=$min)
-                   {
-                       $index_min = $i;
-                       $min = $arr[$i];
-                   }
-
+    $count_myarr = count($arr);
+    
+    $max = $min = $arr[0];
+    $index_max = $index_min = 0;
+    
+    for ($i = 0; $i < $count_myarr; $i++) {
+        if ($arr[$i] > $max) {
+            $index_max = $i;
+            $max = $arr[$i];
+        }
+        
+        if ($arr[$i] <= $min) {
+            $index_min = $i;
+            $min = $arr[$i];
+        }
+        
     }
     echo "<br>";
-  echo 'макс: '.'['.$index_max.']'.' '.$max;
+    echo 'макс: ' . '[' . $index_max . ']' . ' ' . $max;
     echo "<br>";
-    echo 'мин: '.'['.$index_min.']'.' '.$min;
-     echo "<br>";
+    echo 'мин: ' . '[' . $index_min . ']' . ' ' . $min;
     echo "<br>";
-
-$var_change=$arr[$index_max]=$max;
-
-    $arr[$index_max]=$max=$arr[$index_min]=$min;
-
-       $arr[$index_min]=$min=$var_change;
-
+    echo "<br>";
+    
+    $var_change = $arr[$index_max] = $max;
+    
+    $arr[$index_max] = $max = $arr[$index_min] = $min;
+    
+    $arr[$index_min] = $min = $var_change;
+    
     print_r($arr);
 
 
 //    echo"<br>";
 //    var_dump($rezult_min) ;
-
+    
 }
+
 $myarray_worck;
- max_min_array_return($myarray_worck);
+max_min_array_return($myarray_worck);
 //max_min_array_return();
-echo"<br>";
-echo"<br>";
-echo"<br>";
+echo "<br>";
+echo "<br>";
+echo "<br>";
 //-------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -366,21 +377,10 @@ echo"<br>";
 //omg(3);
 //-------------------------------------------------------------------------------------------------------------------------------
 
-   
-    
 
-
-
-
-
-
-
-
-
-
- /* ????? НЕ понял про возврат ничего!!! оператор взвращает переменную в другой файл или это один
-  из способов подключения файла. или это специально для того что бы готовый результат использовать в другой программе?
+/* ????? НЕ понял про возврат ничего!!! оператор взвращает переменную в другой файл или это один
+ из способов подключения файла. или это специально для того что бы готовый результат использовать в другой программе?
 //
 //    //// ????????????? И ещё не понтно про то как закрутить так чтобы возвратить именно  $length, а не $length_l;*/
 
- ?>
+?>
