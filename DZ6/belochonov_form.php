@@ -71,28 +71,35 @@ if (!empty($_GET))
 //}
 
 /*2. Пользователь передает две даты. Первую дату запишите в переменную $date1, а вторую в $date2. Сравните, какая из введенных дат больше. С помощью функций explode и mktime переведите большую дату в формат timestamp. По этому timestamp узнайте день недели (словом, латиницей) и выведите его на экран.*/
-if (!empty($date1) && !empty($date2)) {
-    $date_one = strtotime($date1);
-    $date_too = strtotime($date2);
-    if ($date_one <= $date_too) {
-        list($d, $m, $Y) = explode(".", $date1);
-        $timestemp1 = mktime(0, 0, 0, $m, $d, $Y);
-        $month1 = date("F", $timestemp1);
-        echo $month1;
-    } else {
-        list($d, $m, $Y) = explode(".", $date2);
-        $timestemp2 = mktime(0, 0, 0, $m, $d, $Y);
-        $month2 = date("F", $timestemp2);
-        echo $month2;
-    }
-    echo "<br>";
-}else {echo "Введите даты";}
+//if (!empty($date1) && !empty($date2)) {
+//    $date_one = strtotime($date1);
+//    $date_too = strtotime($date2);
+//    if ($date_one <= $date_too) {
+//        list($d, $m, $Y) = explode(".", $date1);
+//        $timestemp1 = mktime(0, 0, 0, $m, $d, $Y);
+//        $month1 = date("F", $timestemp1);
+//        echo $month1;
+//    } else {
+//        list($d, $m, $Y) = explode(".", $date2);
+//        $timestemp2 = mktime(0, 0, 0, $m, $d, $Y);
+//        $month2 = date("F", $timestemp2);
+//        echo $month2;
+//    }
+//    echo "<br>";
+//}else {echo "Введите даты";}
+
 /*3. В поле вводится дата. Прибавьте к этой дате 1 год 2 месяца и 3 дня. Отнимите от этой даты 5 дней. Результат преобразуйте ее в выбранный формат и отобразите на экране.*/
 
-
-
+//$date1 = strtotime($date1);
+//$small_date = mktime(0, 0, 0, 2, 3, 1);
+//$big_date = $date1 + $small_date;
+//$fiveday = mktime(0, 0, 0, 0, 5, 0);
+//$ALLDATE = $big_date - $fiveday;
+//$end_date = date("d.m.Y", $ALLDATE);
+//echo $end_date;
 
 /*4. С помощью адресной строки передайте GET-параметр date, который хранит год (4 числа). Посчитайте сколько воскресений в введенном году приходится на первое число месяца.*/
+
 
 
 
