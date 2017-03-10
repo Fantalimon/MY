@@ -1,10 +1,12 @@
 <?php
 $username='';
+$phone='';
 if (!empty($_GET)) {
     $username = empty($_GET['username']) ? '' : trim(strip_tags($_GET['username']));
+    $phone = empty($_GET['phone']) ? '' : trim(strip_tags($_GET['phone']));
 }
 setcookie('username',$username,time()+3600,"DZ7");
-
+setcookie('phone',$phone,time()+3600,"DZ7");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +21,9 @@ setcookie('username',$username,time()+3600,"DZ7");
     <fieldset title="Ваше имя">
         <legend>Введите имя</legend>
         <input ​type="text" ​ name="username">
+        <br>
+        <br>
+        <input ​type="text" ​ name="phone">
         <br>
         <br>
         <input type="submit" value="Отправить ваш вариант">
