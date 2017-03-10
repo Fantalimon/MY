@@ -357,7 +357,7 @@ if (!empty($_GET))
 <!--</head>-->
 <!--<body>-->
 <!--<form action="belochonov_form.php" method="get">-->
-<!--    <fieldset title="Знание языков">-->
+<!--    <fieldset title="выбирая зажимайте CTRL">-->
 <!--        <legend>Выберете языки которые вы знаете?</legend>-->
 <!--        <br>-->
 <!--<select multiple="multiple">-->
@@ -378,8 +378,34 @@ if (!empty($_GET))
 <?php
 /*14. Сделайте функцию, которая создаёт html элемент. Функция должна иметь следующие параметры: type, name, value, placeholder. В функцию на вход может попасть только input или textarea. В любом другом случае необходимо вывести предупреждение об ошибке.*/
 
+//function html_grate ($input,$textarea)
+//{
+//    if ($input == 1) {
+//     echo "<input type=\"\" name=\"\" value=\"\" placeholder=\"som text enter\">";
+//    }
+//    if ($textarea == 1)
+//    {
+//     echo "<textarea type=\"\" name=\"\" value=\"\" placeholder=\"som text enter\">som text write hear</textarea>";
+//    }
+//    return;
+//}
+//?>
+<!---->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>function html elem</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="belochonov_form.php" method="get">-->
+<!--    --><?php //echo html_grate(1,1)?>
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
 
 
+<?php
 /*15. Сделайте функцию, которая будет создавать селект. Функция должна принимать многомерный массив, например:
 $arr = array(
     0=>array('value'=>'php', 'text'=>'Язык PHP'),
