@@ -271,7 +271,7 @@ if (!empty($_GET))
 <!--</head>-->
 <!--<body>-->
 <!--<form action="belochonov_form.php" method="get">-->
-<!--    <fieldset title="Знание языков">-->
+<!--    <fieldset title="Сколько вам лет?">-->
 <!--        <legend>Сколько вам лет?</legend>-->
 <!--        <br>-->
 <!--<input type="radio"  name="age20"><label>20</label>-->
@@ -328,7 +328,7 @@ if (!empty($_GET))
 <!--</head>-->
 <!--<body>-->
 <!--<form action="belochonov_form.php" method="get">-->
-<!--    <fieldset title="Знание языков">-->
+<!--    <fieldset title="сколько вам лет">-->
 <!--        <legend>Сколько вам лет?</legend>-->
 <!--        <br>-->
 <!--<select>-->
@@ -349,6 +349,30 @@ if (!empty($_GET))
 /*13. Создайте html-форму. Спросите у пользователя с помощью элемента multiselect, какие из языков он знает: html, css, php, javascript. Выведите на экран те языки, которые знает пользователь.*/
 ?>
 
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>SELECT</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="belochonov_form.php" method="get">-->
+<!--    <fieldset title="Знание языков">-->
+<!--        <legend>Выберете языки которые вы знаете?</legend>-->
+<!--        <br>-->
+<!--<select multiple="multiple">-->
+<!--    <option value="html">HTML</option>-->
+<!--    <option value="css">CSS</option>-->
+<!--    <option value="php">PHP</option>-->
+<!--    <option value="js">javascript</option>-->
+<!--</select>-->
+<!--        <br><br><br>-->
+<!--        <input type="submit" value="Отправить ваш вариант">-->
+<!--   </fieldset>-->
+<!--    -->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
 
 
 <?php
