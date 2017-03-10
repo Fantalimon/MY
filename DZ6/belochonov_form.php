@@ -18,29 +18,29 @@
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My form</title>
-</head>
-<body>
-<form action="belochonov_form.php" method="get">
-    <p>Введите дату</p>
-    <input name="date1"/><br>
-    <br>
-    <input name="date2"/><br>
-    <br>
-    <input type="radio" checked id="dmY"/><label>день месц Год</label>
-    <br>
-    <input type="radio" id="Ymd"/><label>Год месяц день</label>
-    <br>
-    <br>
-    <input type="submit"/>
-
-</form>
-</body>
-</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>My form</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="belochonov_form.php" method="get">-->
+<!--    <p>Введите дату</p>-->
+<!--    <input name="date1"/><br>-->
+<!--    <br>-->
+<!--    <input name="date2"/><br>-->
+<!--    <br>-->
+<!--    <input type="radio" checked id="dmY"/><label>день месц Год</label>-->
+<!--    <br>-->
+<!--    <input type="radio" id="Ymd"/><label>Год месяц день</label>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <input type="submit"/>-->
+<!---->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
 
 
 <?php
@@ -171,9 +171,54 @@ if (!empty($_GET))
 //echo date("l",$hundryt_year_ago);
 
 /*9. Создайте html-форму. Добавьте на форму 4 элемента с типом checkbox, сгруппированных с помощью элемента fieldset. Чекбоксы должны иметь названия: html, css, php, javascript. Названия чекбоксам задаются с помощью элемента label. Спросите у пользователя, какие из языков он знает: html, css, php, javascript. Выведите на экран те языки, которые знает пользователь. Если пользователь не отметил ни один язык — выведите на экран сообщение об этом.*/
+?>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>checkbox</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="belochonov_form.php" method="get">-->
+<!--    <fieldset title="Знание языков">-->
+<!--        <legend>Какие вы знаете языки?</legend>-->
+<!--        <br>-->
+<!--<input type="checkbox" name="html"><label>html</label>-->
+<!--        <br>-->
+<!--<input type="checkbox" name="css"><label>css</label>-->
+<!--        <br>-->
+<!--<input autofocus="autofocus" type="checkbox"  name="php"><label>php</label>-->
+<!--        <br>-->
+<!--<input type="checkbox" name="js"><label>javascript</label>-->
+<!--        <br><br><br>-->
+<!--        <input type="submit" value="Отправить ваш вариант">-->
+<!--   </fieldset>-->
+<!--    -->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<?php
+//$css=$html=$php=$js='';
+//if (!empty($_GET))
+//{
+//    $html=empty($_GET['html'])?'':trim(strip_tags($_GET['html']));
+//    $css=empty($_GET['css'])?'':trim(strip_tags($_GET['css']));
+//    $php=empty($_GET['php'])?'':trim(strip_tags($_GET['php']));
+//    $js=empty($_GET['js'])?'':trim(strip_tags($_GET['js']));
+//
+//}
+//else{echo "Вы не выбрли ни одного языка"."<br>";}
+//if ($html =="on"){echo "Вы знаете html"."<br>";}
+//if ($css =="on"){echo "Вы знаете CSS"."<br>";}
+//if ($php =="on"){echo "Вы знаете php"."<br>";}
+//if ($js =="on"){echo "Вы знаете js"."<br>";}
+//
+//?>
 
 
-
+<?php
 /*10. Создайте html-форму. Спросите у пользователя знает ли он PHP с помощью двух radio-кнопок. Выведите результат на экран. Сделайте так, чтобы по умолчанию один из вариантов был уже отмечен.*/
 
 
