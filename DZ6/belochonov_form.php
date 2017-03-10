@@ -262,8 +262,56 @@ if (!empty($_GET))
 
 /*11. Создайте html-форму. Спросите у пользователя его возраст с помощью нескольких radio-кнопок, сгруппированных элементом fieldset. Варианты ответа сделайте такими: менее 20 лет, 20-25, 26-30, более 30. Результат выдайте на экран в видет “Ваш возраст в диапазоне <n> лет”.*/
 ?>
-
-
+<!---->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>checkbox</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="belochonov_form.php" method="get">-->
+<!--    <fieldset title="Знание языков">-->
+<!--        <legend>Сколько вам лет?</legend>-->
+<!--        <br>-->
+<!--<input type="radio"  name="age20"><label>20</label>-->
+<!--        <br>-->
+<!--<input type="radio" name="age20_25"><label>20-25</label>-->
+<!--        <br>-->
+<!--<input type="radio"  name="age26_30"><label>26-30</label>-->
+<!--        <br>-->
+<!--<input type="radio" name="age_more30"><label>больше 30</label>-->
+<!--        <br><br><br>-->
+<!--        <input type="submit" value="Отправить ваш вариант">-->
+<!--   </fieldset>-->
+<!--    -->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+<!---->
+<?php
+//$age20=$age20_25=$age26_30=$age_more30='';
+//if (!empty($_GET))
+//{
+//    $age20=empty($_GET['age20'])?'':trim(strip_tags($_GET['age20']));
+//    $age20_25=empty($_GET['age20_25'])?'':trim(strip_tags($_GET['age20_25']));
+//    $age26_30=empty($_GET['age26_30'])?'':trim(strip_tags($_GET['age26_30']));
+//    $age_more30=empty($_GET['age_more30'])?'':trim(strip_tags($_GET['age_more30']));
+//}
+//
+//
+//if (($age20 || $age20_25 || $age26_30 || $age_more30 )=="on")
+//{
+//    $arr=[$age20=>"20",$age20_25=>"20-25",$age26_30=>"26-30",$age_more30=>"30 или больше"];
+//    $n=" ";
+//    foreach ($arr as $key => $value)
+//    {
+//        $n=$arr["on"];
+//    }
+//    echo "вам где-то $n лет" . "<br>";
+//}
+//
+//?>
 
 
 
