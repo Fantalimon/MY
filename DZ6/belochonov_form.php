@@ -220,14 +220,55 @@ if (!empty($_GET))
 
 <?php
 /*10. Создайте html-форму. Спросите у пользователя знает ли он PHP с помощью двух radio-кнопок. Выведите результат на экран. Сделайте так, чтобы по умолчанию один из вариантов был уже отмечен.*/
+?>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>ratio php</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form action="belochonov_form.php" method="get">-->
+<!--    <fieldset title="Знание php">-->
+<!--        <legend>Знаете ли вы PHP ?</legend>-->
+<!--        <br>-->
+<!--<input autofocus="autofocus" type="checkbox"  checked name="yes"><label>ДА</label>-->
+<!--        <br>-->
+<!--<input type="checkbox" name="no"><label>НЕТ</label>-->
+<!--        <br><br><br>-->
+<!--        <input type="submit" value="Отправить ваш вариант">-->
+<!--   </fieldset>-->
+<!--    -->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+<!---->
+<?php
+//$no=$yes='';
+//if (!empty($_GET))
+//{
+//    $no=empty($_GET['no'])?'':trim(strip_tags($_GET['no']));
+//    $yes=empty($_GET['yes'])?'':trim(strip_tags($_GET['yes']));
+//}
+//if ($no =="on"){echo "Вы не знаете php"."<br>";}
+//else{echo "Вы знаете php"."<br>";}
+//
+//?>
 
 
+
+<?php
 
 /*11. Создайте html-форму. Спросите у пользователя его возраст с помощью нескольких radio-кнопок, сгруппированных элементом fieldset. Варианты ответа сделайте такими: менее 20 лет, 20-25, 26-30, более 30. Результат выдайте на экран в видет “Ваш возраст в диапазоне <n> лет”.*/
+?>
 
 
 
 
+
+
+<?php
 /*12. Создайте html-форму. Спросите у пользователя его возраст с помощью select. Варианты ответа сделайте такими: менее 20 лет, 20-25, 26-30, более 30.*/
 
 
