@@ -49,9 +49,8 @@ $difference=time()-$berthday;
 $year=($difference%31536000.00042889);
 $rez=(31536000.00042889-$year);
 $rezult_day=floor($rez/86400);
-$yearday=365;
-$br=$yearday-$rezult_day;
+$rezult_day;
 if ($rezult_day == 364){echo "<h1 style='color:red'>Поздравляем У вас сегодня день варенья!</h1>";}
-else{echo "Вам до дня рождения осталось, $br дней." ;}
+else{echo "Вам до дня рождения осталось, $rezult_day дней." ;}
 
 ?>
