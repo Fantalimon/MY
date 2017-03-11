@@ -43,9 +43,12 @@ setcookie('bertnday',$berthday,time()+366*24*3600,"DZ7");
 </body>
 </html>
 <?php
+
 $berthday=strtotime($berthday);
 $difference=time()-$berthday;
-$rezult=date("z",$difference);
-echo $rezult;
+$year=($difference%31536000);
+$rez=(31536000-$year);
+$rezult_day=floor($rez/86400);
+echo $rezult_day;
 
 ?>
