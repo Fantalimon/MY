@@ -11,7 +11,7 @@ if (!empty($_GET)) {
 setcookie('username',$username,time()+3600,"DZ7");
 setcookie('phone',$phone,time()+3600,"DZ7");
 setcookie('age',$age,time()+3600*3,"DZ7");
-setcookie('bertnday',$berthday,time()+366*24*3600,"DZ7");
+setcookie('bertnday',$berthday,time()+331536000,"DZ7");
 
 ?>
 <!DOCTYPE html>
@@ -46,9 +46,12 @@ setcookie('bertnday',$berthday,time()+366*24*3600,"DZ7");
 
 $berthday=strtotime($berthday);
 $difference=time()-$berthday;
-$year=($difference%31536000);
-$rez=(31536000-$year);
+$year=($difference%31536000.00042889);
+$rez=(31536000.00042889-$year);
 $rezult_day=floor($rez/86400);
-echo $rezult_day;
+$yearday=365;
+$br=$yearday-$rezult_day;
+if ($rezult_day == 364){echo "<h1 style='color:red'>Поздравляем У вас сегодня день варенья!</h1>";}
+else{echo "Вам до дня рождения осталось, $br дней." ;}
 
 ?>
