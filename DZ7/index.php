@@ -1,9 +1,28 @@
 <?php
+
+function save_cookie ($value)
+{
+    $value = setcookie('',$value,time()+31536000);
+}
+
+function cokie_del($value)
+{
+    $value = setcookie('',$value,time()-3600);
+}
+
+function cookie_redireckt($neme='somname',$value='value',$time=3600,$path="/",$domain="",$secure="1",$http="0")
+{
+    $value=setcookie($neme,$value,$time,$path,$domain,$secure,$http);
+}
+
+
 $username = '';
 $phone = '';
 $berthday = '';
 $age = mt_rand(10, 70);
-if (!empty($_GET)) {
+
+if (!empty($_GET))
+{
     $username = empty($_GET['username']) ? '' : trim(strip_tags($_GET['username']));
     $phone = empty($_GET['phone']) ? '' : trim(strip_tags($_GET['phone']));
     $berthday = empty($_GET['berthday']) ? '' : trim(strip_tags($_GET['berthday']));
@@ -13,6 +32,7 @@ setcookie('username', $username, time() + 3600, "DZ7");
 setcookie('phone', $phone, time() + 3600, "DZ7");
 setcookie('age', $age, time() + 3600 * 3, "DZ7");
 setcookie('bertnday', $berthday, time() + 31536000.00042889, "DZ7");
+
 
 ?>
 <!DOCTYPE html>
@@ -46,7 +66,9 @@ setcookie('bertnday', $berthday, time() + 31536000.00042889, "DZ7");
 
 <?php
 
-if (empty($_COOKIE['berthday'])) {
+if (empty($_COOKIE['berthday']))
+
+{
     
     $berthday = strtotime($berthday);
     $difference = time() - $berthday;
