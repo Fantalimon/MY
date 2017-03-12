@@ -2,7 +2,7 @@
 $phone = '';
 $username = '';
 
-if (!empty($_COOKIE)) {
+if (isset($_COOKIE['phone']) || isset($_COOKIE['username']) ) {
     $phone = $_COOKIE['phone'];
     $username = $_COOKIE['username'];
 }
