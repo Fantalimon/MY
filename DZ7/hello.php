@@ -1,32 +1,34 @@
 <?php
-$username='';
-$phone='';
-if (empty($_COOKIE)) {
-    $username = $_COOKIE['username'];
+$phone = '';
+$username = '';
+
+if (!empty($_COOKIE)) {
     $phone = $_COOKIE['phone'];
+    $username = $_COOKIE['username'];
 }
+
 ?>
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>hello</title>
 </head>
 <body>
 <h3><a href="index.php">Переход на страничку inex</a></h3>
-<h4> Привет  <?php echo $username ?> </h4>
+<h4> Привет <?php echo $username ?> </h4>
 
-<form ​ action ​ = "hello.php" ​ method ​ =" ​ GET ​ ">
+<form ​ action ​="hello.php" ​ method ​=" ​ GET ​ ">
     <fieldset title="Ваши данные">
         <legend>Ваши контактные данные</legend>
         <br>
-        <input ​type="text" ​ name="<?php echo $username?>" placeholder="добавьте ваше  Ваше имя" value="<?php echo $username?>">
+        <input ​type="text" ​ name="username" placeholder="добавьте ваше  Ваше имя" value=" <?php echo $username ?> ">
         <br>
         <br>
-        <input ​type="text" ​ name="seurname" placeholder="добавьте вашу фамилию" >
+        <input ​type="text" ​ name="seurname" placeholder="добавьте вашу фамилию">
         <br>
         <br>
-        <input ​type="text" ​ name="<?php echo $phone?>" placeholder="введите номер телефона" value="<?php echo $phone?>">
+        <input ​type="text" ​ name="phone" placeholder="введите номер телефона" value=" <?php echo $phone ?> ">
         <br>
         <br>
         <br>

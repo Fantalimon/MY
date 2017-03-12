@@ -1,17 +1,17 @@
 <?php
-$username='';
-$phone='';
-$age=mt_rand(10,70);
-$berthday='';
+$username = '';
+$phone = '';
+$berthday = '';
+$age = mt_rand(10, 70);
 if (!empty($_GET)) {
     $username = empty($_GET['username']) ? '' : trim(strip_tags($_GET['username']));
     $phone = empty($_GET['phone']) ? '' : trim(strip_tags($_GET['phone']));
     $berthday = empty($_GET['berthday']) ? '' : trim(strip_tags($_GET['berthday']));
 }
-setcookie('username',$username,time()+3600,"DZ7");
-setcookie('phone',$phone,time()+3600,"DZ7");
-setcookie('age',$age,time()+3600*3,"DZ7");
-setcookie('bertnday',$berthday,time()+331536000,"DZ7");
+setcookie('username', $username, time() + 3600, "DZ7");
+setcookie('phone', $phone, time() + 3600, "DZ7");
+setcookie('age', $age, time() + 3600 * 3, "DZ7");
+setcookie('bertnday', $berthday, time() + 331536000, "DZ7");
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ setcookie('bertnday',$berthday,time()+331536000,"DZ7");
 <body>
 <h3><a href="hello.php">Переход на страничку hello</a></h3>
 
-<form ​ action ​ = "index.php" ​ method ​ =" ​ GET ​ ">
+<form ​ action ​="index.php" ​ method ​=" ​ GET ​ ">
     <fieldset title="Ваше имя">
         <legend>Введите имя</legend>
         <input ​type="text" ​ name="username" placeholder=" ваше имя">
@@ -44,13 +44,16 @@ setcookie('bertnday',$berthday,time()+331536000,"DZ7");
 </html>
 <?php
 
-$berthday=strtotime($berthday);
-$difference=time()-$berthday;
-$year=($difference%31536000.00042889);
-$rez=(31536000.00042889-$year);
-$rezult_day=floor($rez/86400);
+$berthday = strtotime($berthday);
+$difference = time() - $berthday;
+$year = ($difference % 31536000.00042889);
+$rez = (31536000.00042889 - $year);
+$rezult_day = floor($rez / 86400);
 
-if ($rezult_day == 364){echo "<h1 style='color:red'>Поздравляем У вас сегодня день варенья!</h1>";}
-else{echo "Вам до дня рождения осталось, $rezult_day дней." ;}
+if ($rezult_day == 364) {
+    echo "<h1 style='color:red'>Поздравляем У вас сегодня день варенья!</h1>";
+} else {
+    echo "Вам до дня рождения осталось, $rezult_day дней.";
+}
 
 ?>
