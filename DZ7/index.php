@@ -3,16 +3,25 @@
 function save_cookie ($value)
 {
     $value = setcookie('',$value,time()+31536000);
+    return $value;
 }
 
 function cokie_del($value)
 {
     $value = setcookie('',$value,time()-3600);
+    return $value;
 }
 
-function cookie_redireckt($neme='somname',$value='value',$time=3600,$path="/",$domain="",$secure="1",$http="0")
+function cookie_redireckt($name,$time=3600,$path="/",$domain=false,$secure=true,$http=false)
 {
-    $value=setcookie($neme,$value,$time,$path,$domain,$secure,$http);
+   if(isset($_COOKIE["$name"]))
+   {
+    $name=(string)$name;
+    $value="$".$name;
+    $time=(int)$time;
+    $newname=setcookie($name,$value,$time,$path,$domain,$secure,$http);
+   }
+    return $newname;
 }
 
 
