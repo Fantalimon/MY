@@ -108,9 +108,11 @@ echo "<br>";
 echo "<br>";
 /*12. Сделайте так, чтобы каждый раз при обновлении страницы на экран выводилась случайным образом одна из трех картинок.*/
 
-$one= fopen("http://perilman.com.ua/images/PHP7.jpg","r");
-$too=fopen("http://perilman.com.ua/images/css3.jpg","r");
-$tree=fopen("http://perilman.com.ua/images/html-5-wallpapers.jpg","r");
+$one= stream_get_contents(fopen("http://perilman.com.ua/images/PHP7.jpg","rb"));
+
+$too=stream_get_contents(fopen("http://perilman.com.ua/images/css3.jpg","rb"));
+
+$tree=stream_get_contents(fopen("http://perilman.com.ua/images/html-5-wallpapers.jpg","rb"));
 
 $arr=[1=>$one,2=>$too,3=>$tree];
 
