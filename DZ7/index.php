@@ -78,18 +78,19 @@ setcookie('age', $age, time() + 3600 * 3, "DZ7");
 
 $berthday = '';
 
-if(!empty($_GET['berthday']))
-{
+if(!empty($_GET['berthday'])) {
     $berthday = empty($_GET['berthday']) ? '' : trim(strip_tags($_GET['berthday']));
     setcookie('bertnday', $berthday, time() + 31536000.00042889, "DZ7");
+}
+if(isset($berthday)) {
     
-    $berthday = strtotime($berthday);
+$berthday = strtotime($berthday);
     $difference = time() - $berthday;
     $year = ($difference % 31536000.00042889);
     $rez = (31536000.00042889 - $year);
     $rezult_day = floor($rez / 86400);
     
-        if ($rezult_day == 364)
+        if ($rezult_day == 364 || $difference==false)
         {
             echo "<h1 style='color:red'>Поздравляем У вас сегодня день варенья!</h1>";
         }
