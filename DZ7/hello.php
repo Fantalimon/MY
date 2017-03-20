@@ -23,7 +23,6 @@ setcookie('seurname',$seurname,time()+3600);
 </head>
 <body>
 <h3><a href="index.php">Переход на страничку inex</a></h3>
-<h3><a href="hello.php">Переход на страничку hello</a></h3>
 <h3><a href="shell.php">Переход на страничку shell</a></h3>
 <h4> Привет <?php echo $username ?> </h4>
 

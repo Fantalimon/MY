@@ -37,7 +37,6 @@ $value='';
 <body>
 <h3><a href="index.php">Переход на страничку inex</a></h3>
 <h3><a href="hello.php">Переход на страничку hello</a></h3>
-<h3><a href="shell.php">Переход на страничку shell</a></h3>
 
 <h4> Привет я оболочка, я управляю куками. </h4>
 
