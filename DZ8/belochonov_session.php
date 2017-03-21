@@ -1,16 +1,17 @@
 <?php
-//header("Refresh: 1");
+header("Refresh: 1");
 /*1. Запишите в сессию время захода пользователя на сайт. При обновлении страницы
 выводите сколько секунд назад пользователь зашел на сайт.*/
 
 session_start();
 
-//$_SESSION['time']=time();
-//$s=date("s",$_SESSION['time']);
 
-//$time_ago=$s;
-
-
+$sec = 0;
+if (!isset($_SESSION['date'])) {
+    $_SESSION['date'] = date('Y-m-d H:i:s');
+} else {
+    $sec = time() - strtotime($_SESSION['date']);
+}
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +25,7 @@ session_start();
 <br>
 <br>
 <br>
-<h4>Your wisite in site, <?php //echo $time_ago; ?> seconds ago</h4>
+<h4>Your wisite in site, <?php echo $sec; ?> seconds ago</h4>
 
 <?php
 /*2. Спросите у пользователя email с помощью формы. Затем сделайте так, чтобы в
@@ -56,10 +57,9 @@ if ($_SESSION['ref'] > 0)
      {echo $_SESSION['ref'];}
      else {echo "Вы еще не обновляли страницу";}
 $_SESSION['ref']++
-         
-   
 
 ?>
+
 </body>
 </html>
 
