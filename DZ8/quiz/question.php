@@ -1,5 +1,5 @@
 <?php
-$question='';
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ $question='';
     <title>question</title>
 </head>
 <body>
-<form action="quiz_index.php" method="post">
+<form action="index.php" method="post">
   Question: <?php echo $question=[$question]['title'] ?>
     <br/>
     <br/>
