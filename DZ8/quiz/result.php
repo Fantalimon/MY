@@ -1,6 +1,8 @@
+
 <?php
 // подготавливаем переменную для результатов теста
 $result = 0;
+$rez_q=count($questions);
 // проверяем, есть ли ответы пользователя в сессии
 if (isset($_SESSION['answers'])) {
     // получаем список правильных ответов из файла
@@ -16,5 +18,7 @@ if (isset($_SESSION['answers'])) {
     session_destroy();
 }
 ?>
-<p>Your result is <?php echo  $result ?> from <?php echo count($questions) ?></p>
+
+
+<p>Your result is <?php echo  $result ?> from <?php echo $rez_q ?></p>
 <p><a href="index.php">Start the test again</a></p>
