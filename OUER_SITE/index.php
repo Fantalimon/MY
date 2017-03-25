@@ -89,6 +89,9 @@ $blocks = ['header', 'content', 'footer'];
                     case 'calc':
                         include 'calc.php';
                         break;
+                        case 'quiz':
+                        include "destroy.php";
+                        break;
                     default:
                         include 'defalt.php';
                         break;
