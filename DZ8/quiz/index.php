@@ -21,7 +21,7 @@ if (isset($_POST['question'])) {
 $questions = parse_ini_file('questions.ini', true);
 
 if (count($questions) == count($answers)) {
-    include 'destroy.php';
+    include 'result.php';
 } elseif ($question > 0) {
     include 'question.php';
 } else {

@@ -1,24 +1,26 @@
-
 <?php
-// подготавливаем переменную для результатов теста
+
 $result = 0;
-$rez_q=count($questions);
-// проверяем, есть ли ответы пользователя в сессии
-if (isset($_SESSION['answers'])) {
-    // получаем список правильных ответов из файла
-    $answers = parse_ini_file('answers.ini');
-    // итерируем список ответов пользователя и сравниваем со списком правильных ответов
-    foreach ($_SESSION['answers'] as $key => $value) {
-        // если ответ пользователя правильный, то увеличиваем счетчик
-        if ($value == $answers[$key]) {
-            $result ++;
+    
+    if (isset($_SESSION['answers'])) {
+        $answers = parse_ini_file('answers.ini');
+        foreach ($_SESSION['answers'] as $key => $value) {
+            if ($value == $answers[$key]) {
+                $result++;
+            }
         }
+        
+        setcookie("rezult",$result);
+        setcookie("question",count($questions));
+        session_destroy();
     }
-    // разрываем сессию
-    session_destroy();
-}
+
 ?>
 
-
-<p>Your result is <?php echo  $result ?> from <?php echo $rez_q ?></p>
-<p><a href="index.php">Start the test again</a></p>
+<div style="position: absolute; left: 43%; top:45%;">
+    <form action="destroy.php" method="post">
+        <input type="hidden" name="rezult" >
+        <input type="hidden" name="question" >
+        <input type="submit"   value="Завершить тест">
+    </form>
+</div>
