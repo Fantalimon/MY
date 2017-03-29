@@ -1,6 +1,9 @@
 <?php
+$result='';
+$question='';
 $result=$_COOKIE['rezult'];
 $question=$_COOKIE['question'];
+
 
 ?>
 
