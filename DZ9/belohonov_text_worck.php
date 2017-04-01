@@ -144,7 +144,7 @@ fclose($both);
 fclose($more_two);
 }
 
-separate_file_content($xxx, $yyy);
+//separate_file_content($xxx, $yyy);
 
 fclose($xxx);
 fclose($yyy);
@@ -290,26 +290,40 @@ function del_copy_email ()
             }
         }
     }
-    $arr3=[];
-    $arr3=$arr2;
-      $ctn2=count($arr3)-1;
+  
+      $ctn2=count($arr2)-1;
     $file=fopen($handle, $rewrite);
     for($z=0;$z<=$ctn2;$z++)
     {
-        fwrite($file, implode(':', $arr3[$z]).PHP_EOL);
+        fwrite($file, implode(':', $arr2[$z]).PHP_EOL);
     }
     fclose($file);
 }
 //del_copy_email();
 
-/*5. Написать функцию, которая будет показывать список всех файлов в данной папке в
-виде дерева, как показано на ниже (поиск файлов происходит и во всех вложенных
+/*
+5. Написать функцию, которая будет показывать список всех файлов в данной папке в
+виде дерева, как показано на рис. ниже (поиск файлов происходит во всех вложенных
 уровнях).
+
 root dir
 -- dir 1
 -- dir 2
 ---- dir 2.1
 ---- dir 2.2
 ------ dir 2.2.1
----- dir 2.3*/
+---- dir 2.3
 
+*/
+
+//$root_dir='root dir '.' [ '.getcwd().' ]';
+
+function catalog($catalog='/home/malinka/Стільниця/sit.my/MY_DZ/DZ9')
+{
+    $opn=opendir($catalog);
+    $get_opn=readdir($opn);
+        if(!is_file($get_opn)){echo catalog($get_opn)."<br>";}
+        else{echo catalog($opn)."<br>";}
+   
+}
+catalog();
