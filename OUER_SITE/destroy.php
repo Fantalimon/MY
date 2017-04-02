@@ -1,9 +1,14 @@
 <?php
-$result='';
-$question='';
-$result=$_COOKIE['rezult'];
-$question=$_COOKIE['question'];
 
+//$result=$_COOKIE['rezult'];
+//$question=$_COOKIE['question'];
+
+//$result='';
+//$question='';
+$result = (!empty($_COOKIE['rezult'])) ? $_COOKIE['rezult'] : '';
+$question = (!empty($_COOKIE['question'])) ? $_COOKIE['question'] : '';
+setcookie('rezult','');
+setcookie('question','');
 
 ?>
 
