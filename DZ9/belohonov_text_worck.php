@@ -318,12 +318,45 @@ root dir
 
 //$root_dir='root dir '.' [ '.getcwd().' ]';
 
-function catalog($catalog='/home/malinka/Стільниця/sit.my/MY_DZ/DZ9')
+$path = '/home/malinka/Стільниця/sit.my/MY_DZ/DZ9';
+
+
+function scd($path)
 {
-    $opn=opendir($catalog);
-    $get_opn=readdir($opn);
-        if(!is_file($get_opn)){echo catalog($get_opn)."<br>";}
-        else{echo catalog($opn)."<br>";}
-   
+    $queue = [];
+    if ($handle = opendir($path))
+    {
+        echo '<ol class="tree">';
+        
+        while (false !== ($file = readdir($handle)))
+        {
+            if (is_dir($path.'/'.$file) && $file != '.' && $file !='..')
+            {
+                echo '<li>' . $file;
+                scd($path.'/'.$file.'/');
+                echo '</li>';
+            }
+            else if ($file != '.' && $file !='..')
+            {
+                $queue[] = $file;
+            }
+        }
+        
+        foreach ($queue as $file) {
+            echo '<li>' . $file . '</li>';
+        }
+        
+        echo '</ol>';
+    }
 }
-catalog();
+
+//scd($path);
+
+
+
+
+
+
+
+
+
