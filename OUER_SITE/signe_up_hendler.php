@@ -1,4 +1,8 @@
 <?php
+
+include_once "config.php";
+
+
 function fileOpen()
 {
  $file='users.txt';
@@ -62,7 +66,7 @@ if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['email']) && !e
 $users = getUsers();
 if (empty(getUser($email, $users))==false)
 {
-    header('http://127.0.0.1/sit.my/MY_DZ/OUER_SITE/index.php');
+    header(LOCATION);
 }
 else{
     $userdata =
@@ -76,9 +80,9 @@ else{
     session_start();
     $_SESSION['username']=$username;
     $_SESSION['mail']=$email;
-    header('http://127.0.0.1/sit.my/MY_DZ/OUER_SITE/index.php');
+   header(LOCATION);
 }
-    header('http://127.0.0.1/sit.my/MY_DZ/OUER_SITE/index.php');
+    header(LOCATION);
 }
 
 ?>
