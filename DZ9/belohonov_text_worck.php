@@ -318,7 +318,7 @@ root dir
 
 //$root_dir='root dir '.' [ '.getcwd().' ]';
 
-$path = '/home/malinka/Стільниця/sit.my/MY_DZ/DZ9';
+$path = '/';
 
 
 function scd($path)
@@ -351,6 +351,8 @@ function scd($path)
 }
 
 //scd($path);
+
+
 
 
 
