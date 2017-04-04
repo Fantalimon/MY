@@ -57,7 +57,7 @@ function addUsers ($userdata)
 }
 
 
-if(!empty($_POST) && !empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password'])){
+if(!empty($_POST) && ($_POST['username']!='') && ($_POST['email']!='') && ($_POST['password'])!=''){
    
     $username= strip_tags(trim(($_POST['username'])));
     $email= strip_tags(trim($_POST['email']));
@@ -68,21 +68,20 @@ if (empty(getUser($email, $users))==false)
 {
     header(LOCATION);
 }
-else{
+else {
     $userdata =
-    [
-        'username'=>$username,
-        'email'=>$email,
-        'password'=>$password
-    ];
+        [
+            'username' => $username,
+            'email' => $email,
+            'password' => $password,
+        ];
     addUsers($userdata);
     
     session_start();
-    $_SESSION['username']=$username;
-    $_SESSION['mail']=$email;
-   header(LOCATION);
-}
+    $_SESSION['username'] = $username;
+    $_SESSION['mail'] = $email;
     header(LOCATION);
 }
-
+}
+else{header(LOCATION);}
 ?>

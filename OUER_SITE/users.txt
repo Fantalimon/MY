@@ -8,3 +8,4 @@ den:couch@php.com:1234321
 jon:mk@kain.com:123
 go:on@mail.ru:123
 my:frend@mail.com.ua:123
+my:site@site.my:123
