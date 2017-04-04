@@ -3,6 +3,7 @@ $config=parse_ini_file('config.ini',true);
 
 define('SITE',$config['domain']);
 define('LOCATION', $config['location']);
+define('REGISTRATION', $config['registration']);
 
 $configDb=$config['db'];
 define('DB_HOST', $configDb['host']);

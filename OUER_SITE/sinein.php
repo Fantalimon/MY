@@ -11,13 +11,13 @@
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
         <br>
-        <input type="text" title="имя" name="username" placeholder="имя" />
+        <input type="text" title="имя" name="username_in" placeholder="имя" />
         <br>
         <br>
-        <input type="text" title="почта" name="email" placeholder="ваша почта" />
+        <input type="text" title="почта" name="email_in" placeholder="ваша почта" />
         <br>
         <br>
-        <input type="password" title="пароль" name="password" placeholder="пароль" />
+        <input type="password" title="пароль" name="password_in" placeholder="пароль" />
         <br>
         <br>
         <input type="submit" value="Войти"/>
