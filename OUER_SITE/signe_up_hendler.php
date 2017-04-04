@@ -20,7 +20,7 @@ function getUsers()
     {
         $user = fgets($resourse);
         $user =explode(":", $user);
- $users[]=['username'=>$user, 'Email'=>$user, 'password'=>$user];
+ $users[]=['username'=>$user, 'email'=>$user, 'password'=>$user];
     }
     fileClose($resourse);
 return $users;
@@ -32,7 +32,7 @@ function getUser($email,$users)
     if(empty($users)){return $isFound;}
     
         foreach($users as $user){
-        if ($user['Email']==$email){
+        if ($user['email']==$email){
             return $user;
         };}
     return $isFound;
@@ -40,7 +40,7 @@ function getUser($email,$users)
 
 function addUsers ($userdata)
 {
-  $user =    $userdata['username'].':'.$userdata['Email'].':'.$userdata['password'].PHP_EOL;
+  $user =    $userdata['username'].':'.$userdata['email'].':'.$userdata['password'].PHP_EOL;
     $resource=fileOpen();
     fwrite($resource, $user);
 }
@@ -49,7 +49,7 @@ function addUsers ($userdata)
 
 if(!empty($_POST)){
     $username=$_POST['username'];
-    $email=$_POST['Email'];
+    $email=$_POST['email'];
     $password=$_POST['password'];
 
 $users = getUsers();
@@ -57,13 +57,13 @@ if (empty(getUser($email, $users)))
 {
     $userdata =[
         'username'=>$username,
-        'Email'=>$email,
+        'email'=>$email,
         'password'=>$password
     ];
 }
 addUsers($userdata);
 // todo: add user to session
-    header('location:http://127.0.0.1/sit.my/index_new_new.php');
+    header('http://127.0.0.1/sit.my/MY_DZ/OUER_SITE/index.php');
 
 }
 ?>

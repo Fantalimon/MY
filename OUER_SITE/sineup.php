@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Регистрация</title>
 </head>
 <body>
 
-<form action="signe_up_hendler_mysql.php" method="post">
+<form action="signe_up_hendler.php" method="post">
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
         <br>
