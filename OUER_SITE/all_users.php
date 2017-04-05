@@ -1,4 +1,5 @@
 <?php
+$_SESSION['username'];
 $handle=fopen('users.txt','r');
 $user_op='';
 $users_arr=[];

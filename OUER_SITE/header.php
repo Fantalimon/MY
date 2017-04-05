@@ -16,7 +16,7 @@ session_start();
         <input type="submit"  value="Sign OUT" />
    
         <?php
-        if(empty($_POST['destr'])){$_SESSION=array();}
+        if(($_POST['destr'])){$_SESSION=array();}
     }
     else{
     ?>
