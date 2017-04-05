@@ -2,7 +2,8 @@
 $menus = [
     'multi' => 'Таблица умножния',
     'calc' => 'Калькулятор',
-    'quiz' => 'Тест'
+    'quiz' => 'Тест',
+    'Users'=>'All Users'
 //    'menu3' => 'Menu 3',
 //    'menu4' => 'Menu 4'
 ];
