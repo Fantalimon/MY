@@ -5,7 +5,7 @@ session_start();
 <header>
 <a href="index.php"><h1>My Site</h1></a>
 <div style="text-align: right">
-    <form action="header.php" method="post">
+    <form action="index.php" method="post">
     <?php
     if (!empty($_SESSION))
     {
@@ -16,7 +16,7 @@ session_start();
         <input type="submit"  value="Sign OUT" />
    
         <?php
-        if(($_POST['destr'])){$_SESSION=array();}
+           
     }
     else{
     ?>
