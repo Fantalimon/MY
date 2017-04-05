@@ -160,7 +160,7 @@ echo "</pre>";
 Подробнее почитать о функции gettype() можно здесь http://www.softtime.ru/bookphp/gl1_5.php.*/
 echo '<p style="font-size:18px;color:blue;">' . "Определение типа переменой через масив" . "</p>" . "<br>";
 $var = [];
-$var[] = array('joomla', 'wordpress', 'drupal');
+$var[] = ['joomla', 'wordpress', 'drupal'];
 $var[] = 'привет!';
 $var[] = 23;
 $var[] = '23';
@@ -168,8 +168,9 @@ $var[] = true;
 $var[] = 'true';
 $var[] = 2.5;
 $var[] = null;
+
 foreach ($var as $key => $type) {
-    echo "[$key]" . "{$type}" . "~~~~~~~" . gettype($type) . "<br>";
+    echo "[$key]" . "\"$type\"". "~~~~~~~" . gettype($type) . "<br>";
 };
 
 
