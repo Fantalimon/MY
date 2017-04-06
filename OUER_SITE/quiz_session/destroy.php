@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<div style="position: absolute; left: 43%; top:45%;">
+<div style="position: absolute; left: 43%; top:45%; text-align: center;">
 <form action="index_quiz.php" method="get">
     <input type="submit" value="Начать тест заново">
 </form>
