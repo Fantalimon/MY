@@ -1,4 +1,4 @@
-<form action="index.php" method="post">
+<form action="index_quiz.php" method="post">
     Question: <?php echo $questions[$question]['title'] ?><br /><br />
     Answers:<br />
     <?php $answers = $questions[$question]['answers']; ?>

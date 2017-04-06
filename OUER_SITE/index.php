@@ -90,7 +90,7 @@ $blocks = ['header', 'content', 'footer'];
                         include 'calc.php';
                         break;
                         case 'quiz':
-                        include "destroy.php";
+                        include "quiz/index_quiz.php";
                         break;
                     default:
                         include 'defalt.php';
