@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 $question = $answers = 0;
 
 if (isset($_POST['question'])) {
