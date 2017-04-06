@@ -93,10 +93,12 @@ $blocks = ['header', 'content', 'footer'];
                     case 'calc':
                         include 'calc.php';
                         break;
-//                        case 'quiz':
+                        
+                        case 'quiz':
 //                        include "quiz_cookies/index_quiz.php";
-//                        include "quiz_session/index_quiz.php";
-//                        break;
+                        include "quiz_session/index_quiz.php";
+                        break;
+                        
                         case 'Users':
                         include "all_users.php";
                         break;
