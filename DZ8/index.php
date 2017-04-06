@@ -9,6 +9,9 @@ session_start();
     <title>form</title>
 </head>
 <body>
+<a href="belochonov_session.php">На первые 3 задания</a>
+<a href="next_file.php">Запрос мыла</a>
+<a href="form.php">На файл формы</a>
 <form action="form.php" method="post">
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>

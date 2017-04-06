@@ -34,6 +34,10 @@ $_SESSION['ref']++
     <title>session</title>
 </head>
 <body>
+<a href="index.php">На главную</a>
+<a href="next_file.php">Запрос мыла</a>
+<a href="form.php">На файл формы</a>
+
 <h2>Hello youre enter in my site.</h2>
 <br>
 <br>

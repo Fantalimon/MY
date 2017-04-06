@@ -19,6 +19,9 @@ if(!empty($_POST)) {
     <title>form</title>
 </head>
 <body>
+<a href="index.php">На главную</a>
+<a href="belochonov_session.php">На первые 3 задания</a>
+<a href="form.php">На файл формы</a>
 <form>
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
