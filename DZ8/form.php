@@ -23,10 +23,13 @@ if(!empty($_POST)){
     <title>form</title>
 </head>
 <body>
-<a href="index.php">На главную</a>
-<a href="belochonov_session.php">На первые 3 задания</a>
-<a href="next_file.php">Запрос мыла</a>
-
+<ul>
+    <li><a href="index.php">На главную</a></li>
+    <li><a href="next_file.php">Запрос мыла</a></li>
+    <li><a href="form.php">На файл формы</a></li>
+    <li><a href="quiz/index.php">quiz</a></li>
+    <li><a href="belochonov_session.php">Первые 3 задания</a></li>
+</ul>
 <form>
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
