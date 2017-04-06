@@ -90,7 +90,8 @@ $blocks = ['header', 'content', 'footer'];
                         include 'calc.php';
                         break;
                         case 'quiz':
-                        include "quiz/index_quiz.php";
+//                        include "quiz_cookies/index_quiz.php";
+                        include "quiz_session/index_quiz.php";
                         break;
                     default:
                         include 'defalt.php';
