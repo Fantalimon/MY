@@ -1,3 +1,8 @@
 <?php
 include "config.php";
-if(($_POST['destr'])){session_destroy();header(LOCATION);}
+session_start();
+if(isset($_POST['destr'])){
+    session_destroy();
+    header(LOCATION);
+}
+else{header(LOCATION);}

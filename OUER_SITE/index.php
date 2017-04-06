@@ -5,6 +5,8 @@ session_start();
 $visitor_count=0;
 $last_visit=date('d.m.Y H:i:s',time());
 
+
+
 if( isset($_COOKIE['visitor_count'])){$visitor_count = $_COOKIE['visitor_count'];}
 if( isset($_COOKIE['last_visit'])){$last_visit = $_COOKIE['last_visit'];}
 
@@ -91,10 +93,10 @@ $blocks = ['header', 'content', 'footer'];
                     case 'calc':
                         include 'calc.php';
                         break;
-                        case 'quiz':
+//                        case 'quiz':
 //                        include "quiz_cookies/index_quiz.php";
-                        include "quiz_session/index_quiz.php";
-                        break;
+//                        include "quiz_session/index_quiz.php";
+//                        break;
                         case 'Users':
                         include "all_users.php";
                         break;
