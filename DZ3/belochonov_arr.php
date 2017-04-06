@@ -159,19 +159,28 @@ echo "</pre>";
 Например:echo gettype($var)
 Подробнее почитать о функции gettype() можно здесь http://www.softtime.ru/bookphp/gl1_5.php.*/
 echo '<p style="font-size:18px;color:blue;">' . "Определение типа переменой через масив" . "</p>" . "<br>";
-$var = [];
-$var[] = ['joomla', 'wordpress', 'drupal'];
-$var[] = 'привет!';
-$var[] = 23;
-$var[] = '23';
-$var[] = true;
-$var[] = 'true';
-$var[] = 2.5;
-$var[] = null;
 
-foreach ($var as $key => $type) {
-    echo "[$key]" . "\"$type\"". "~~~~~~~" . gettype($type) . "<br>";
-};
+$var1=['joomla', 'wordpress', 'drupal'];
+$var2='привет!';
+$var3= 23;
+$var4 = '23';
+$var5 = true;
+$var6 = 'true';
+$var7 = 2.5;
+$var8 = null;
+
+
+    
+    echo gettype($var1) . "<br>";
+    echo gettype($var2) . "<br>";
+    echo gettype($var3) . "<br>";
+    echo gettype($var4) . "<br>";
+    echo gettype($var5) . "<br>";
+    echo gettype($var6) . "<br>";
+    echo gettype($var7) . "<br>";
+    echo gettype($var8) . "<br>";
+
+
 
 
 ?>
