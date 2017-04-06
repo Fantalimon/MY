@@ -181,6 +181,4 @@ $var8 = null;
     echo gettype($var8) . "<br>";
 
 
-
-
 ?>
