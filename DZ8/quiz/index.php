@@ -14,7 +14,7 @@ if (isset($_POST['question'])) {
         
         $answers = $_SESSION['answers'];
         
-        $question++;
+        $_SESSION['question']=$question++;
     }
 }
 
