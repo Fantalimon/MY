@@ -1,0 +1,9 @@
+INSERT INTO personal.workers (name, age, salary) VALUES ('Дима', 20, 1000);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Петя', 25, 500);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Вася', 23, 500);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Коля', 30, 1000);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Иван', 27, 500);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Кирилл', 28, 1000);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Катя', 20, 500);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Юля', 25, 600);
+INSERT INTO personal.workers (name, age, salary) VALUES ('Женя', 30, 900);
