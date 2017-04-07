@@ -22,12 +22,32 @@ $link=getConnection();
 $query='SELECT * FROM users';
 
 $result=mysqli_query($link,$query);
+echo "<div style='position: relative;left: 25%; ;text-align: center;'>";
+echo "<table border='1'>";
 
-$row=mysqli_fetch_assoc($result);
-
-foreach ($row as $key=>$value)
+echo "<thead>";
+echo "<tr>";
+echo "<th>".'id'."</th>";
+echo "<th>".'username'."</th>";
+echo "<th>".'email'."</th>";
+echo "</tr>";
+echo "</thead>";
+while($row=mysqli_fetch_array($result))
 {
-    echo $key.' '.$value."<br>";
+    $id=$row['user_id'];
+    $name=$row['username'];
+    $email=$row['email'];
+echo "<tbody>";
+  echo "<tr>";
+    echo "<td>".$id."</td>";
+   
+    echo "<td>".$name."</td>";
+  
+    echo "<td>".$email."</td>";
+  echo "</tr>";
+echo "</tbody>";
 }
 
+echo "</table>";
+echo "</div>";
 closeConnection($link);
