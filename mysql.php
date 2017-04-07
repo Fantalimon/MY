@@ -6,7 +6,8 @@ $pass='stress';
 $dbname='personal';
 
 $row='';
-
+$key='';
+$item='';
 
 if(!empty($_GET)){
     $id=empty($_GET['id'])?'':trim(strip_tags($_GET['id']));
@@ -21,8 +22,12 @@ if(!empty($_GET)){
     $rezult = mysqli_query($link,$query);
     
     $row=mysqli_fetch_assoc($rezult);
-    
+    foreach ($row as $key=>$item)
+    {
+        echo $key." ".$item." ";
+    }
     mysqli_close($link);
+    
 }
 else{$message ='Введите значение';}
 
@@ -41,22 +46,14 @@ else{$message ='Введите значение';}
     <fieldset title="персональные данные">
         <legend>Данные по Id</legend>
         <br>
-        <input type="text" title="ID" name="id"   placeholder="введите число" />
+        <input type="text" title="ID" name="id"   placeholder="<?php if(isset($id)){echo $id;}else{echo 'введите число';} ?>" />
         <br>
         <br>
       <input type="submit" value="Получить данные">
     </fieldset>
 </form>
 <h2><?php if(!isset($id)){ echo $message;} ?></h2>
-<table>
-    
-    <?php foreach ($row as $key=>$item) { ?>
-    
-        <tr><?php echo $key.' '.$item.' ';  ?></tr>
-        
-    <?php } echo "<br>";?>
-    
-</table>
+
 </body>
 </html>
 
