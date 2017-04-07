@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 include_once "config.php";
 
 
@@ -84,4 +84,7 @@ else {
 }
 }
 else{header(LOCATION);}
+*/
+
+
 ?>
