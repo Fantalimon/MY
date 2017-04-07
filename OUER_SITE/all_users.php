@@ -15,4 +15,19 @@ function getConnection($host=DB_HOST,$username=DB_USER,$password=DB_PASSWORD,$db
 
 function closeConnection(mysqli $link){mysqli_close($link);}
 
+$row=[];
 
+$link=getConnection();
+
+$query='SELECT * FROM users';
+
+$result=mysqli_query($link,$query);
+
+$row=mysqli_fetch_assoc($result);
+
+foreach ($row as $key=>$value)
+{
+    echo $key.' '.$value."<br>";
+}
+
+closeConnection($link);
