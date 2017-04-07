@@ -5,7 +5,7 @@ $username='root';
 $pass='stress';
 $dbname='personal';
 
-$row='';
+$row=[];
 $key='';
 $item='';
 
@@ -22,10 +22,7 @@ if(!empty($_GET)){
     $rezult = mysqli_query($link,$query);
     
     $row=mysqli_fetch_assoc($rezult);
-    foreach ($row as $key=>$item)
-    {
-        echo $key." ".$item." ";
-    }
+    
     mysqli_close($link);
     
 }
@@ -53,6 +50,11 @@ else{$message ='Введите значение';}
     </fieldset>
 </form>
 <h2><?php if(!isset($id)){ echo $message;} ?></h2>
+
+<?php foreach ($row as $key=>$item)
+{
+    echo $key." ".$item." ";
+};  ?>
 
 </body>
 </html>
