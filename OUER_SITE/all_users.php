@@ -23,7 +23,7 @@ $query='SELECT * FROM users';
 
 $result=mysqli_query($link,$query);
 echo "<div style='position: relative;left: 25%; ;text-align: center;'>";
-echo "<table border='1'>";
+echo "<table border='1'; style='border: solid; width: 50%'>";
 
 echo "<thead>";
 echo "<tr>";
@@ -37,7 +37,7 @@ while($row=mysqli_fetch_array($result))
     $id=$row['user_id'];
     $name=$row['username'];
     $email=$row['email'];
-echo "<tbody>";
+echo "<tbody >";
   echo "<tr>";
     echo "<td>".$id."</td>";
    
