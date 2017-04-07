@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="signe_up_hendler.php" method="post">
+<form action="signe_up_hendler_mysql.php" method="post">
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
         <br>
