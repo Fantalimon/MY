@@ -6,9 +6,10 @@ $row=[];
 
 $link=getConnection();
 
-$query='SELECT * FROM users';
+$query="SELECT * FROM users";
 
 $result=mysqli_query($link,$query);
+
 
 echo "<div style='position: relative;left: 10%; ;text-align: center;'>";
 echo "<table border='1' style='border: solid; width: 75%'>";
@@ -22,7 +23,7 @@ echo "<tr>";
 echo "</tr>";
 echo "</thead>";
 
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
 {
 
     $id= $row['user_id'];

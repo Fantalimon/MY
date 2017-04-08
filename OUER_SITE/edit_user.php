@@ -1,5 +1,5 @@
 <?php
-
+$id=$_GET['id'];
 $username=$_GET['username'];
 $email=$_GET['email'];
 $password=$_GET['password'];
@@ -21,6 +21,7 @@ $password=$_GET['password'];
         <br>
         <br>
         <input type="text" title="почта" name="email" placeholder="ваша почта" value="<?php echo $email ?>" />
+        <input type="hidden"  name="id"  value="<?php $id ?>" />
         <br>
         <br>
         <input type="text" title="пароль" name="password" placeholder="пароль" value="<?php echo  $password ?>" />
