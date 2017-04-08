@@ -108,13 +108,12 @@ if (!empty($_POST)) {
             'created_at'=> $created_at,
             'user_id' => $userId
         ];
-        
-        
-        
-    }
+}
     
     $_SESSION['userdata'] = serialize($user);
-    header('location: '.SITE);
     
+    
+    
+    header('location: '.SITE);
 }
 ?>

@@ -5,8 +5,6 @@ session_start();
 $visitor_count=0;
 $last_visit=date('d.m.Y H:i:s',time());
 
-
-
 if( isset($_COOKIE['visitor_count'])){$visitor_count = $_COOKIE['visitor_count'];}
 if( isset($_COOKIE['last_visit'])){$last_visit = $_COOKIE['last_visit'];}
 

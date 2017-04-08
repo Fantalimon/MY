@@ -41,6 +41,14 @@ function addUser($username,$email,$password,$created_at)
     return $userId;
 }
 
+function readdUser($username,$email,$password,$created_at)
+{
+    $link=getConnection();
+    $query='update users set username= $username,email=$email,password=$password,created_at=$created_at where id = ' ;
+    //TODO Нужно добавить АДИ выбранного польхователяБ передав его из формы.
+    return $userId;
+}
+
 
 function getUsersByEmail($email)
 {
@@ -52,3 +60,4 @@ function getUsersByEmail($email)
     
     return mysqli_fetch_assoc($rezult);
 }
+
