@@ -1,9 +1,8 @@
 <?php
-session_start();
-$ID=$_SESSION['ses_id'];
 
-
-//TODO нунжнопринять АЙДИ по ссылке
+$username='dima';
+$email;
+$password;
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@ $ID=$_SESSION['ses_id'];
 
 <form action="edit.php" method="post">
     <fieldset title="персональные данные">
-        <legend>Ваши данные <?php echo "ID ".$ID ?></legend>
+        <legend>Ваши данные <?php ?></legend>
         <br>
         <input type="text" title="имя" name="username" placeholder="имя" value="<?php $username ?>" />
         <br>

@@ -22,38 +22,36 @@ echo "<tr>";
 echo "</tr>";
 echo "</thead>";
 
-$row=mysqli_fetch_array($result);
-foreach($row as $item)
+while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 {
-     
-     $id=$item['user_id'];
-     $name=$item['username'];
-     $email=$item['email'];
-    
-    $_SESSION['ses_id']=$id;
-    
-    //TODO нужно отправить както АДИ по ссылке.
-    
-    $_SESSION['ses_id'].$edit="<a href='edit_user.php'>edit</a> ";
-         $_SESSION['ses_id'].$delete="<a href='delete_user.php'>delete</a>";
 
-echo "<tbody >";
-  echo "<tr>";
-  
-    echo "<td>".$id."</td>";
-   
-    echo "<td>".$name."</td>";
-  
-    echo "<td>".$email."</td>";
-    
-    echo "<td>"."$edit "." $delete"."</td>";
-    
-  echo "</tr>";
-echo "</tbody>";
+    $id= $row['user_id'];
+   $username = $row['username'];
+   $email = $row['email'];
+    $password=$row['password'];
 
+   $edit = "<a href='edit_user.php?id=$id&username=$username&email=$email&password=$password'>"."edit"."</a> ";
+   $delete = "<a href='delete_user.php?id=?$id'>"."delete"."</a> ";
+    
+    echo "<tbody >";
+    echo "<tr>";
+    
+    echo "<td>" . $id. "</td>";
+    
+    echo "<td>" . $username . "</td>";
+    
+    echo "<td>" .  $email . "</td>";
+    
+    echo "<td>" . "$edit " . " $delete" . "</td>";
+    
+    echo "</tr>";
+    echo "</tbody>";
+    
 }
-
 echo "</table>";
 echo "</div>";
 
 closeConnection($link);
+
+
+
