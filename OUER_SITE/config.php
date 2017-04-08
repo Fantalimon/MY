@@ -4,6 +4,7 @@ $config=parse_ini_file('config.ini',true);
 define('SITE',$config['domain']);
 define('LOCATION', $config['location']);
 define('REGISTRATION', $config['registration']);
+define('allUsers', $config['allUsers']);
 
 $configDb=$config['db'];
 define('DB_HOST', $configDb['host']);
@@ -41,14 +42,15 @@ function addUser($username,$email,$password,$created_at)
     return $userId;
 }
 
-function readdUser($username,$email,$password,$created_at,$id)
+function readdUser($username,$email,$password,$created_at,$user_id)
 {
+   
     $link=getConnection();
-    $query="update users set username= $username,email=$email,password=$password,created_at=$created_at where id =$id " ;
-    
-    $re_user=mysqli_query($link, $query) ;
-    
-        return $re_user;
+    $query="update users set username= '$username', email='$email', password='$password', created_at='$created_at' WHERE user_id='$user_id'";
+      $rezult = mysqli_query($link, $query);
+      if(!$rezult){die('error : '.mysqli_error($link));}
+    closeConnection($link);
+      return $rezult;
 }
 
 
