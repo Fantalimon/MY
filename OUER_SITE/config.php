@@ -55,6 +55,7 @@ function readdUser($username,$email,$password,$created_at,$user_id)
 
 function delUser($user_id)
 {
+ 
     $link=getConnection();
     $query="delete from users WHERE user_id='$user_id'";
       $rezult = mysqli_query($link, $query);

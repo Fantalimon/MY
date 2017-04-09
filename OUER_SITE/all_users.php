@@ -24,8 +24,8 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     $email = $row['email'];
     $password=$row['password'];
     $edit = "<a 
-href='edit_user.php?usr_eid=$user_id&username=$username&email=$email&password=$password'>"."edit"."</a> ";
-    $delete = "<a href='delete_user.php?user_id=?$user_id'>"."delete"."</a> ";
+href='edit_user.php?user_id=$user_id&username=$username&email=$email&password=$password'>"."edit"."</a> ";
+    $delete = "<a href='delete_user.php?user_id=$user_id'>"."delete"."</a> ";
     
     echo "<tbody >";
     echo "<tr>";

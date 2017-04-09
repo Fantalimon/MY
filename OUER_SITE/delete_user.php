@@ -8,6 +8,7 @@ $user_id=(int)$user_id;
 delUser($user_id);
 
 header(allUsers);
+
 ?>
 
 <!--    <script> confirm ('Действительно удалить?')</script>-->
