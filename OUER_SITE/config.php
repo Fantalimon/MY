@@ -44,7 +44,6 @@ function addUser($username,$email,$password,$created_at)
 
 function readdUser($username,$email,$password,$created_at,$user_id)
 {
-   
     $link=getConnection();
     $query="update users set username= '$username', email='$email', password='$password', created_at='$created_at' WHERE user_id='$user_id'";
       $rezult = mysqli_query($link, $query);
@@ -52,6 +51,20 @@ function readdUser($username,$email,$password,$created_at,$user_id)
     closeConnection($link);
       return $rezult;
 }
+
+
+function delUser($user_id)
+{
+    $link=getConnection();
+    $query="delete from users WHERE user_id='$user_id'";
+      $rezult = mysqli_query($link, $query);
+      if(!$rezult){die('error : '.mysqli_error($link));}
+    closeConnection($link);
+      return $rezult;
+}
+
+
+
 
 
 function getUsersByEmail($email)

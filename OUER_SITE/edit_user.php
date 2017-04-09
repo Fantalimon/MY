@@ -4,6 +4,11 @@ $username=trim(strip_tags( $_GET['username']));
 $email=trim(strip_tags( $_GET['email']));
 $password=trim(strip_tags( $_GET['password']));
 
+$password=(string)$password;
+$email=(string)$email;
+$username=(string)$username;
+$user_id=(int)$user_id;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
