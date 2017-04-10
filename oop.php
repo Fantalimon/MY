@@ -13,23 +13,31 @@ class User
         $this->setEmail($email);
         $this->setPhone($phone);
         
-        $this->getFirstname();
-        $this->getLastname();
-        $this->getEmail();
-        $this->getPhone();
     }
     
     public function setFirstname($firstname){$this->firstname=$firstname;}
-    public function getFirstname(){echo $this->firstname;}
+    public function getFirstname(){return $this->firstname;}
    
     public function setLastname($lastname){$this->lastname=$lastname;}
-    public function getLastname(){echo $this->lastname;}
+    public function getLastname(){return $this->lastname;}
     
     public function setEmail($email){$this->email=$email;}
-    public function getEmail(){echo $this->email;}
+    public function getEmail(){return $this->email;}
     
     public function setPhone($phone){$this->phone=$phone;}
-    public function getPhone(){$this->phone;}
+    public function getPhone(){return $this->phone;}
+    
+    public function getUserInfo(){
+
+        $arr=[
+            'ferstname'=>$this->getFirstname(),
+             'lastname'=>$this->getLastname(),
+               'email'=>$this->getEmail(),
+                 'phone'=>$this->getPhone()
+             ];
+        print_r($arr);
+    }
+    
 }
 
 //$newUser=new User();
@@ -37,6 +45,6 @@ class User
 //$newUser->getFirstname();
 
 
-$userTwo= new User($firstname="Денис", $lastname="Попов", $email="mail@mail.com", $phone="123432145");
-
-
+$userTwo= new User("Денис ", " Попов ", " mail@mail.com ", " 123432145");
+echo "<br>";
+$userTwo->getUserInfo();
