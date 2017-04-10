@@ -9,7 +9,6 @@ $email=(string)$email;
 $username=(string)$username;
 $user_id=(int)$user_id;
 
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -25,7 +25,8 @@ if (!empty($_POST)) {
         ];
 }
     
-    $_SESSION['userdata'] = serialize($user);
+//    $_SESSION['userdata'] = serialize($user);
+    $_SESSION['username'] = $user["username"];
     
     
     

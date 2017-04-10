@@ -1,6 +1,8 @@
 <?php
 include_once "config.php";
 //session_start();
+
+
 $row=[];
 $link=getConnection();
 $query='SELECT * FROM users';
@@ -24,7 +26,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     $username = $row['username'];
     $email = $row['email'];
     $password=$row['password'];
-
+    
     $edit = "<a href='edit_user.php?user_id=$user_id&username=$username&email=$email&password=$password'>"."edit"."</a> ";
     $delete = "<a href='delete_user.php?user_id=$user_id'>"."delete"."</a> ";
     
@@ -37,7 +39,13 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     
     echo "<td>" .  $email . "</td>";
     
-    echo "<td>" . "$edit " . " $delete" . "</td>";
+    echo "<td>" . "$edit ";
+    
+ if (isset($_SESSION['username'])) {
+     if ($_SESSION['username'] !== $row['username']) {echo " $delete";}
+ }else{echo " $delete"; }
+
+echo "</td>";
     
     echo "</tr>";
     echo "</tbody>";
