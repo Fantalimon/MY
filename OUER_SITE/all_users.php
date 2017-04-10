@@ -28,7 +28,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
     $password=$row['password'];
     
     $edit = "<a href='edit_user.php?user_id=$user_id&username=$username&email=$email&password=$password'>"."edit"."</a> ";
-    $delete = "<a href='delete_user.php?user_id=$user_id'>"."delete"."</a> ";
+    $delete = "<a href='delete_user.php?user_id=$user_id ' onclick='confirm(Действительно удалить?)'>"."delete"."</a> ";
     
     echo "<tbody >";
     echo "<tr>";
