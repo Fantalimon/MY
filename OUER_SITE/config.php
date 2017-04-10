@@ -79,3 +79,14 @@ function getUsersByEmail($email)
     return mysqli_fetch_assoc($rezult);
 }
 
+
+
+function signeInUser ($username_in,$email_in,$password_in)
+{
+    $link = getConnection();
+    $query="SELECT * FROM users where user_id and username like '$username_in' and email LIKE  '$email_in' AND password like '$password_in'";
+    $rezult = mysqli_query($link, $query);
+    if(!$rezult){die('error : '.mysqli_error($link));}
+    return mysqli_fetch_assoc($rezult);
+    closeConnection($link);
+}

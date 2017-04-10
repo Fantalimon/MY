@@ -11,7 +11,8 @@ $result = 0;
         $_SESSION['rezult']=$result++;
         $result=$_SESSION['rezult'];
         $questions=$_SESSION['question'];
-        session_destroy();
+        unset($_SESSION['rezult']);
+        unset($_SESSION['question']);
     }
 
 ?>

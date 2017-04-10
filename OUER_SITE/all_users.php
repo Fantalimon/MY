@@ -18,13 +18,14 @@ echo "</tr>";
 echo "</thead>";
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
+
 {
     $user_id= $row['user_id'];
     $username = $row['username'];
     $email = $row['email'];
     $password=$row['password'];
-    $edit = "<a 
-href='edit_user.php?user_id=$user_id&username=$username&email=$email&password=$password'>"."edit"."</a> ";
+
+    $edit = "<a href='edit_user.php?user_id=$user_id&username=$username&email=$email&password=$password'>"."edit"."</a> ";
     $delete = "<a href='delete_user.php?user_id=$user_id'>"."delete"."</a> ";
     
     echo "<tbody >";
@@ -42,8 +43,10 @@ href='edit_user.php?user_id=$user_id&username=$username&email=$email&password=$p
     echo "</tbody>";
     
 }
+
 echo "</table>";
 echo "</div>";
+
 closeConnection($link);
 
 

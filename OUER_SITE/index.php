@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 $visitor_count=0;
 $last_visit=date('d.m.Y H:i:s',time());
@@ -100,6 +100,7 @@ $blocks = ['header', 'content', 'footer'];
                         case 'Users':
                         include "all_users.php";
                         break;
+                        
                     default:
                         include 'defalt.php';
                         break;

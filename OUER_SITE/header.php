@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 ?>
 
 <header>
@@ -9,6 +9,7 @@
     <?php
     if (!empty($_SESSION))
     {
+
         echo "Привет ".$_SESSION['username']." !";
         ?>
     
