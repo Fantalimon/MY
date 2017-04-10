@@ -48,3 +48,30 @@ class User
 $userTwo= new User("Денис ", " Попов ", " mail@mail.com ", " 123432145");
 echo "<br>";
 $userTwo->getUserInfo();
+echo "<br>";
+echo "<br>";
+echo "<br>";
+class Calculator
+{
+     public $num1;
+     public $num2;
+     
+     public function Sum ($num1,$num2) {return $this->num1=$num1+$this->num2=$num2;}
+     
+     public function Min($num1,$num2){return $this->num1=$num1-$this->num2=$num2;}
+     
+     public function Multiplication ($num1,$num2){return $this->num1=$num1*$this->num2=$num2;}
+     
+     public function Division ($num1,$num2){return $this->num1=$num1/$this->num2=$num2;}
+    
+}
+  
+$ferstOperation=new Calculator();
+echo "<br>";
+echo "Сумма: ". $ferstOperation->Sum(1,1);
+echo "<br>";
+echo "Вычитание: ". $ferstOperation->Min(10, 9);
+echo "<br>";
+echo "Умножение ".$ferstOperation->Multiplication(100, 100);
+echo "<br>";
+echo "Деление ".$ferstOperation->Division(50, 2);
