@@ -86,41 +86,26 @@ echo "<br>";
 class Shell
 {
 
-    private $request_uri='REQUEST_URI';
+ /*   private $request_uri='REQUEST_URI';
     private $ip='REMOTE_ADDR';
     private $document_root='DOCUMENT_ROOT';
     private $http_host='HTTP_HOST';
     private $http_user_agent='HTTP_USER_AGENT';
-    private $query_string='QUERY_STRING';
+    private $query_string='QUERY_STRING';*/
 
-   
+   private $serverData;
     
     
-    public function __construct($_SERVER)
+    public function __construct($server)
     {
-     $this->paramArray('request_uri');
+     $this->serverdata=$server;
     }
-    public function paramArray (){
-        
-        $arr=[
-            'request_uri'=>$this->request_uri,
-            'ip'=>$this->ip,
-            'document_root'=>$this->document_root,
-            'http_host'=>$this->http_host,
-            'http_user_agent'=>$this->http_user_agent,
-            'query_string'=>$this->query_string
-        ];
-        foreach ($arr as $key=>$value)
-        {
-            return  '['.'request_uri'.']'.$arr['$key']."<br>";
-        }
-    }
+    public function getRequestUri(){return $this->serverdata['REQUEST_URI'];}
 
 }
 
 $four=new Shell($_SERVER);
-echo $four->paramArray();
-
+echo $requestUri=$four->getRequestUri();
 //echo $_SERVER['REQUEST_URI'];
 
 
