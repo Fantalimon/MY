@@ -85,35 +85,56 @@ echo "<br>";
 
 class Shell
 {
-
-
-   private $serverData;
-    
+    private $serverdata;
     
     public function __construct($server)
     {
-     $this->serverdata=$server;
+        $this->serverdata = $server;
     }
-    public function getRequestUri(){return $this->serverdata['REQUEST_URI'];}
-    public function getIp(){return $this->serverdata['REMOTE_ADDR'];}
-    public function getDocumentRoot(){return $this->serverdata['DOCUMENT_ROOT'];}
-    public function getHttpHost(){return $this->serverdata['HTTP_HOST'];}
-    public function getHttpUserAgent(){return $this->serverdata['HTTP_USER_AGENT'];}
-    public function getQueryStr(){return $this->serverdata['QUERY_STRING'];}
-
+    
+    public function getRequestUri()
+    {
+        return $this->serverdata['REQUEST_URI'];
+    }
+    
+    public function getIp()
+    {
+        return $this->serverdata['REMOTE_ADDR'];
+    }
+    
+    public function getDocumentRoot()
+    {
+        return $this->serverdata['DOCUMENT_ROOT'];
+    }
+    
+    public function getHttpHost()
+    {
+        return $this->serverdata['HTTP_HOST'];
+    }
+    
+    public function getHttpUserAgent()
+    {
+        return $this->serverdata['HTTP_USER_AGENT'];
+    }
+    
+    public function getQueryStr()
+    {
+        return $this->serverdata['QUERY_STRING'];
+    }
+    
 }
 
-$four=new Shell($_SERVER);
-echo $requestUri=$four->getRequestUri();
-echo"<br>";
-echo $getIp=$four->getIp();
-echo"<br>";
-echo $documentRoot=$four->getDocumentRoot();
-echo"<br>";
-echo $httpHost=$four->getHttpHost();
-echo"<br>";
-echo $httpUserAgent=$four->getHttpUserAgent();
-echo"<br>";
-echo $queryStr=$four->getQueryStr();
+$four = new Shell($_SERVER);
+echo $requestUri = $four->getRequestUri();
+echo "<br>";
+echo $getIp = $four->getIp();
+echo "<br>";
+echo $documentRoot = $four->getDocumentRoot();
+echo "<br>";
+echo $httpHost = $four->getHttpHost();
+echo "<br>";
+echo $httpUserAgent = $four->getHttpUserAgent();
+echo "<br>";
+echo $queryStr = $four->getQueryStr();
 
 
