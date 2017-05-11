@@ -31,23 +31,21 @@ function getConnection($host=DB_HOST,$username=DB_USER,$password=DB_PASSWORD,$db
 function closeConnection(mysqli $link){mysqli_close($link);}
 
 
-//function addmassege($username,$email,$hompage,$ip,$brouser,$created_at)
-//{
-//    $link=getConnection();
-//    $query='insert into DB_TABLE_NAME  VALUES (?,?,?,?,?,?)';
-//    $stmt = mysqli_prepare($link, $query);
-//    mysqli_stmt_bind_param($stmt, 'sssisi', $username,$email,$hompage,$ip,$brouser,$created_at);
-//    $rezult=mysqli_stmt_execute($stmt);
-//    if(!$rezult){die('Error: '.mysqli_stmt_error($stmt));}
-//    mysqli_stmt_close($stmt);
-//}
-function addmassege($username,$email,$hompage,$ip,$brouser,$created_at)
+function addmassege($username,$email,$hompage,$text,$ip,$brouser,$created_at)
 {
     $link=getConnection();
-    $query="insert into userstext (`username`,`email`,`hompage`,`ip`,`brouser`,`created_at`) VALUES ('$username','$email',
-'$hompage',INET_ATON('$ip'),'$brouser','$created_at')";
+    $query="insert into userstext (`username`,`email`,`hompage`,`text`,`ip`,`brouser`,`created_at`) VALUES ('$username','$email',
+'$hompage','$text',INET_ATON('$ip'),'$brouser','$created_at')";
     $rezult=mysqli_query($link, $query);
     if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}
     mysqli_close($link);
 }
 
+function show ()
+{
+    $link=getConnection();
+    $query="SELECT `username`,`email`,`created_at`,`text` FROM userstext";
+    $rezult=mysqli_query($link, $query);
+    if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}
+    mysqli_close($link);
+}
