@@ -41,11 +41,13 @@ function addmassege($username,$email,$hompage,$text,$ip,$brouser,$created_at)
     mysqli_close($link);
 }
 
-function show ()
+/*function show ()
 {
     $link=getConnection();
     $query="SELECT `username`,`email`,`created_at`,`text` FROM userstext";
     $rezult=mysqli_query($link, $query);
     if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}
     mysqli_close($link);
-}
+}*/
+
+
