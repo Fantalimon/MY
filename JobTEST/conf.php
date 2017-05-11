@@ -44,7 +44,8 @@ function closeConnection(mysqli $link){mysqli_close($link);}
 function addmassege($username,$email,$hompage,$ip,$brouser,$created_at)
 {
     $link=getConnection();
-    $query="insert into userstext (`username`,`email`,`hompage`,`ip`,`brouser`,`created_at`) VALUES ($username,$email,$hompage,$ip,$brouser,$created_at)";
+    $query="insert into userstext (`username`,`email`,`hompage`,`ip`,`brouser`,`created_at`) VALUES ('$username','$email',
+'$hompage',INET_ATON('$ip'),'$brouser','$created_at')";
     $rezult=mysqli_query($link, $query);
     if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}
     mysqli_close($link);
