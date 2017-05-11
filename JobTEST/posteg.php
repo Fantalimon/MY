@@ -8,8 +8,10 @@ if(!empty ($_POST)){
     $captcha = htmlspecialchars(trim(strip_tags($_POST['captcha'])));
     $text = htmlspecialchars(trim(strip_tags($_POST['text'])));
     $created_at=date("Y-m-d H:i:s");
+    $ip=$_SERVER['REMOTE_ADDR'];
+    $brouser=$_SERVER['HTTP_USER_AGENT'];
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
     if($captcha!== $_SESSION['captcha'])
-    {header('location: '.FORM);}else {echo 'Hello';}
+    {header('location: '.FORM);}
 }
 
