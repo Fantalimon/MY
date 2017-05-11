@@ -1,4 +1,5 @@
 <?php
+include_once 'conf.php';
 session_start();
 if(!empty ($_POST)){
     $username = htmlspecialchars(trim(strip_tags($_POST['username'])));
@@ -9,6 +10,6 @@ if(!empty ($_POST)){
     $created_at=date("Y-m-d H:i:s");
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
     if($captcha!== $_SESSION['captcha'])
-    {header('location: http://127.0.0.1/sit.my/JobTEST/form.php');}else {echo 'Hello';}
+    {header('location: '.FORM);}else {echo 'Hello';}
 }
 
