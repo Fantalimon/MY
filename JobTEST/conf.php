@@ -1,5 +1,5 @@
 <?php
-include_once 'posteg.php';
+
 
 $config=parse_ini_file('config.ini',true);
 

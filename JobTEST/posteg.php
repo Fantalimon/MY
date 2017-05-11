@@ -1,6 +1,12 @@
 <?php
 include_once 'conf.php';
+include_once 'posteg.php';
 session_start();
+$hompage='';
+$ip='';
+$brouser='';
+$created_at='';
+
 if(!empty ($_POST)){
     $username = htmlspecialchars(trim(strip_tags($_POST['username'])));
     $email = htmlspecialchars(trim(strip_tags($_POST['email'])));
@@ -14,5 +20,5 @@ if(!empty ($_POST)){
     if($captcha!== $_SESSION['captcha'])
     {header('location: '.FORM);}
 }
-
+addmassege($username, $email, $hompage, $ip, $brouser, $created_at);
 
