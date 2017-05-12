@@ -5,10 +5,12 @@ include_once 'conf.php';
     $link=getConnection();
     $query="SELECT `username`,`email`,`created_at`,`text` FROM userstext ";
 
-//$_GET['status']='up';
-//$_GET['colon']='username';
-$colon=$_GET['colon'];
-($_GET['status']=='up' )?$query.="ORDER BY $colon ASC":$query.="ORDER BY $colon DESC";
+$status='up';
+$colon='username';
+    
+if (!empty($_GET)){$status=$_GET['status'];$colon=$_GET['colon'];}
+
+($status=='up' )?$query.="ORDER BY $colon ASC":$query.="ORDER BY $colon DESC";
 
 $rezult=mysqli_query($link, $query);
 
