@@ -1,0 +1,15 @@
+CREATE DATABASE jobtest;
+
+USE jobtest;
+
+
+CREATE TABLE userstext (
+    user_id int(4) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    username VARCHAR(50) NOT NULL ,
+    email VARCHAR(50) NOT NULL UNIQUE ,
+    hompage TEXT,
+    text TEXT,
+    ip INT UNSIGNED NOT NULL ,
+    brouser TEXT,
+    created_at DATETIME NOT NULL
+) default charset=utf8 ENGINE InnoDb;
