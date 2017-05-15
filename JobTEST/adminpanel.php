@@ -62,7 +62,7 @@ echo "<a href='adminpanel.php'>Admin panel</a>  "." / "."  <a href='form.php'>Fo
 echo "</div>";
 echo "<br>";
 echo "<br>";
-echo "<div style='position: relative;left: 10%; text-align: center;'>";
+echo "<div style='position: relative;left: 12%; text-align: center;'>";
 echo "<table border='1' style='border: solid; width: 75%'>";
 echo "<thead>";
 echo "<tr>";
