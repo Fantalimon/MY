@@ -7,7 +7,7 @@ $colon = '';
 $i='';
 $link = getConnection();
 $page = 1;
-$pageinlist = 5;
+$pageinlist = PAGEINLIST;
 
 if (isset($_GET['page'])) {
     $page = strip_tags(trim(htmlspecialchars_decode($_GET['page'])));
@@ -57,9 +57,12 @@ if($colon) {
 $query .= " LIMIT ".$startpage.", ".$pageinlist;
 
 $rezult = mysqli_query($link, $query);
+echo "<div style=' text-align: center;'>";
 echo "<a href='adminpanel.php'>Admin panel</a>  "." / "."  <a href='form.php'>Form</a>";
-echo "<br>";echo "<br>";
-echo "<div style='position: relative;left: 10%; ;text-align: center;'>";
+echo "</div>";
+echo "<br>";
+echo "<br>";
+echo "<div style='position: relative;left: 10%; text-align: center;'>";
 echo "<table border='1' style='border: solid; width: 75%'>";
 echo "<thead>";
 echo "<tr>";
@@ -111,10 +114,13 @@ $sumWriters=$rowPage[0];
 
 $num_pages=ceil($sumWriters/$pageinlist);
 $num_pages=(int)$num_pages;
-
+echo "<br>";
+echo "<br>";
+echo "<br>";
+echo "<div style=' text-align: center;'>";
 for($i = 1; $i <= $num_pages; $i++) {
     echo "<a href=" .'adminpanel.php'."?page=".$i."&status=".$status."&colon=".$colon.">".$i."</a> ";
 }
 if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}
-
+echo "</div>";
 mysqli_close($link);

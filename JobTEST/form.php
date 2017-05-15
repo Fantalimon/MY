@@ -25,6 +25,7 @@ function captcha()
     <title>form</title>
 </head>
 <body>
+<div style=' text-align: center;'>
 <?php echo "<a href='adminpanel.php'>Admin panel</a>  "." / "."  <a href='form.php'>Form</a>"; echo "<br>";echo "<br>";?>
 <form action="posteg.php" method="post">
         <br>
@@ -47,6 +48,6 @@ function captcha()
     <br>
     <input type="submit" value="Отправить"/>
 </form>
-
+</div>
 </body>
 </html>

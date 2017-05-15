@@ -15,6 +15,9 @@ define('DB_NAME', $configDb['dbname']);
 define('TB_NAME', $configDb['tbname']);
 define('DB_PORT', $configDb['port']);
 
+define('PAGEINLIST', $configDb['pagainlist']);
+
+
 
 
 function getConnection($host=DB_HOST,$username=DB_USER,$password=DB_PASSWORD,$db_name=DB_NAME,$port=DB_PORT)
