@@ -12,6 +12,7 @@ define('DB_HOST', $configDb['host']);
 define('DB_USER', $configDb['user']);
 define('DB_PASSWORD', $configDb['password']);
 define('DB_NAME', $configDb['dbname']);
+define('TB_NAME', $configDb['tbname']);
 define('DB_PORT', $configDb['port']);
 
 
@@ -41,7 +42,7 @@ function addmassege($username,$email,$hompage,$text,$ip,$brouser,$created_at)
     $text=mysqli_real_escape_string($link,$text);
     $brouser=mysqli_real_escape_string($link,$brouser);
     
-    $query="insert into userstext (`username`,`email`,`hompage`,`text`,`ip`,`brouser`,`created_at`) VALUES ('$username','$email',
+    $query="insert into". TB_NAME ."(`username`,`email`,`hompage`,`text`,`ip`,`brouser`,`created_at`) VALUES ('$username','$email',
 '$hompage','$text',INET_ATON('$ip'),'$brouser','$created_at')";
     $rezult=mysqli_query($link, $query);
     if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}

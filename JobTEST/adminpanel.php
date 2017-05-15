@@ -1,92 +1,80 @@
 <?php
+
 include_once 'conf.php';
+$row = '';
+$status = '';
+$colon = '';
+$i='';
+$link = getConnection();
+$page = 1;
+$pageinlist = 5;
 
-    $row='';
-    $link=getConnection();
-    $query="SELECT `username`,`email`,`created_at`,`text` FROM  userstext ";
-    
-  $pageinlist=2;
-
-$_GET['status']='';
-$_GET['colon']='';
-        (isset($_GET['page'])) ? $page = (($_GET['page']) - 1) : $page = 1;
-        if (isset($_GET['status']) && isset($_GET['colon'])) {
-        
-            $status = $_GET['status'];
-        
-            switch ($status) {
-                case 'asc':
-                    break;
-                case 'desc':
-                    break;
-                default:
-                    $status = 'asc';
-            }
-        
-            $colon = $_GET['colon'];
-        
-            switch ($colon) {
-                case 'username':
-                    break;
-                case 'email':
-                    break;
-                case 'created_at':
-                    break;
-                case 'text':
-                    break;
-                default:
-                    $colon = 'username';
-            }
+if (isset($_GET['page'])) {
+    $page = strip_tags(trim(htmlspecialchars_decode($_GET['page'])));
+    $page=(int)$page;
+}
+$startpage = abs($page - 1) * $pageinlist;
+if (isset($_GET['status'])) {
+    $status = strip_tags(trim(htmlspecialchars_decode($_GET['status'])));
+    $status=(string)$status;
+    switch ($status){
+        case 'asc':
+             break;
+        case 'desc':
+            break;
+        default:
+            $status='asc';
     }
- 
-  $startpage=abs($page*$pageinlist);
-  $startpage=(int)$startpage;
-  $pageinlist=(int)$pageinlist;
-
+}
+if (isset($_GET['colon'])) {
+    $colon = strip_tags(trim(htmlspecialchars_decode($_GET['colon'])));
+    $colon=(string)$colon;
+    switch ($colon) {
+        case 'username':
+            break;
+        case 'email':
+            break;
+        case 'created_at':
+            break;
+        case 'text':
+            break;
+        default:
+            $colon = 'username';
+    }
+}
+$status=mysqli_real_escape_string($link, $status);
+$colon=mysqli_real_escape_string($link, $colon);
 $startpage=mysqli_real_escape_string($link, $startpage);
 $pageinlist=mysqli_real_escape_string($link,$pageinlist);
 
-    $queryPage="SELECT COUNT(*) FROM userstext";
-    $rezultPage=mysqli_query($link, $queryPage);
-    $rowPage=mysqli_fetch_array($rezultPage);
-    $sumWriters=$rowPage[0];
-
-$num_pages=ceil($sumWriters/$pageinlist);
-$num_pages=(int)$num_pages;
-
-($status=='desc' )?$query.="ORDER BY $colon DESC LIMIT $startpage,$pageinlist":$query.="ORDER BY $colon ASC LIMIT $startpage,$pageinlist";
-
-$rezult=mysqli_query($link, $query);
-
-for($i=1;$i<=$num_pages;$i++) {
-    echo "<a href=" .'adminpanel.php'."?page=" . $i."&status=".$status."&colon=".$colon.">" . $i . "</a> ";
+$query = "SELECT `username`,`email`,`created_at`,`text` FROM ". TB_NAME;
+if($colon) {
+    $query .= " ORDER BY ".$colon;
+    if ($status) {
+        $query .= " ".$status;
+    }
 }
+$query .= " LIMIT ".$startpage.", ".$pageinlist;
+
+$rezult = mysqli_query($link, $query);
 
 echo "<div style='position: relative;left: 10%; ;text-align: center;'>";
 echo "<table border='1' style='border: solid; width: 75%'>";
 echo "<thead>";
-
 echo "<tr>";
-
 echo "<td>"."<a href='adminpanel.php?page=$i&status=asc&colon=username'>asc</a>";
 echo " / ";
 echo "<a href='adminpanel.php?page=$i&status=desc&colon=username'>desc</a>"."</td>";
-
-
 echo "<td>"."<a href='adminpanel.php?page=$i&status=asc&colon=email'>asc</a>";
 echo " / ";
 echo "<a href='adminpanel.php?page=$i&status=desc&colon=email'>desc</a>"."</td>";
-
 echo "<td>"."<a href='adminpanel.php?page=$i&status=asc&colon=created_at'>asc</a>";
 echo " / ";
 echo "<a href='adminpanel.php?page=$i&status=desc&colon=created_at'>desc</a>"."</td>";
-
 echo "<td>"."<a href='adminpanel.php?page=$i&status=asc&colon=text'>asc</a>";
 echo " / ";
 echo "<a href='adminpanel.php?page=$i&status=desc&colon=text'>desc</a>"."</td>";
-
 echo "</tr>";
-
 echo "<tr>";
 echo "<th>".'username'."</th>";
 echo "<th>".'email'."</th>";
@@ -94,13 +82,12 @@ echo "<th>".'created_at'."</th>";
 echo "<th>".'text'."</th>";
 echo "</tr>";
 echo "</thead>";
-
-    while($row=mysqli_fetch_array($rezult))
-    {
-        $username=$row['username'];
-        $email=$row['email'];
-        $created_at=$row['created_at'];
-        $text=$row['text'];
+while($row = mysqli_fetch_array($rezult))
+{
+    $username = $row['username'];
+    $email = $row['email'];
+    $created_at = $row['created_at'];
+    $text = $row['text'];
     
     echo "<tbody >";
     echo "<tr>";
@@ -112,13 +99,21 @@ echo "</thead>";
     
     echo "</tr>";
     echo "</tbody>";
-    
 }
 echo "</table>";
 echo "</div>";
 
+$result = mysqli_query($link,"SELECT COUNT(*) FROM ".TB_NAME );
 
-    if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}
-    mysqli_close($link);
-    
+$rowPage=mysqli_fetch_array($result);
+$sumWriters=$rowPage[0];
 
+$num_pages=ceil($sumWriters/$pageinlist);
+$num_pages=(int)$num_pages;
+
+for($i = 1; $i <= $num_pages; $i++) {
+    echo "<a href=" .'adminpanel.php'."?page=".$i."&status=".$status."&colon=".$colon.">".$i."</a> ";
+}
+if(!$rezult){if(!$rezult) die('ERROR'.mysqli_error($link));}
+
+mysqli_close($link);
