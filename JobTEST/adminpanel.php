@@ -57,7 +57,8 @@ if($colon) {
 $query .= " LIMIT ".$startpage.", ".$pageinlist;
 
 $rezult = mysqli_query($link, $query);
-
+echo "<a href='adminpanel.php'>Admin panel</a>  "." / "."  <a href='form.php'>Form</a>";
+echo "<br>";echo "<br>";
 echo "<div style='position: relative;left: 10%; ;text-align: center;'>";
 echo "<table border='1' style='border: solid; width: 75%'>";
 echo "<thead>";

@@ -25,6 +25,7 @@ function captcha()
     <title>form</title>
 </head>
 <body>
+<?php echo "<a href='adminpanel.php'>Admin panel</a>  "." / "."  <a href='form.php'>Form</a>"; echo "<br>";echo "<br>";?>
 <form action="posteg.php" method="post">
         <br>
         <input type="text" required='required' title="имя" name="username" placeholder="имя" />
