@@ -1,6 +1,11 @@
 <?php
 include_once 'conf.php';
 include_once 'posteg.php';
+include_once 'SendMail.php';
+$send=new SendMail();
+$to=ADMINEMAIL;
+$subject=THEM;
+
 session_start();
 $hompage='';
 $ip='';
@@ -25,5 +30,8 @@ if(!empty ($_POST)){
     if($captcha!== $_SESSION['captcha'])
     {header('location: '.FORM);}
 }
-addmassege($username, $email, $hompage,$text,$ip, $brouser, $created_at);
-
+$conferm=addmassege($username, $email, $hompage,$text,$ip, $brouser, $created_at);
+if ($conferm==true) {
+    $send->Mail($to, $subject, $text);
+}
+header('Refresh: 1;'.FORM);

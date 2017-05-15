@@ -5,6 +5,7 @@ $config=parse_ini_file('config.ini',true);
 
 define('FORM',$config['form']);
 define('ADMINEMAIL',$config['adminemail']);
+define('THEM', $config['mailthem']);
 
 $configDb=$config['db'];
 define('DB_HOST', $configDb['host']);
@@ -12,7 +13,6 @@ define('DB_USER', $configDb['user']);
 define('DB_PASSWORD', $configDb['password']);
 define('DB_NAME', $configDb['dbname']);
 define('DB_PORT', $configDb['port']);
-
 
 
 
@@ -34,6 +34,13 @@ function closeConnection(mysqli $link){mysqli_close($link);}
 function addmassege($username,$email,$hompage,$text,$ip,$brouser,$created_at)
 {
     $link=getConnection();
+    
+    $username=mysqli_real_escape_string($link,$username);
+    $email=mysqli_real_escape_string($link,$email);
+    $hompage=mysqli_real_escape_string($link,$hompage);
+    $text=mysqli_real_escape_string($link,$text);
+    $brouser=mysqli_real_escape_string($link,$brouser);
+    
     $query="insert into userstext (`username`,`email`,`hompage`,`text`,`ip`,`brouser`,`created_at`) VALUES ('$username','$email',
 '$hompage','$text',INET_ATON('$ip'),'$brouser','$created_at')";
     $rezult=mysqli_query($link, $query);
@@ -41,11 +48,4 @@ function addmassege($username,$email,$hompage,$text,$ip,$brouser,$created_at)
     mysqli_close($link);
 }
 
-class SendMail {
-    
-    public function Mail($to,  $subject, $message)
-    {
-    mail($to, $subject, $message);
-    }
-}
 
