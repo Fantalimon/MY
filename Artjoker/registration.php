@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     }
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
     {
-        $error = 'Пароль неверный';
+        $error = 'Некорректно введен Адресс';
     }
     else {
         $userData = [

@@ -195,6 +195,8 @@ class User extends Entyty implements Serializable
         
         // выполнение запроса
         $result = $db->query($query);
+        header("Refresh:5; url=".SITE);
+        echo "<h1>".'Ура оно работает!!!'."</h1>";
         
         if (!$result) {
             die($db->error);
