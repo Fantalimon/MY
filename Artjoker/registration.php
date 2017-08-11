@@ -1,4 +1,6 @@
 <?php
+include_once 'autoload.php';
+
 if (!empty($_POST)) {
     $name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
     $email = isset($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
@@ -7,7 +9,7 @@ if (!empty($_POST)) {
     $result = false;
     
     if (empty($name && $email && $territory)) {
-        $error = 'Заполните правильно поля';
+        $error = 'Заполните поля';
     }
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
     {

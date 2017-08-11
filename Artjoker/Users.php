@@ -1,5 +1,5 @@
 <?php
-require_once BASE_PATH . '/Entyty.php';
+require_once 'Entyty.php';
 
 class User extends Entyty implements Serializable
 {
@@ -191,7 +191,7 @@ class User extends Entyty implements Serializable
         
         // подготовка запроса
         $query = "INSERT INTO users (`name`,`email`,`territory`) " .
-            "VALUES ($name,$email,$territory)";
+            "VALUES ('$name','$email','$territory')";
         
         // выполнение запроса
         $result = $db->query($query);
