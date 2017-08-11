@@ -1,32 +1,69 @@
 <?php
-/**
- * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Open Software License (OSL 3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/osl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * @category  Cgi
- * @package   ${PARAM_DOC}
- * @author    CGI <info.de@cgi.com>
- * @copyright 2016 CGI
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @link      http://www.de.cgi.com/
- */
+$name='';
+$target='';
+$name=(string)$name;
+$target=(string)$target;
 
-/**
- * ${CLASS_NAME}
- *
- * @category  Cgi
- * @package   ${PARAM_DOC}
- * @author    CGI <info.de@cgi.com>
- * @copyright 2016 CGI
- * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
- * @link      http://www.de.cgi.com/
- */
+$Plase=[
+'Івано-Франківська область'=>'Івано-Франківська область',
+'АР Крим'=>'АР Крим',
+'Вінницька область'=>'Вінницька область',
+'Волинська область'=>'Волинська область',
+'Дніпропетровська область'=>'Дніпропетровська область',
+'Донецька область'=>'Донецька область',
+'Житомирська область'=>'Житомирська область',
+'Закарпатська область'=>'Закарпатська область',
+'Запорізька область'=>'Запорізька область',
+'Кіровоградська область'=>'Кіровоградська область',
+'Київська область'=>'Київська область',
+'Луганська область'=>'Луганська область',
+'Львівська область'=>'Львівська область',
+'Миколаївська область'=>'Миколаївська область',
+'Одеська область'=>'Одеська область',
+'Полтавська область'=>'Полтавська область',
+'Рівненська область'=>'Рівненська область',
+'Сумська область'=>'Сумська область',
+'Тернопільська область'=>'Тернопільська область',
+'Харківська область'=>'Харківська область',
+'Херсонська область'=>'Херсонська область',
+'Хмельницька область'=>'Хмельницька область',
+'Черкаська область'=>'Черкаська область',
+'Чернівецька область'=>'Чернівецька область',
+'Чернігівська область'=>'Чернігівська область'
+];
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+<form >
+    <fieldset title="персональные данные">
+        <legend>Ваши данные</legend>
+        <br/>
+        <input type="text" title="ФИО" name="fio" placeholder="ФИО" required />
+        <br/>
+        <br/>
+        <input type="text" title="почта" name="email" placeholder="ваша почта" required />
+        <br/>
+        <br/>
+          <select title="Выберите область" name="region"  required>
+            <?php foreach ($Plase  as $name => $target): ?>
+                <option value="<?php echo $name; ?>"><p><?php echo  $target ;?></p></option>
+            <?php endforeach; ?>
+        </select>
+        <br/>
+        <br/>
+        <input type="submit" title="Отправить данные" value="Отправить" />
+        <input type="reset" title="Очистить даные" value="Очистить" />
+        <br/>
+    </fieldset>
+</form>
+
+</body>
+</html>
+
