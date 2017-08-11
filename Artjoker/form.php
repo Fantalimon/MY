@@ -41,17 +41,17 @@ $Plase=[
     <title>form</title>
 </head>
 <body>
-<form >
+<form  method="post" action="registration.php">
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
         <br/>
-        <input type="text" title="ФИО" name="fio" placeholder="ФИО" required />
+        <input type="text" title="ФИО" name="name" placeholder="ФИО" required />
         <br/>
         <br/>
         <input type="text" title="почта" name="email" placeholder="ваша почта" required />
         <br/>
         <br/>
-          <select title="Выберите область" name="region"  required>
+          <select title="Выберите область" name="territory"  required>
             <?php foreach ($Plase  as $name => $target): ?>
                 <option value="<?php echo $name; ?>"><p><?php echo  $target ;?></p></option>
             <?php endforeach; ?>
