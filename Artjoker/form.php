@@ -1,4 +1,7 @@
 <?php
+
+include_once 'autoload.php';
+
 $name='';
 $target='';
 $name=(string)$name;

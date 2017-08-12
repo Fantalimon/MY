@@ -3,10 +3,7 @@ require_once 'Entyty.php';
 
 class User extends Entyty implements Serializable
 {
-    /**
-     * @var int
-     */
-    private $id;
+
     
     /**
      * @var string
@@ -42,25 +39,6 @@ class User extends Entyty implements Serializable
         }
     }
     
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-    
-    /**
-     * @param int $id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        
-        return $this;
-    }
     
     /**
      * @return string
@@ -131,7 +109,6 @@ class User extends Entyty implements Serializable
     public function getUserInfo()
     {
         return [
-            'id' => $this->getId(),
             'name' => $this->getName(),
             'email' => $this->getEmail(),
             'territory' => $this->getTerritory()
@@ -167,7 +144,6 @@ class User extends Entyty implements Serializable
     {
         $userInfo = unserialize($serialized);
         $this
-            ->setId($userInfo['id'])
             ->setName($userInfo['name'])
             ->setEmail($userInfo['email'])
             ->setTerritory($userInfo['territory']);
@@ -190,20 +166,17 @@ class User extends Entyty implements Serializable
  
         
         // подготовка запроса
-        $query = "INSERT INTO users (`name`,`email`,`territory`) " .
-            "VALUES ('$name','$email','$territory')";
+        $query = "INSERT INTO users (`name`,`email`,`territory`) " . "VALUES ('$name','$email','$territory')";
         
         // выполнение запроса
         $result = $db->query($query);
+        
         header("Refresh:5; url=".SITE);
         echo "<h1>".'Ура оно работает!!!'."</h1>";
         
         if (!$result) {
             die($db->error);
         }
-        
-        // save question and save insert_id to $this->id
-        $this->setId($db->insert_id);
         
         return true;
     }

@@ -13,7 +13,7 @@ if (!empty($_POST)) {
     }
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
     {
-        $error = 'Некорректно введен Адресс';
+       $error = 'Некорректно введен Адресс';
     }
     else {
         $userData = [
@@ -26,10 +26,7 @@ if (!empty($_POST)) {
         $user = new User($userData);
         $result = $user->save();
         
-        if ($result == true) {
-            $success = 'You successfully registered, ' . $user->getName() . '!';
-            $_SESSION['userdata'] = serialize($user);
-        }
         
     }
+    
 }
