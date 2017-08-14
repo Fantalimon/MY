@@ -37,8 +37,7 @@ class Places extends Entyty
     
     public function qualification($territory,$terrytoryStr)
     {
-        $territory=(int)$territory;
-        $terrytoryStr=substr($terrytoryStr, 0,7);
+        
         
         $db = DB::getInstance();
         
@@ -47,21 +46,23 @@ class Places extends Entyty
         $result = $db->query($query);
         
         while($row = $result->fetch_assoc()){
-            $tempTauns[]=$row['ter_name'];
+            $tempTauns[$row['ter_name']]=$row['ter_type_id'];
         } ;
         
         echo "<h2>".'Подсчитанно колличество городов'."</h2>";
         echo "<br>";
+        
         if (!$result) {
             die($db->error);
         }
-        return $tempTauns ;
+        
+        return $tempTauns;
     }
     
     public function mainqualification($territory,$terrytoryStr)
     {
         $territory=(int)$territory;// кода городов 63 например код Харькова
-        $terrytoryStr=substr($terrytoryStr, 0,5); // это текстовое представление города
+        $terrytoryStr=substr($terrytoryStr, 0,7); // это текстовое представление города
         
         $db = DB::getInstance();
         
@@ -70,7 +71,7 @@ class Places extends Entyty
         $result = $db->query($query);
         
         while($row = $result->fetch_assoc()){
-            $tempRayons[]=$row['ter_name'];
+            $tempRayons[$row['ter_name']]=$row['ter_type_id'];
         } ;
     
         echo "<h3>".'Подсчитанно колличество районов'."</h3>";

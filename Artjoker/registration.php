@@ -1,4 +1,6 @@
 <?php
+//session_start();
+
 include_once 'autoload.php';
 
 
@@ -150,11 +152,26 @@ if (!empty($_POST)) {
            
     }
     
+    $territory=(int)$territory;
+    $terrytoryStr=substr($terrytoryStr, 0,7);
+    
     $Towns=$Hint->qualification($territory, $terrytoryStr);
     
-    $Rayons=$Hint->mainqualification($territory, $terrytoryStr);
+    echo "<pre>";
+        var_dump( $Towns );
+    echo "</pre>";
     
-    header("Refresh: 2 ; url=".SITE);
+  foreach ($Towns as $key=>$value)
+  {
+      echo $key;
+      echo "<br>";
+      echo $value;
+      echo "<br>";
+  }
+    
+//    $Rayons=$Hint->mainqualification($territory, $terrytoryStr);
+    
+    header("Refresh: 60 ; url=".SITE);
     echo $error;
     
 }

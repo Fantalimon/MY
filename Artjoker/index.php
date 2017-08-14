@@ -1,6 +1,6 @@
 <?php
 
-
+//session_start();
 
 include_once 'autoload.php';
 
@@ -12,6 +12,10 @@ $name=(string)$name;
 $target=(string)$target;
 
 $Plase=$plase->getReg_id();
+
+//$Towns=$_SESSION['Towns'];
+//$Rayons=$_SESSION['Rayons'];
+
 
 
 
@@ -38,7 +42,21 @@ $Plase=$plase->getReg_id();
             <?php foreach ($Plase  as $name => $target): ?>
                 <option value="<?php echo $target; ?>"><p><?php echo  $name ;?></p></option>
             <?php endforeach; ?>
-        </select>
+          </select>
+        
+<!--        -->
+<!--        <select title="Выберете город" >-->
+<!--              --><?php //foreach ($Towns  as $name => $target): ?>
+<!--                  <option value="--><?php //echo $target; ?><!--"><p>--><?php //echo  $name ;?><!--</p></option>-->
+<!--              --><?php //endforeach; ?>
+<!--        </select>-->
+<!--        -->
+<!--        <select title="Выберете район">-->
+<!--              --><?php //foreach ($Rayons  as $name => $target): ?>
+<!--                  <option value="--><?php //echo $target; ?><!--"><p>--><?php //echo  $name ;?><!--</p></option>-->
+<!--              --><?php //endforeach; ?>
+<!--        </select>-->
+       
         <br/>
         <br/>
         <input type="submit" title="Отправить данные" value="Зарегистрировать" />
