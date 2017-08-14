@@ -1,6 +1,8 @@
 <?php
 include_once 'autoload.php';
 
+$error='';
+
 if (!empty($_POST)) {
     $name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
     $email = isset($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
@@ -13,7 +15,7 @@ if (!empty($_POST)) {
     }
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
     {
-       $error = 'Некорректно введен Адресс';
+         $error = 'Некорректно введен Адресс';
     }
     else {
         $userData = [
@@ -23,10 +25,13 @@ if (!empty($_POST)) {
         
         ];
         
-        $user = new User($userData);
-        $result = $user->save();
-        
+//        $user = new User($userData);
+//        $result = $user->save();
+
+//        $qulification=;
         
     }
+    header("Refresh:2 ; url=".SITE);
+    echo $error;
     
 }

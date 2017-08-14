@@ -23,7 +23,7 @@ class Places extends Entyty
         $result = $db->query($query);
         
         while($row = $result->fetch_assoc()){
-           $temp=[$row['ter_address']=>$row['reg_id']];
+         $temp[$row['ter_address']]=$row['reg_id'];
         } ;
         
         echo "<h1>".'Подсчитанно колличество областей'."</h1>";
@@ -33,4 +33,26 @@ class Places extends Entyty
         }
         return $temp ;
     }
+    
+    public function qualification()
+    {
+        $db = DB::getInstance();
+        
+        $query ="SELECT  ter_address, reg_id FROM t_koatuu_tree where ter_pid <=> NULL ";
+        
+        $result = $db->query($query);
+        
+        while($row = $result->fetch_assoc()){
+            $temp[$row['ter_address']]=$row['reg_id'];
+        } ;
+        
+        echo "<h1>".'Подсчитанно колличество областей'."</h1>";
+        
+        if (!$result) {
+            die($db->error);
+        }
+        return $temp ;
+    }
+    
+    
 }
