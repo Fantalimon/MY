@@ -9,6 +9,7 @@ $rez=$plase2->getReg_id();
 echo "<pre>";
     var_dump( $rez );
 echo "</pre>";
+
 $name='';
 $target='';
 $name=(string)$name;
