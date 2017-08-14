@@ -1,15 +1,18 @@
 <?php
 
+
+
 include_once 'autoload.php';
 
-$plase2=new Places();
+$plase=new Places();
 
 $name='';
 $target='';
 $name=(string)$name;
 $target=(string)$target;
 
-$Plase=$plase2->getReg_id();
+$Plase=$plase->getReg_id();
+
 
 
 ?>
