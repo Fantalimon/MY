@@ -25,13 +25,13 @@ if (!empty($_POST)) {
         
         ];
         
-//        $user = new User($userData);
-//        $result = $user->save();
+/*        $user = new User($userData);
+        $result = $user->save();*/
 
-//        $qulification=;
+
         
     }
-    header("Refresh:2 ; url=".SITE);
+    header("Refresh: 2 ; url=".SITE);
     echo $error;
     
 }

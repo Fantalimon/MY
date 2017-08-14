@@ -1,0 +1,64 @@
+
+CREATE TABLE IF NOT EXISTS `users` (
+    `id` int(10)  NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    `name` varchar(96)  NOT NULL,
+    `email` varchar(150)  NOT NULL,
+    `territory` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;
+
+
+
+SELECT * FROM t_koatuu_tree;
+
+SELECT  * FROM t_koatuu_tree where ter_pid <=> NULL ;
+
+SELECT  ter_address, reg_id FROM t_koatuu_tree where ter_pid <=> NULL ;
+
+SELECT * FROM t_koatuu_tree where ter_id  BETWEEN 6300000000 and 6500000000;
+
+SELECT * FROM t_koatuu_tree where reg_id  = 63;
+
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Зміїв%';
+
+
+
+
+
+
+
+
+# Города областные центры ter_type_id = 1
+
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Харків%' AND t_koatuu_tree.ter_type_id LIKE 1;
+
+# районы области ter_type_id = 2
+
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Харків%' AND t_koatuu_tree.ter_type_id LIKE 2;
+
+# районы Города ter_type_id = 3
+
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Харків%' AND t_koatuu_tree.ter_type_id LIKE 3;
+
+# СМТшки ter_type_id = 4
+
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Харків%' AND t_koatuu_tree.ter_type_id LIKE 4;
+
+# Села ter_type_id = 5
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Харків%' AND t_koatuu_tree.ter_type_id LIKE 5;
+
+# Поселки ter_type_id = 6
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Харків%' AND t_koatuu_tree.ter_type_id LIKE 6;
+
+
+#  ter_level and ter_type_id  = 3 ИЛИ  ter_mask= 8 - районы города
+SELECT * FROM t_koatuu_tree where reg_id  = 63 AND ter_address LIKE '%Харків%' AND t_koatuu_tree.ter_type_id LIKE 3 AND t_koatuu_tree.ter_level LIKE 3 ;
+
+
+
+
+
+
+SELECT * FROM t_koatuu_tree where reg_id  = 63 ;
+
+
+

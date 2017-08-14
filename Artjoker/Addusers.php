@@ -1,5 +1,5 @@
 <?php
-require_once 'Entyty.php';
+require_once 'autoload.php';
 
 class User extends Entyty implements Serializable
 {
