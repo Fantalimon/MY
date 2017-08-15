@@ -9,7 +9,7 @@ $target='';
 $name=(string)$name;
 $target=(string)$target;
 
-$Plase=$plase->getReg_id();
+//$Plase=$plase->getReg_id();
 
 ?>
 
@@ -34,9 +34,8 @@ $Plase=$plase->getReg_id();
         <br/>
         
           <select id="selectTerritory" title="Выберите область" name="Territory"  required>
-            <?php foreach ($Plase  as $name => $target): ?>
-                <option value="<?php echo $target; ?>"><p><?php echo  $name ;?></p></option>
-            <?php endforeach; ?>
+              <option >Выберете область</option>
+            <?php  $plase->getReg_id(); ?>
           </select>
         <br/>
         <div id="detale"></div>

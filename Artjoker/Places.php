@@ -23,7 +23,7 @@ class Places extends Entyty
         $result = $db->query($query);
         
         while($row = $result->fetch_assoc()){
-         $temp[$row['ter_address']]=$row['reg_id'];
+        echo "<option value=".$row['reg_id'].'='.">".$row['ter_address']."</option>";
         } ;
         
 //        echo "<h1>".'Подсчитанно колличество областей'."</h1>";
@@ -32,7 +32,7 @@ class Places extends Entyty
         if (!$result) {
             die($db->error);
         }
-        return $temp ;
+        return ;
     }
     
     public function qualiTawns($territory,$terrytoryStr)
