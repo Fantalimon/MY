@@ -32,7 +32,7 @@ $target=(string)$target;
         <br/>
         
           <select id="selectTerritory" title="Выберите область" name="Territory"  required>
-              <option value=" ">Выберете область</option>
+              <option value="">Выберете область</option>
             <?php  $plase->getReg_id(); ?>
           </select>
         <br/>

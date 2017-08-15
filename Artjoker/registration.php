@@ -8,8 +8,9 @@ if (!empty($_POST)) {
     $name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
     $email = isset($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
     $territory = isset($_POST['Territory']) ? strip_tags(trim($_POST['Territory'])) : '';
+    $territoryTowns = isset($_POST['Towns']) ? strip_tags(trim($_POST['Towns'])) : '';
     
-    $result = false;
+//    $result = false;
     
 /*    if (empty($name && $email && $territory)) {
         $error = 'Заполните поля';
@@ -148,7 +149,10 @@ if (!empty($_POST)) {
     
     if(!$territory){
         echo "<br>";
-        echo "<select name='Towns' disabled>"."<option>"."Выберете область"."</option>"."</select>";
+        echo "<select name='Towns' disabled>"."<option>"."Выберете город"."</option>"."</select>";
+        echo "<br>";
+        echo "<br>";
+        echo "<select name='Rayons' disabled>"."<option>"."Выберете район"."</option>"."</select>";
         echo "<br>";
     }else {
         $Hint->qualiTawns($territory, $terrytoryStr);

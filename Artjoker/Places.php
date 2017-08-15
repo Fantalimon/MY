@@ -18,7 +18,7 @@ class Places extends Entyty
     {
         $db = DB::getInstance();
         $nul=NULL;
-        $query ="SELECT  ter_address, reg_id FROM t_koatuu_tree where ter_pid <=> NULL";
+        $query ="SELECT  ter_address, reg_id FROM t_koatuu_tree where ter_pid <=> NULL AND ter_type_id = 0";
     
         $result = $db->query($query);
         
@@ -48,7 +48,7 @@ class Places extends Entyty
         
         $result = $db->query($query);
         echo "<br>";
-        echo "<select value=''>";
+        echo "<select value='' name='Towns'>";
         while($row = $result->fetch_assoc()){
             echo "<option value=".$row['ter_type_id'].'='.">".$row['ter_name']."</option>";
         } ;
@@ -58,7 +58,6 @@ class Places extends Entyty
         if (!$result) {
             die($db->error);
         }
-        
         return ;
     }
     
