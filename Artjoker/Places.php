@@ -26,7 +26,7 @@ class Places extends Entyty
          $temp[$row['ter_address']]=$row['reg_id'];
         } ;
         
-        echo "<h1>".'Подсчитанно колличество областей'."</h1>";
+//        echo "<h1>".'Подсчитанно колличество областей'."</h1>";
         echo "<br>";
     
         if (!$result) {
@@ -35,7 +35,7 @@ class Places extends Entyty
         return $temp ;
     }
     
-    public function qualification($territory,$terrytoryStr)
+    public function qualiTawns($territory,$terrytoryStr)
     {
     
         $territory=(int)$territory;
@@ -52,9 +52,6 @@ class Places extends Entyty
             $tempTauns[$row['ter_name']]=$row['ter_type_id'];
         } ;
         
-        echo "<h2>".'Подсчитанно колличество городов'."</h2>";
-        echo "<br>";
-    
         if (!$result) {
             die($db->error);
         }
@@ -62,7 +59,7 @@ class Places extends Entyty
         return $tempTauns;
     }
     
-    public function mainqualification($territory,$terrytoryStr)
+    public function qualiRayons($territory,$terrytoryStr)
     {
         $territory=(int)$territory;
         $terrytoryStr=mb_substr($terrytoryStr, 0,7);
@@ -71,18 +68,40 @@ class Places extends Entyty
         
         $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id LIKE 2";
         
+        
         $result = $db->query($query);
         
         while($row = $result->fetch_assoc()){
             $tempRayons[$row['ter_name']]=$row['ter_type_id'];
         } ;
     
-        echo "<h3>".'Подсчитанно колличество районов'."</h3>";
-        echo "<br>";
         if (!$result) {
             die($db->error);
         }
         return $tempRayons;
+    }
+    
+    
+    
+    public function qualiTaunsRayons($territory,$terrytoryStr)
+    {
+        $territory=(int)$territory;
+        $terrytoryStr=mb_substr($terrytoryStr, 0,7);
+        
+        $db = DB::getInstance();
+        
+        $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id LIKE 3";
+        
+        $result = $db->query($query);
+        
+        while($row = $result->fetch_assoc()){
+            $taunsRayons[$row['ter_name']]=$row['ter_type_id'];
+        } ;
+        
+        if (!$result) {
+            die($db->error);
+        }
+        return $taunsRayons;
     }
 
 }

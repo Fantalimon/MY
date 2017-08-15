@@ -1,8 +1,6 @@
 <?php
-session_start();
 
 include_once 'autoload.php';
-
 
 $terrytoryStr='';
 $error='';
@@ -10,7 +8,7 @@ $error='';
 if (!empty($_POST)) {
     $name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
     $email = isset($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
-    $territory = isset($_POST['territory']) ? strip_tags(trim($_POST['territory'])) : '';
+    $territory = isset($_POST['Territory']) ? strip_tags(trim($_POST['Territory'])) : '';
     
     $result = false;
     
@@ -155,16 +153,29 @@ if (!empty($_POST)) {
     
     $Hint=new Places();
     
-    $Towns=$Hint->qualification($territory, $terrytoryStr);
+    $Towns=$Hint->qualiTawns($territory, $terrytoryStr);
     
-    $Rayons=$Hint->mainqualification($territory, $terrytoryStr);
+    $Rayons=$Hint->qualiRayons($territory, $terrytoryStr);
     
-    $_SESSION['Towns']=$Towns;
-    $_SESSION['Rayons']=$Rayons;
+//    $TownsRayons=$Hint->qualiTaunsRayons($territory, $terrytoryStr);
     
-    header("Refresh: 2 ; url=".SITE);
-    echo $error;
+    $MaintTauns= "<br>"."<select id='selectTown' name='Towns' title=".'Выберете город'.">";
+    foreach ($Towns as $name => $target){
+        $MaintTauns.="<option value=".$target.">"."<p>".$name."</p>"."</option>";
+    }
+    $MaintTauns.="<select>";
     
-}
-
+    echo $MaintTauns;
+    echo "<br>";
+    
+        $MainRayons = "<br>"."<select id='selektRayon' name='Rayons' title=" . 'Выберете район' . ">";
+        foreach ($Rayons as $name => $target) {
+            $MainRayons .= "<option value=" . $target . ">" . "<p>" . $name . "</p>" . "</option>";
+        }
+        $MainRayons .= "<select>";
+        echo $MainRayons;
+    
+    echo "<br>";
+    
+};
 
