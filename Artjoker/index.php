@@ -1,6 +1,6 @@
 <?php
 
-//session_start();
+session_start();
 
 include_once 'autoload.php';
 
@@ -13,8 +13,8 @@ $target=(string)$target;
 
 $Plase=$plase->getReg_id();
 
-//$Towns=$_SESSION['Towns'];
-//$Rayons=$_SESSION['Rayons'];
+$Towns=$_SESSION['Towns'];
+$Rayons=$_SESSION['Rayons'];
 
 
 
@@ -43,19 +43,22 @@ $Plase=$plase->getReg_id();
                 <option value="<?php echo $target; ?>"><p><?php echo  $name ;?></p></option>
             <?php endforeach; ?>
           </select>
+        <br>
+        <br>
         
-<!--        -->
-<!--        <select title="Выберете город" >-->
-<!--              --><?php //foreach ($Towns  as $name => $target): ?>
-<!--                  <option value="--><?php //echo $target; ?><!--"><p>--><?php //echo  $name ;?><!--</p></option>-->
-<!--              --><?php //endforeach; ?>
-<!--        </select>-->
-<!--        -->
-<!--        <select title="Выберете район">-->
-<!--              --><?php //foreach ($Rayons  as $name => $target): ?>
-<!--                  <option value="--><?php //echo $target; ?><!--"><p>--><?php //echo  $name ;?><!--</p></option>-->
-<!--              --><?php //endforeach; ?>
-<!--        </select>-->
+        <select title="Выберете город" >
+              <?php foreach ($Towns  as $name => $target): ?>
+                  <option value="<?php echo $target; ?>"><p><?php echo  $name ;?></p></option>
+              <?php endforeach; ?>
+        </select>
+        <br>
+        <br>
+        <select title="Выберете район">
+              <?php foreach ($Rayons  as $name => $target): ?>
+                  <option value="<?php echo $target; ?>"><p><?php echo  $name ;?></p></option>
+              <?php endforeach; ?>
+        </select>
+        <br>
        
         <br/>
         <br/>

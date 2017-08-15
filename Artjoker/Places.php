@@ -38,6 +38,8 @@ class Places extends Entyty
     public function qualification($territory,$terrytoryStr)
     {
     
+        $territory=(int)$territory;
+        $terrytoryStr=mb_substr($terrytoryStr, 0,7);
         
         $db = DB::getInstance();
         
@@ -62,12 +64,12 @@ class Places extends Entyty
     
     public function mainqualification($territory,$terrytoryStr)
     {
-        $territory=(int)$territory;// кода городов 63 например код Харькова
-        $terrytoryStr=substr($terrytoryStr, 0,7); // это текстовое представление города
+        $territory=(int)$territory;
+        $terrytoryStr=mb_substr($terrytoryStr, 0,7);
         
         $db = DB::getInstance();
         
-        $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = $territory AND ter_address LIKE '%$terrytoryStr%' AND t_koatuu_tree.ter_type_id LIKE 2";
+        $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id LIKE 2";
         
         $result = $db->query($query);
         
