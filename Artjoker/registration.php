@@ -153,29 +153,11 @@ if (!empty($_POST)) {
     
     $Hint=new Places();
     
-    $Towns=$Hint->qualiTawns($territory, $terrytoryStr);
+    $Hint->qualiTawns($territory, $terrytoryStr);
     
-    $Rayons=$Hint->qualiRayons($territory, $terrytoryStr);
+    $Hint->qualiRayons($territory, $terrytoryStr);
     
-//    $TownsRayons=$Hint->qualiTaunsRayons($territory, $terrytoryStr);
-    
-    $MaintTauns= "<br>"."<select id='selectTown' name='Towns' title=".'Выберете город'.">";
-    foreach ($Towns as $name => $target){
-        $MaintTauns.="<option value=".$target.">"."<p>".$name."</p>"."</option>";
-    }
-    $MaintTauns.="<select>";
-    
-    echo $MaintTauns;
-    echo "<br>";
-    
-        $MainRayons = "<br>"."<select id='selektRayon' name='Rayons' title=" . 'Выберете район' . ">";
-        foreach ($Rayons as $name => $target) {
-            $MainRayons .= "<option value=" . $target . ">" . "<p>" . $name . "</p>" . "</option>";
-        }
-        $MainRayons .= "<select>";
-        echo $MainRayons;
-    
-    echo "<br>";
+
     
 };
 

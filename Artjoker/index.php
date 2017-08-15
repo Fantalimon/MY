@@ -9,8 +9,6 @@ $target='';
 $name=(string)$name;
 $target=(string)$target;
 
-//$Plase=$plase->getReg_id();
-
 ?>
 
 <!DOCTYPE html>
@@ -34,11 +32,11 @@ $target=(string)$target;
         <br/>
         
           <select id="selectTerritory" title="Выберите область" name="Territory"  required>
-              <option >Выберете область</option>
+              <option value=" ">Выберете область</option>
             <?php  $plase->getReg_id(); ?>
           </select>
         <br/>
-        <div id="detale"></div>
+        <span id="detale"></span>
         <br/>
         <button id="send" title="Отправить данные" >Зарегистрировать</button>
         <br/>

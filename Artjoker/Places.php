@@ -47,16 +47,19 @@ class Places extends Entyty
         $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id LIKE 1";
         
         $result = $db->query($query);
-
+        echo "<br>";
+        echo "<select value=''>";
         while($row = $result->fetch_assoc()){
-            $tempTauns[$row['ter_name']]=$row['ter_type_id'];
+            echo "<option value=".$row['ter_type_id'].'='.">".$row['ter_name']."</option>";
         } ;
+        echo "</select>";
+        echo "<br>";
         
         if (!$result) {
             die($db->error);
         }
         
-        return $tempTauns;
+        return ;
     }
     
     public function qualiRayons($territory,$terrytoryStr)
@@ -70,15 +73,19 @@ class Places extends Entyty
         
         
         $result = $db->query($query);
-        
+    
+        echo "<br>";
+        echo "<select value=''>";
         while($row = $result->fetch_assoc()){
-            $tempRayons[$row['ter_name']]=$row['ter_type_id'];
+            echo "<option value=".$row['ter_type_id'].'='.">".$row['ter_name']."</option>";
         } ;
+        echo "</select>";
+        echo "<br>";
     
         if (!$result) {
             die($db->error);
         }
-        return $tempRayons;
+        return ;
     }
     
     
