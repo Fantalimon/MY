@@ -17,8 +17,8 @@ class Places extends Entyty
     public function getReg_id()
     {
         $db = DB::getInstance();
-        
-        $query ="SELECT  ter_address, reg_id FROM t_koatuu_tree where ter_pid <=> NULL ";
+        $nul=NULL;
+        $query ="SELECT  ter_address, reg_id FROM t_koatuu_tree where ter_pid <=> NULL";
     
         $result = $db->query($query);
         
@@ -37,21 +37,22 @@ class Places extends Entyty
     
     public function qualification($territory,$terrytoryStr)
     {
-        
+    
         
         $db = DB::getInstance();
         
-        $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = $territory AND ter_address LIKE '%$terrytoryStr%' AND t_koatuu_tree.ter_type_id LIKE 1";
+        
+        $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id LIKE 1";
         
         $result = $db->query($query);
-        
+
         while($row = $result->fetch_assoc()){
             $tempTauns[$row['ter_name']]=$row['ter_type_id'];
         } ;
         
         echo "<h2>".'Подсчитанно колличество городов'."</h2>";
         echo "<br>";
-        
+    
         if (!$result) {
             die($db->error);
         }
