@@ -1,6 +1,9 @@
-$(function Tauns () {
-   /* function presend(){
-        if ($("#inputName").val()!=='' && $("#inputMail").val()!=='' && $("#selectTerritory").val()!=='')
+$(function Tawns() {
+    
+    // $("#inputName").val()!=='' && $("#inputMail").val()!=='' &&
+    
+    function presend(){
+        if ( $("#selectTerritory").val()!=='')
         {
             return true;
         }
@@ -9,24 +12,38 @@ $(function Tauns () {
         }
     }
     
-    function send(){
+   /* function send(){
         $('#test').text("OK");
     };*/
-        
+    
+    var selectTerritory= $(this).val();
+    
+    $.ajax({
+        type : "POST",
+        url: "registration.php",
+        beforesend:(presend()),
+        data: {Territory:selectTerritory},
+        success: function (data) {
+            $('#detale').html(data);
+        }
+    });
+    
         $('#selectTerritory').change(function(){
             var selectTerritory= $(this).val();
-            $('#detale').load('registration.php',{Territory :selectTerritory});
+            
+            $.ajax({
+               type : "POST",
+                url: "registration.php",
+                beforesend:(presend()),
+                data: {Territory:selectTerritory},
+                success: function (data) {
+                    $('#detale').html(data);
+                }
+            });
+           
         });
-}).change();
+});
 
-
-
-$(function Rayons() {
-$('#selectTown').change(function(){
-            var selectTown= $(this).val();
-            $('#detale').load('registration.php',{Towns :selectTown});
-        });
-}).change();
 
 
 

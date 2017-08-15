@@ -90,7 +90,7 @@ class Places extends Entyty
     
     
     
-    public function qualiTaunsRayons($territory,$terrytoryStr)
+/*    public function qualiTaunsRayons($territory,$terrytoryStr)
     {
         $territory=(int)$territory;
         $terrytoryStr=mb_substr($terrytoryStr, 0,7);
@@ -109,6 +109,6 @@ class Places extends Entyty
             die($db->error);
         }
         return $taunsRayons;
-    }
+    }*/
 
 }

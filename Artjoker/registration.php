@@ -1,5 +1,4 @@
 <?php
-
 include_once 'autoload.php';
 
 $terrytoryStr='';
@@ -12,7 +11,7 @@ if (!empty($_POST)) {
     
     $result = false;
     
-    if (empty($name && $email && $territory)) {
+/*    if (empty($name && $email && $territory)) {
         $error = 'Заполните поля';
     }
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))
@@ -25,15 +24,10 @@ if (!empty($_POST)) {
             'email' => $email,
             'territory' => $territory
         
-        ];
+        ];*/
         
 /*        $user = new User($userData);
         $result = $user->save();*/
-        
-    }
-    
-    
-    
     
     switch ($territory){
         case 01:
@@ -149,15 +143,16 @@ if (!empty($_POST)) {
 
 
     }
-
     
     $Hint=new Places();
     
-    $Hint->qualiTawns($territory, $terrytoryStr);
-    
-    $Hint->qualiRayons($territory, $terrytoryStr);
-    
-
-    
+    if(!$territory){
+        echo "<br>";
+        echo "<select name='Towns' disabled>"."<option>"."Выберете область"."</option>"."</select>";
+        echo "<br>";
+    }else {
+        $Hint->qualiTawns($territory, $terrytoryStr);
+        $Hint->qualiRayons($territory, $terrytoryStr);
+    }
 };
 
