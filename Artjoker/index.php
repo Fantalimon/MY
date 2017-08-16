@@ -31,12 +31,12 @@ $target=(string)$target;
         <br/>
         <br/>
         
-          <select id="selectTerritory" title="Выберите область" name="Territory"  required>
+          <select id="selectTerritory" title="Выберите область"  name="Territory"  required>
               <option value="">Выберете область</option>
             <?php  $plase->getReg_id(); ?>
           </select>
         <br/>
-        <span id="detale"></span>
+        <div id="detale"></div>
         <br/>
         <button id="send" title="Отправить данные" >Зарегистрировать</button>
         <br/>
