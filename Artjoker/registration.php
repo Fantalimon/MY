@@ -8,7 +8,6 @@ if (!empty($_POST)) {
     $name = isset($_POST['name']) ? strip_tags(trim($_POST['name'])) : '';
     $email = isset($_POST['email']) ? strip_tags(trim($_POST['email'])) : '';
     $territory = isset($_POST['Territory']) ? strip_tags(trim($_POST['Territory'])) : '';
-    $territoryTowns = isset($_POST['Towns']) ? strip_tags(trim($_POST['Towns'])) : '';
     
 //    $result = false;
     
@@ -154,9 +153,11 @@ if (!empty($_POST)) {
         echo "<br>";
         echo "<select name='Rayons' disabled>"."<option>"."Выберете район"."</option>"."</select>";
         echo "<br>";
-    }else {
+    }else
+    {
         $Hint->qualiTawns($territory, $terrytoryStr);
         $Hint->qualiRayons($territory, $terrytoryStr);
     }
+   
 };
 

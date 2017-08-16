@@ -3,7 +3,7 @@ $(function Tawns() {
     // $("#inputName").val()!=='' && $("#inputMail").val()!=='' &&
     
     function presend(){
-        if ( $("#selectTerritory").val()!=='')
+        if ( $("#selectTerritory ").val()!=='' && $("#selectTowns").val()!=='')
         {
             return true;
         }
@@ -42,6 +42,8 @@ $(function Tawns() {
             });
            
         });
+        
+    
 });
 
 
