@@ -10,9 +10,9 @@ if (!empty($_POST)) {
     $territory = isset($_POST['Territory']) ? strip_tags(trim($_POST['Territory'])) : '';
     $terrytoryStr = isset($_POST['Rayons']) ? strip_tags(trim($_POST['Rayons'])) : '';
     
-    echo 'territory /  '.$territory;
-    echo "<br>";
-    echo 'terrytoryStr /  '.$terrytoryStr;
+  
+    
+    
 //    $result = false;
     
 /*    if (empty($name && $email && $territory)) {
@@ -32,41 +32,31 @@ if (!empty($_POST)) {
         
 /*        $user = new User($userData);
         $result = $user->save();*/
-    
+  
 
     $Hint=new Places();
     
-/*    if (!$territory)
+    if (!$territory)
     {
         echo "<br>";
-        echo "<select name='Towns' disabled>"."<option>"."Выберете город"."</option>"."</select>";
+        echo "<select  disabled>"."<option>"."Выберете район"."</option>"."</select>";
         echo "<br>";
-        
-        echo "<br>";
-        echo "<select name='Rayons' disabled>"."<option>"."Выберете район"."</option>"."</select>";
-        echo "<br>";
-        
    }else
    {
-       $Hint->qualiTawns($territory, $terrytoryStr);
        $Hint->qualiRayons($territory);
-    }*/
+    }
     
-if (!$territory)
+    if(!$terrytoryStr)
     {
         echo "<br>";
-        echo "<select name='Towns' disabled>"."<option>"."Выберете город"."</option>"."</select>";
+        echo "<select  disabled>"."<option>"."Выберете город"."</option>"."</select>";
         echo "<br>";
-        
-        echo "<br>";
-        echo "<select name='Rayons' disabled>"."<option>"."Выберете район"."</option>"."</select>";
-        echo "<br>";
-       
-    }else
-    {
+    }
+    else{
         $Hint->qualiTawns($territory, $terrytoryStr);
-        $Hint->qualiRayons($territory);
-   }
+    }
+
+   
 
 };
 

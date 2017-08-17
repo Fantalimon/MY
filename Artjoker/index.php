@@ -36,7 +36,9 @@ $target=(string)$target;
             <?php  $plase->getReg_id(); ?>
           </select>
         <br/>
+        
         <div id="detale"></div>
+        
         <br/>
         <button id="send" title="Отправить данные" >Зарегистрировать</button>
         <br/>

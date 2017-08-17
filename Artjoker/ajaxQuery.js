@@ -17,31 +17,22 @@ $(function Tawns() {
     };*/
     
     var selectTerritory= $(this).val();
-    
+    var selectRayons = $(this).val();
     $.ajax({
         type : "POST",
         url: "registration.php",
         // beforesend:(presend()),
-        data: {Territory:selectTerritory},
+        data: {Territory:selectTerritory,Rayons: selectRayons},
         success: function (data) {
             $('#detale').html(data);
         }
     });
     
-    var selectRayons= $(this).val();
-    $.ajax({
-        type : "POST",
-        url: "registration.php",
-        // beforesend:(presend()),
-        data: {Rayons:selectRayons},
-        success: function (data) {
-            $('#detale').html(data);
-        }
-    });
     
+    
+   
         $('#selectTerritory').change(function(){
             var selectTerritory= $(this).val();
-            
             $.ajax({
                type : "POST",
                 url: "registration.php",
@@ -51,23 +42,23 @@ $(function Tawns() {
                     $('#detale').html(data);
                 }
             });
-           
         });
-        
-        $().change(function(){
-            var selectRayons= $(this).val();
+    
+        $('body').on('change', '#detale',function () {
+            var selectRayons = $('#selectRayons').val();
+            var selectTerritory = $('#selectTerritory').val();
             $.ajax({
-               type : "POST",
+                type: "POST",
                 url: "registration.php",
                 // beforesend:(presend()),
-                data: {Rayons:selectRayons},
+                data: {Rayons: selectRayons,Territory:selectTerritory},
                 success: function (data) {
                     $('#detale').html(data);
                 }
             });
-           
         });
         
+ 
     
 });
 
