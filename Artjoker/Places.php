@@ -25,37 +25,6 @@ class Places extends Entyty
         while($row = $result->fetch_assoc()){
         echo "<option value=".$row['reg_id'].">".$row['ter_address']."</option>";
         } ;
-        
-//        echo "<h1>".'Подсчитанно колличество областей'."</h1>";
-        echo "<br>";
-    
-        if (!$result) {
-            die($db->error);
-        }
-        return ;
-    }
-    
-    public function qualiTawns($territory,$terrytoryStr)
-    {
-    
-        $territory=(int)$territory;
-        $terrytoryStr=(string)$terrytoryStr;
-        
-        $db = DB::getInstance();
-        
-        
-        $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id NOT BETWEEN 2 and 3 ORDER BY ter_type_id ,ter_mask ASC ";
-        
-        
-        $result = $db->query($query);
-        
-        
-        echo "<br>";
-        echo "<select id='selectTowns'  name='Towns'>";
-        while($row = $result->fetch_assoc()){
-            echo "<option value=".$row['ter_name'].">".$row['ter_name']."</option>";
-        } ;
-        echo "</select>";
         echo "<br>";
         
         if (!$result) {
@@ -63,7 +32,7 @@ class Places extends Entyty
         }
         return ;
     }
-    
+
     public function qualiRayons($territory)
     {
         $territory=(int)$territory;
@@ -76,7 +45,7 @@ class Places extends Entyty
         $result = $db->query($query);
         
         echo "<br>";
-        echo "<select id='selectRayons'  name='Rayons'>";
+        echo "<select id='selectRayons'>";
         while($row = $result->fetch_assoc()){
             echo "<option value=".mb_substr($row['ter_name'], 0,7).">".$row['ter_name']."</option>";
         } ;
@@ -89,4 +58,32 @@ class Places extends Entyty
         return ;
     }
     
+    public function qualiTawns($territory,$terrytoryStr)
+    {
+        
+        $territory=(int)$territory;
+        $terrytoryStr=(string)$terrytoryStr;
+        
+        $db = DB::getInstance();
+        
+        
+        $query ="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id NOT BETWEEN 2 and 3 ORDER BY ter_type_id ,ter_mask ASC ";
+        
+        
+        
+        $result = $db->query($query);
+        
+        echo "<br>";
+        echo "<select id='selectTowns' >";
+        while($row = $result->fetch_assoc()){
+            echo "<option value=".$row['ter_name'].">".$row['ter_name']."</option>";
+        } ;
+        echo "</select>";
+        echo "<br>";
+        
+        if (!$result) {
+            die($db->error);
+        }
+        return ;
+    }
 }

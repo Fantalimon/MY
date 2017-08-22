@@ -20,7 +20,7 @@ $target=(string)$target;
     <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<form  method="post" action=" ">
+<form  method="post" action="">
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
         <br/>
