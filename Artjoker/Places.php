@@ -47,7 +47,7 @@ class Places extends Entyty
         echo "<br>";
         echo "<select id='selectRayons'>";
         while($row = $result->fetch_assoc()){
-            echo "<option value=".mb_substr($row['ter_name'], 0,7).">".$row['ter_name']."</option>";
+            echo "<option value=".$row["ter_name"].">".$row['ter_name']."</option>";
         } ;
         echo "</select>";
         echo "<br>";
@@ -76,7 +76,7 @@ class Places extends Entyty
         echo "<br>";
         echo "<select id='selectTowns' >";
         while($row = $result->fetch_assoc()){
-            echo "<option value=".$row['ter_name'].">".$row['ter_name']."</option>";
+            echo "<option value=".$row["ter_name"].">".$row['ter_name']."</option>";
         } ;
         echo "</select>";
         echo "<br>";
