@@ -1,7 +1,5 @@
 $(function Tawns() {
     
-  
-    
     function presend(){
         if ( ($("#selectTerritory ").val()!='') &&  ($("#inputName").val()!='') && ($("#inputMail").val()!='') && ($("#selectTowns").val()!=''))
         {
@@ -12,7 +10,18 @@ $(function Tawns() {
         }
     }
     
-     
+    var selectTerritory= $(this).val();
+    $.ajax({
+        type : "POST",
+        url: "registration.php",
+        beforesend:(presend()),
+        data: {Territory:selectTerritory},
+        success: function (data) {
+            $('#detale').html(data);
+            $('#selectTerritory').val(selectTerritory);
+        }
+    });
+    
   
         $('#selectTerritory').change(function(){
              var selectTerritory= $(this).val();
@@ -51,7 +60,7 @@ $(function Tawns() {
         $.ajax({
             type: "POST",
             url: "registration.php",
-            // beforesend:(presend()),
+            beforesend:(presend()),
             data: {Rayons: selectRayons,Territory:selectTerritory,Towns:selectTowns},
             success: function (data) {
                 $('#detale').html(data);

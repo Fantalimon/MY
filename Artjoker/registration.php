@@ -31,8 +31,7 @@ if (!empty($_POST)) {
         
 /*        $user = new User($userData);
         $result = $user->save();*/
-  
-echo '/ '.$territory."<br>".'/ '.$terrytoryStr."<br>".'/ '.$towns."<br>";
+    
     
 $Hint=new Places();
     
@@ -46,7 +45,7 @@ $Hint=new Places();
        $Hint->qualiRayons($territory);
     }
 
-    if(!$terrytoryStr )
+    if(!$terrytoryStr)
     {
         echo "<br>";
         echo "<select  disabled>"."<option>"."Выберете город"."</option>"."</select>";
@@ -55,9 +54,7 @@ $Hint=new Places();
     else{
         $Hint->qualiTawns($territory, $terrytoryStr);
     }
-
-//   $Hint->qualiRayons($territory);
-//    $Hint->qualiTawns($territory, $terrytoryStr);
+    
 
 };
 

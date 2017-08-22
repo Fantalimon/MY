@@ -24,10 +24,10 @@ $target=(string)$target;
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
         <br/>
-        <input id="inputName" type="text" title="ФИО" name="name" placeholder="ФИО"  />
+        <input id="inputName" type="text" title="ФИО" name="name" placeholder="ФИО"  required/>
         <br/>
         <br/>
-        <input id="inputMail" type="text" title="почта" name="email" placeholder="ваша почта"  />
+        <input id="inputMail" type="text" title="почта" name="email" placeholder="ваша почта" required/>
         <br/>
         <br/>
         
