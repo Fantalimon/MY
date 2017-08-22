@@ -36,28 +36,28 @@ echo '/ '.$territory."<br>".'/ '.$terrytoryStr."<br>".'/ '.$towns."<br>";
     
 $Hint=new Places();
     
-//    if (!$territory)
-//    {
-//        echo "<br>";
-//        echo "<select  disabled>"."<option>"."Выберете район"."</option>"."</select>";
-//        echo "<br>";
-//   }else
-//   {
-//       $Hint->qualiRayons($territory);
-//    }
-//
-//    if(!$terrytoryStr)
-//    {
-//        echo "<br>";
-//        echo "<select  disabled>"."<option>"."Выберете город"."</option>"."</select>";
-//        echo "<br>";
-//    }
-//    else{
-//        $Hint->qualiTawns($territory, $terrytoryStr);
-//    }
+    if (!$territory)
+    {
+        echo "<br>";
+        echo "<select  disabled>"."<option>"."Выберете район"."</option>"."</select>";
+        echo "<br>";
+   }else
+   {
+       $Hint->qualiRayons($territory);
+    }
 
-   $Hint->qualiRayons($territory);
-    $Hint->qualiTawns($territory, $terrytoryStr);
+    if(!$terrytoryStr )
+    {
+        echo "<br>";
+        echo "<select  disabled>"."<option>"."Выберете город"."</option>"."</select>";
+        echo "<br>";
+    }
+    else{
+        $Hint->qualiTawns($territory, $terrytoryStr);
+    }
+
+//   $Hint->qualiRayons($territory);
+//    $Hint->qualiTawns($territory, $terrytoryStr);
 
 };
 
