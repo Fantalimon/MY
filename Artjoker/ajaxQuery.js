@@ -97,17 +97,9 @@ $(function () {
                 beforeSend: function(data) {
                     form.find("#send").attr('disabled', 'disabled');
                 },
-                success: function(data){
-                    if (data['error']) {
-                        alert(data['error']);
-                    } else {
+                success: function(){
                         alert('Форма отравлена!');
-                    }
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status);
-                    alert(thrownError);
-                },
+                    },
                 complete: function(data) {
                     form.find('button[type="submit"]').attr('disabled', false);
                 }

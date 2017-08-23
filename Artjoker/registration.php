@@ -7,7 +7,6 @@ if (!empty($_POST)) {
     $territory = isset($_POST['Territory']) ? strip_tags(trim($_POST['Territory'])) : '';
     $terrytoryStr = isset($_POST['Rayons']) ? strip_tags(trim($_POST['Rayons'])) : '';
     $towns = isset($_POST['Towns']) ? strip_tags(trim($_POST['Towns'])) : '';
-    $json=[];
     
     
     $Hint=new Places();
@@ -35,13 +34,9 @@ if (!empty($_POST)) {
     
     
     if (!$name or !$email or !$territory or !$terrytoryStr or !$towns) {
-        $json['error'] = 'Не заполненное поле))!';
-//        echo json_encode($json,JSON_UNESCAPED_UNICODE);
         die();
     }
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $json['error'] = 'Нe вeрный фoрмaт email! >_<';
-//         echo json_encode($json,JSON_UNESCAPED_UNICODE);
         die();
     }
     else {

@@ -182,17 +182,11 @@ class Addusers extends Entyty implements Serializable
     public function getByEmail()
     {
         $db = DB::getInstance();
-        
         $email = $this->escape($this->getEmail());
-        
-        $query="SELECT * FROM `users` WHERE email = '$email' LIMIT 1;";
-        
+        $query="SELECT `id`,`name`,`email`,`territory` FROM `users` WHERE email = '$email' LIMIT 1";
         $result=$db->query($query);
-        
         if (!$result) {die($db->error);}
-        
         $row = $result->fetch_assoc();
-        
         return $row;
         
     }

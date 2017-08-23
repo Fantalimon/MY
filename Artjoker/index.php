@@ -4,11 +4,6 @@ include_once 'autoload.php';
 
 $plase=new Places();
 
-$name='';
-$target='';
-$name=(string)$name;
-$target=(string)$target;
-
 ?>
 
 <!DOCTYPE html>

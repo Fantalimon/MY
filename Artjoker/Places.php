@@ -18,33 +18,17 @@ class Places extends Entyty
     {
         $db = DB::getInstance();
     
+        $query="SELECT ter_address, reg_id FROM t_koatuu_tree where ter_type_id = 0 AND ter_pid <=> NULL";
         
-        
-        $query="CREATE TEMPORARY TABLE IF NOT EXISTS `id_regions`  SELECT ter_address, reg_id FROM t_koatuu_tree where ter_type_id = 0 AND ter_pid <=> NULL;";
-        
-        $query.="SELECT * FROM `id_regions`;";
-        
-      
-        
-       if ($db->multi_query($query)){
-        do{
-            if($result=$db->store_result())
-            {
+        $result=$db->query($query);
+        if (!$result) {die($db->error);}
                 while($row = $result->fetch_assoc()){
                     echo "<option value='".$row['reg_id'].' '.$row['ter_address']."'>".$row['ter_address']."</option>";
                 } ;
                 echo "<br>";
-             
-                $result->free();
-            }
-        } while($db->next_result());
-       };
         return ;
      
     }
-    
-    
-    
     
     public function qualiRayons($territory)
     {
@@ -55,14 +39,11 @@ class Places extends Entyty
         
         
         $db = DB::getInstance();
-        $query="CREATE TEMPORARY TABLE IF NOT EXISTS `".$territory."` SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id BETWEEN 2 and 3;";
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id BETWEEN 2 and 3";
         
-        $query.="SELECT * FROM `".$territory."`;";
-        
-        if ($db->multi_query($query)){
-            do{
-                if($result=$db->store_result())
-                { echo "<br>";
+        $result=$db->query($query);
+        if (!$result) {die($db->error);}
+                 echo "<br>";
                     echo "<select id='selectRayons' title='Выберете район'>";
                     echo "<option value=''>Выберете район</option>";
                     while($row = $result->fetch_assoc()){
@@ -71,11 +52,6 @@ class Places extends Entyty
                     } ;
                     echo "</select>";
                     echo "<br>";
-                
-                    $result->free();
-                }
-            } while($db->next_result());
-        };
         return ;
     }
     
@@ -90,17 +66,10 @@ class Places extends Entyty
         
         $db = DB::getInstance();
         
-       
-        
-        $query="CREATE TEMPORARY TABLE IF NOT EXISTS `".$terrytoryStr."` SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id NOT BETWEEN 2 and 3 ORDER BY ter_type_id ,ter_mask ASC ;";
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id NOT BETWEEN 2 and 3 ORDER BY ter_type_id ,ter_mask ASC ;";
     
-        $query.="SELECT * FROM `".$terrytoryStr."`;";
-   
-        if ($db->multi_query($query)){
-            do{
-                if($result=$db->store_result())
-                {
-        
+   $result=$db->query($query);
+        if (!$result) {die($db->error);}
         echo "<br>";
         echo "<select id='selectTowns' title='Выберете город'>";
         echo "<option value=''>Выберете город</option>";
@@ -110,11 +79,6 @@ class Places extends Entyty
         } ;
         echo "</select>";
         echo "<br>";
-    
-                    $result->free();
-                }
-            } while($db->next_result());
-        };
         return ;
     }
 }
