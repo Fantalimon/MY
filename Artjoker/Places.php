@@ -31,7 +31,7 @@ class Places extends Entyty
             if($result=$db->store_result())
             {
                 while($row = $result->fetch_assoc()){
-                    echo "<option value='".$row['reg_id']."'>".$row['ter_address']."</option>";
+                    echo "<option value='".$row['reg_id'].' '.$row['ter_address']."'>".$row['ter_address']."</option>";
                 } ;
                 echo "<br>";
              
@@ -48,6 +48,7 @@ class Places extends Entyty
     
     public function qualiRayons($territory)
     {
+        $territory=mb_substr($territory, 0,2);
         $territory=(int)$territory;
         $territory=$this->clean($territory);
         $territory=$this->escape($territory);
@@ -62,7 +63,7 @@ class Places extends Entyty
             do{
                 if($result=$db->store_result())
                 { echo "<br>";
-                    echo "<select id='selectRayons'>";
+                    echo "<select id='selectRayons' title='Выберете район'>";
                     echo "<option value=''>Выберете район</option>";
                     while($row = $result->fetch_assoc()){
                         $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
@@ -101,7 +102,7 @@ class Places extends Entyty
                 {
         
         echo "<br>";
-        echo "<select id='selectTowns' >";
+        echo "<select id='selectTowns' title='Выберете город'>";
         echo "<option value=''>Выберете город</option>";
         while($row = $result->fetch_assoc()){
             $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');

@@ -9,13 +9,6 @@ if (!empty($_POST)) {
     $towns = isset($_POST['Towns']) ? strip_tags(trim($_POST['Towns'])) : '';
     $json=[];
     
-//    $result = false;
-    
-    echo 'name '.$name."<br>";
-    echo 'email '.$email."<br>";
-    echo 'territory '.$territory."<br>";
-    echo 'terrytoryStr '.$terrytoryStr."<br>";
-    echo 'towns '.$towns."<br>";
     
     $Hint=new Places();
     
@@ -42,13 +35,13 @@ if (!empty($_POST)) {
     
     
     if (!$name or !$email or !$territory or !$terrytoryStr or !$towns) {
-//        $json['error'] = 'Not all inputs isset';
-//        echo json_encode($json);
+        $json['error'] = 'Не заполненное поле))!';
+//        echo json_encode($json,JSON_UNESCAPED_UNICODE);
         die();
     }
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//        $json['error'] = 'Нe вeрный фoрмaт email! >_<';
-//        echo json_encode($json);
+        $json['error'] = 'Нe вeрный фoрмaт email! >_<';
+//         echo json_encode($json,JSON_UNESCAPED_UNICODE);
         die();
     }
     else {
@@ -56,13 +49,21 @@ if (!empty($_POST)) {
             'name' => $name,
             'email' => $email,
             'territory' => $territory.' '.$terrytoryStr.' '.$towns
-                    ];
-    echo "<pre>";
-        var_dump( $userData );
-    echo "</pre>";
-    
-//        $user = new Addusers($userData);
-//        $result = $user->save();
+        ];
+        
+        $user = new Addusers($userData);
+        $user->tableinfo();
+            $result=$user->getByEmail();
+            if ($email !== $result['email']){
+                $save=$user->save();
+            }
+            else{
+                echo "Уже есть такой пользователь"."<br>";
+                foreach ($result as $key=>$value){
+                    echo $key.' /--> '.$value."<br>";
+                }
+            }
+       
     };
 
 
