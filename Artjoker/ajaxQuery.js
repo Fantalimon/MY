@@ -76,7 +76,7 @@ $(function () {
 
 
 
- $("#myForm").submit(function(){
+ $("#myForm").on("click","submit", function(){
      var form =$(this);
      var error=false;
      form.find("input,select").each(function() {
@@ -95,7 +95,7 @@ $(function () {
                 dataType : 'json',
                 data: data,
                 beforeSend: function(data) {
-                    form.find('button[type="submit"]').attr('disabled', 'disabled');
+                    form.find("#send").attr('disabled', 'disabled');
                 },
                 success: function(data){
                     if (data['error']) {
