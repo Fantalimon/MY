@@ -20,18 +20,18 @@ $target=(string)$target;
     <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<form  method="post" action="">
+<form id="myForm" method="post" action=" ">
     <fieldset title="персональные данные">
         <legend>Ваши данные</legend>
         <br/>
-        <input id="inputName" type="text" title="ФИО" name="name" placeholder="ФИО"  required/>
+        <input id="inputName" type="text" title="ФИО" name="name" placeholder="ФИО"  />
         <br/>
         <br/>
-        <input id="inputMail" type="text" title="почта" name="email" placeholder="ваша почта" required/>
+        <input id="inputMail" type="text" title="почта" name="email" placeholder="ваша почта" />
         <br/>
         <br/>
         
-          <select id="selectTerritory" title="Выберите область"  name="Territory"  required>
+          <select id="selectTerritory" title="Выберите область"  name="Territory"  >
               <option value="">Выберете область</option>
             <?php  $plase->getReg_id(); ?>
           </select>
@@ -40,7 +40,7 @@ $target=(string)$target;
         <div id="detale"></div>
         
         <br/>
-        <button id="send" title="Отправить данные" >Зарегистрировать</button>
+        <button id="send"  title="Отправить данные" >Зарегистрировать</button>
         <br/>
     </fieldset>
 </form>

@@ -1,7 +1,7 @@
 <?php
 require_once 'autoload.php';
 
-class User extends Entyty implements Serializable
+class Addusers extends Entyty implements Serializable
 {
 
     
@@ -56,7 +56,6 @@ class User extends Entyty implements Serializable
     public function setName($name)
     {
         $this-> name = $name;
-        
         return $this;
     }
     
@@ -76,7 +75,6 @@ class User extends Entyty implements Serializable
     public function setEmail($email)
     {
         $this->email = $email;
-        
         return $this;
     }
       /**
@@ -95,7 +93,6 @@ class User extends Entyty implements Serializable
     public function setTerritory($territory)
     {
         $this->territory = $territory;
-        
         return $this;
     }
     
@@ -112,7 +109,6 @@ class User extends Entyty implements Serializable
             'name' => $this->getName(),
             'email' => $this->getEmail(),
             'territory' => $this->getTerritory()
-            
         ];
     }
     
@@ -156,27 +152,29 @@ class User extends Entyty implements Serializable
      */
     public function save()
     {
-        // получение экземпляра класса DB
         $db = DB::getInstance();
-        
-        // экранирование переменных
         $name = $this->escape($this->getName());
         $email = $this->escape($this->getEmail());
         $territory = $this->escape($this->getTerritory());
  
+        $query="CREATE TABLE IF NOT EXISTS `users` (
+    `id` int(10)  NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    `name` varchar(96)  NOT NULL,
+    `email` varchar(150)  NOT NULL,
+    `territory` varchar(350) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;";
         
-        // подготовка запроса
-        $query = "INSERT INTO users (`name`,`email`,`territory`) " . "VALUES ('$name','$email','$territory')";
-        
-        // выполнение запроса
-        $result = $db->query($query);
-        $time=1;
-        header("Refresh:$time; url=".SITE);
-        echo "<h1>".'Ура оно работает!!!'."</h1>";
-        
-        if (!$result) {
-            die($db->error);
-        }
+        $query.= "INSERT INTO users (`name`,`email`,`territory`) " . "VALUES ('$name','$email','$territory');";
+    
+        if ($db->multi_query($query)){
+            do{
+                if($result=$db->store_result())
+                {
+                    
+                    $result->free();
+                }
+            } while($db->next_result());
+        };
         
         return true;
     }
