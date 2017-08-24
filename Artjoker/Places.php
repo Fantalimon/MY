@@ -81,4 +81,25 @@ class Places extends Entyty
         echo "<br>";
         return ;
     }
+    
+    
+    public function qualiTawnsRayons($territory,$terrytoryStr)
+    {
+        $territory=(int)$territory;
+        $territory=$this->clean($territory);
+        $territory=$this->escape($territory);
+        $terrytoryStr=(string)$terrytoryStr;
+        $terrytoryStr=$this->clean($terrytoryStr);
+        $terrytoryStr=$this->escape($terrytoryStr);
+        
+        $db = DB::getInstance();
+        $query="SELECT ter_type_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id = 3";
+        
+   $result=$db->query($query);
+     
+        if (!$result) {die($db->error);}
+        $row = $result->fetch_assoc();
+        $ctn=count($row['ter_type_id']);
+        return $ctn;
+    }
 }

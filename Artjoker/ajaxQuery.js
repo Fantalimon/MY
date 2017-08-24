@@ -6,7 +6,9 @@ $(function () {
      $.ajax({
          type : "POST",
          url: "registration.php",
-         data: {Territory:selectTerritory,name:name,email:email},
+         data: {Territory:selectTerritory,
+             name:name,email:email
+         },
          success: function (data) {
              $('#detale').html(data);
              $('#selectTerritory').val(selectTerritory);
@@ -23,7 +25,9 @@ $(function () {
              $.ajax({
                 type : "POST",
                  url: "registration.php",
-                 data: {Territory:selectTerritory,name:name,email:email},
+                 data: {Territory:selectTerritory,
+                     name:name,email:email
+                },
                  success: function (data) {
                      $('#detale').html(data);
                      $('#selectTerritory').val(selectTerritory);
@@ -42,7 +46,9 @@ $(function () {
          $.ajax({
              type: "POST",
              url: "registration.php",
-             data: {Rayons: selectRayons,Territory:selectTerritory,name:name,email:email},
+             data: {Rayons: selectRayons,Territory:selectTerritory,
+                 name:name,email:email
+             },
              success: function (data) {
                  $('#detale').html(data);
                  $('#selectRayons').val(selectRayons);
@@ -61,7 +67,9 @@ $(function () {
          $.ajax({
              type: "POST",
              url: "registration.php",
-             data: {Rayons: selectRayons,Territory:selectTerritory,Towns:selectTowns,name:name,email:email},
+             data: {Rayons: selectRayons,Territory:selectTerritory,Towns:selectTowns,
+                 name:name,email:email
+             },
              success: function (data) {
                  $('#detale').html(data);
                  $('#selectTerritory').val(selectTerritory);
@@ -72,40 +80,46 @@ $(function () {
              }
          });
      });
-
-
-
-
- $("#myForm").on("click","submit", function(){
-     var form =$(this);
-     var error=false;
-     form.find("input,select").each(function() {
-         if ($(this).val() == '' ) {
-             alert('Зaпoлнитe пoлe "' + $(this).attr('title') + '"!');
-             error = true;
-         }
-     });
- });
-
-        if (!error){
-            var data = form.serialize();
-            $.ajax({
-                type: "POST",
-                url: "registration.php",
-                dataType : 'json',
-                data: data,
-                beforeSend: (function(data) {
-                    form.find("#send").attr('disabled', 'disabled');
-                }),
-                success: (function(){
-                        alert('Форма отравлена!');
-                    }),
-                complete: (function(data) {
-                    form.find('button[type="submit"]').attr('disabled', false);
-                })
-            });
-            return false;
-        }
-
+    
+    
+    
+    $("#myForm").submit(function() {
+        var form = $(this);
+        var error = false;
+        form.find('input, select').each(function() {
+            if ($(this).val() == '') {
+                alert('Зaпoлнитe пoлe "' + $(this).attr('title') + '"!');
+                error = true;
+            }
+        })
+    });
+    
+    if (!error) {
+        var data = form.serialize();
+        $.ajax({
+            type: "POST",
+            url: "registration.php",
+            dataType: 'json',
+            data: data,
+            beforeSend: function(data) {
+                form.find('button[type="submit"]').attr('disabled', 'disabled');
+            },
+            success: function(data) {
+                if (data['error']) {
+                    alert(data['error']);
+                } else {
+                    alert('Форма отравлена!');
+                }
+            },
+            error: function(xhr, ajaxOptions, thrownError) {
+                alert(xhr.status);
+                alert(thrownError);
+            },
+            complete: function(data) {
+                form.find('button[type="submit"]').prop('disabled', false);
+            }
+        });
+        return false;
+    }
 });
     
