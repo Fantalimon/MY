@@ -94,15 +94,15 @@ $(function () {
                 url: "registration.php",
                 dataType : 'json',
                 data: data,
-                beforeSend: function(data) {
+                beforeSend: (function(data) {
                     form.find("#send").attr('disabled', 'disabled');
-                },
-                success: function(){
+                }),
+                success: (function(){
                         alert('Форма отравлена!');
-                    },
-                complete: function(data) {
+                    }),
+                complete: (function(data) {
                     form.find('button[type="submit"]').attr('disabled', false);
-                }
+                })
             });
             return false;
         }
