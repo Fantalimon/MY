@@ -1,20 +1,46 @@
+
 $(function(){
-    var button=$("button");
-    button.click( function (){
-        var data = $("form").serializeArray();
+    var form = $("#myForm");
+    form.change(function (){
+        var selectTerritory = $('#selectTerritory').val();
+        var selectRayons = $('#selectRayons').val();
+        var selectTowns = $('#selectTowns').val();
+        var formdata=$("#myForm").serialize();
+        $.ajax({
+            type:"POST",
+            url:"registration.php",
+            data:formdata,
+            success: function (data) {
+                $("#detale").html(data);
+                $('#selectTerritory').val(selectTerritory);
+                $('#selectRayons').val(selectRayons);
+                $('#selectTowns').val(selectTowns);
+                $("#yes").html("<h1>Введите все данные.......</h1>");
+            }
+        })
+});
+    
+    
+    
+    
+    
+    var button=$("#send");
+    button.click(function (){
+        var mydata = $("#myForm").serializeArray();
         $.ajax({
             type: "POST",
             url: "registration.php",
-            // dataType:"json",
-            data: {'data':data},
+            data: mydata,
+            cache:false,
             success: function () {
-                alert(data);
-                console.log(data);
-            },
+                $("<h1>Данные успешно отправлены</h1>").replaceAll("#yes");
+            }
         });
     });
     
+    
 });
+
 
   
     
@@ -77,6 +103,8 @@ $(function(){
          });
      });
 
+    
+    
      $(document).on('change', '#selectTowns',function () {
          var selectTerritory = $('#selectTerritory').val();
          var selectRayons = $('#selectRayons').val();

@@ -40,6 +40,8 @@ $plase=new Places();
     </fieldset>
 </form>
 
+<div id="yes"></div>
+
 <script src="ajaxQuery.js"></script>
 </body>
 </html>
