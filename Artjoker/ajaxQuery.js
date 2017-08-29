@@ -11,6 +11,8 @@ $(function(){
             url:"registration.php",
             data:formdata,
             success: function (data) {
+                $("#detale").html("<br><select disabled><option>Выберете район</option></select><br>");
+                $("#detale").html("<br><select disabled><option>Выберете город</option></select><br>");
                 $("#detale").html(data);
                 $('#selectTerritory').val(selectTerritory);
                 $('#selectRayons').val(selectRayons);

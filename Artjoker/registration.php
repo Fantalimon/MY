@@ -20,21 +20,13 @@ include_once 'autoload.php';
 
 $notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
 
-    if (!$Territory)
-    {
-        echo "<br>";
-        echo "<select  disabled>"."<option>"."Выберете район"."</option>"."</select>";
-        echo "<br>";
-    }else
+    if ($Territory)
     {
      $Hint->qualiRayons($Territory);
     }
 
     if(!$Rayons && $hintingTerrytory!== '80' and $hintingTerrytory!=='85')
     {
-        echo "<br>";
-        echo "<select  disabled>"."<option>"."Выберете город"."</option>"."</select>";
-        echo "<br>";
     }
     elseif($hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
     {
