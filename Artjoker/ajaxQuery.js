@@ -1,6 +1,25 @@
-$(function () {
+$(function(){
+    var button=$("button");
+    button.click( function (){
+        var data = $("form").serializeArray();
+        $.ajax({
+            type: "POST",
+            url: "registration.php",
+            // dataType:"json",
+            data: {'data':data},
+            success: function () {
+                alert(data);
+                console.log(data);
+            },
+        });
+    });
     
-     var name = $('#inputName').val();
+});
+
+  
+    
+    
+   /*  var name = $('#inputName').val();
      var email = $('#inputMail').val();
      var selectTerritory= $('#selectTerritory').val();
      $.ajax({
@@ -94,8 +113,9 @@ $(function () {
         })
     });
     
+    
     if (!error) {
-        var data = form.serialize();
+        var data = $("#myForm").serialize();
         $.ajax({
             type: "POST",
             url: "registration.php",
@@ -104,13 +124,10 @@ $(function () {
             beforeSend: function(data) {
                 form.find('button[type="submit"]').attr('disabled', 'disabled');
             },
-            success: function(data) {
-                if (data['error']) {
-                    alert(data['error']);
-                } else {
-                    alert('Форма отравлена!');
-                }
-            },
+            success: function(data)
+                {
+                    console.log(info);
+                },
             error: function(xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);
                 alert(thrownError);
@@ -121,5 +138,5 @@ $(function () {
         });
         return false;
     }
-});
+     */
     

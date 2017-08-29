@@ -153,53 +153,27 @@ class Addusers extends Entyty implements Serializable
     public function save()
     {
         $db = DB::getInstance();
-        $name = $this->escape($this->getName());
-        $email = $this->escape($this->getEmail());
-        $territory = $this->escape($this->getTerritory());
- 
-        $query="CREATE TABLE IF NOT EXISTS `users` (
-    `id` int(10)  NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-    `name` varchar(96)  NOT NULL,
-    `email` varchar(150)  NOT NULL,
-    `territory` varchar(350) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;";
+        $name = $this->clean($this->escape($this->getName()));
+        $email = $this->clean($this->escape($this->getEmail()));
+        $territory = $this->clean($this->escape($this->getTerritory()));
         
-        $query.= "INSERT INTO users (`name`,`email`,`territory`) " . "VALUES ('$name','$email','$territory');";
+        $query= "INSERT INTO users (`name`,`email`,`territory`) " . "VALUES ('$name','$email','$territory');";
     
-        if ($db->multi_query($query)){
-            do{
-                if($result=$db->store_result())
-                {
-                    
-                    $result->free();
-                }
-            } while($db->next_result());
-        };
-        
+        $result=$db->query($query);
+        if (!$result) {die($db->error);}
         return true;
     }
     
     public function getByEmail()
     {
         $db = DB::getInstance();
-        $email = $this->escape($this->getEmail());
+        $email =$this->clean($this->escape($this->getEmail()));
         $query="SELECT `id`,`name`,`email`,`territory` FROM `users` WHERE email = '$email' LIMIT 1";
         $result=$db->query($query);
         if (!$result) {die($db->error);}
         $row = $result->fetch_assoc();
         return $row;
         
-    }
-    
-    public function tableinfo(){
-        $db = DB::getInstance();
-        $query="SHOW TABLES FROM protest14 LIKE 'users';";
-        $result=$db->query($query);
-        if (!$result) {die($db->error);}
-        $row=$result->fetch_assoc();
-        $ctn=count($row);
-        if($ctn==0){self::save();}
-        else{return;};
     }
     
     
