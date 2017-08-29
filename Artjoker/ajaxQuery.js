@@ -1,6 +1,10 @@
 
 $(function(){
     var form = $("#myForm");
+    
+    $("#detale").append("<br><select id='selectRayons' disabled><option value=''>Выберете район</option></select><br>");
+    $("#detale").append("<br><select id='selectTowns' disabled><option value=''>Выберете город</option></select><br>");
+    
     form.change(function (){
         var selectTerritory = $('#selectTerritory').val();
         var selectRayons = $('#selectRayons').val();
@@ -11,8 +15,6 @@ $(function(){
             url:"registration.php",
             data:formdata,
             success: function (data) {
-                $("#detale").html("<br><select disabled><option>Выберете район</option></select><br>");
-                $("#detale").html("<br><select disabled><option>Выберете город</option></select><br>");
                 $("#detale").html(data);
                 $('#selectTerritory').val(selectTerritory);
                 $('#selectRayons').val(selectRayons);
@@ -28,7 +30,7 @@ $(function(){
     
     var button=$("#send");
     button.click(function (){
-        var mydata = $("#myForm").serializeArray();
+       var mydata = $("#myForm").serializeArray();
         $.ajax({
             type: "POST",
             url: "registration.php",
@@ -39,99 +41,15 @@ $(function(){
             }
         });
     });
-    
+
     
 });
 
 
   
-    
-    
-   /*  var name = $('#inputName').val();
-     var email = $('#inputMail').val();
-     var selectTerritory= $('#selectTerritory').val();
-     $.ajax({
-         type : "POST",
-         url: "registration.php",
-         data: {Territory:selectTerritory,
-             name:name,email:email
-         },
-         success: function (data) {
-             $('#detale').html(data);
-             $('#selectTerritory').val(selectTerritory);
-             $('#inputName').val(name);
-             $('#inputMail').val(email);
-         }
-     });
-
-
-         $('#selectTerritory').change(function(){
-              var selectTerritory= $(this).val();
-             var name = $('#inputName').val();
-             var email = $('#inputMail').val();
-             $.ajax({
-                type : "POST",
-                 url: "registration.php",
-                 data: {Territory:selectTerritory,
-                     name:name,email:email
-                },
-                 success: function (data) {
-                     $('#detale').html(data);
-                     $('#selectTerritory').val(selectTerritory);
-                     $('#inputName').val(name);
-                     $('#inputMail').val(email);
-                 }
-             });
-         });
-
-
-     $(document).on('change', '#selectRayons',function () {
-        var selectRayons = $('#selectRayons').val();
-         var  selectTerritory = $('#selectTerritory').val();
-          var name = $('#inputName').val();
-          var email = $('#inputMail').val();
-         $.ajax({
-             type: "POST",
-             url: "registration.php",
-             data: {Rayons: selectRayons,Territory:selectTerritory,
-                 name:name,email:email
-             },
-             success: function (data) {
-                 $('#detale').html(data);
-                 $('#selectRayons').val(selectRayons);
-                 $('#inputName').val(name);
-                 $('#inputMail').val(email);
-             }
-         });
-     });
 
     
-    
-     $(document).on('change', '#selectTowns',function () {
-         var selectTerritory = $('#selectTerritory').val();
-         var selectRayons = $('#selectRayons').val();
-          var selectTowns = $('#selectTowns').val();
-          var name = $('#inputName').val();
-          var email = $('#inputMail').val();
-         $.ajax({
-             type: "POST",
-             url: "registration.php",
-             data: {Rayons: selectRayons,Territory:selectTerritory,Towns:selectTowns,
-                 name:name,email:email
-             },
-             success: function (data) {
-                 $('#detale').html(data);
-                 $('#selectTerritory').val(selectTerritory);
-                 $('#selectRayons').val(selectRayons);
-                 $('#selectTowns').val(selectTowns);
-                 $('#inputName').val(name);
-                 $('#inputMail').val(email);
-             }
-         });
-     });
-    
-    
-    
+/*
     $("#myForm").submit(function() {
         var form = $(this);
         var error = false;
@@ -168,5 +86,5 @@ $(function(){
         });
         return false;
     }
-     */
+*/
     

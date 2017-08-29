@@ -1,12 +1,12 @@
 <?php
 include_once 'autoload.php';
 
-//    $name='';
-//    $email='';
-//    $Territory='';
-//    $Rayons='';
-//    $Towns='';
-//    $data='';
+    $name='';
+    $email='';
+    $Territory='';
+    $Rayons='';
+    $Towns='';
+    $data='';
 
     $name = isset($_POST['name']) ? htmlspecialchars(strip_tags(trim($_POST['name']))) : '';
     $email = isset($_POST['email']) ? htmlspecialchars(strip_tags(trim($_POST['email']))) : '';
