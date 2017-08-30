@@ -43,16 +43,12 @@ class Places extends Entyty
         
         $result=$db->query($query);
         if (!$result) {die($db->error);}
-                 echo "<br>";
-                    echo '<select id="selectRayons" name="Rayons" title="Выберете район">';
-                    echo "<option value=''>Выберете район</option>";
+        $json=[];
                     while($row = $result->fetch_assoc()){
-                        $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
-                        echo "<option value=\"{$ter}\">{$ter}</option>";
+                         $ter= htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+                        $json["$ter"]=$ter;
                     } ;
-                    echo "</select>";
-                    echo "<br>";
-        return ;
+        echo json_encode($json);
     }
     
     public function qualiTawns($territory,$terrytoryStr)
@@ -70,18 +66,13 @@ class Places extends Entyty
     
    $result=$db->query($query);
         if (!$result) {die($db->error);}
-        echo "<br>";
-        echo '<select id="selectTowns" name="Towns" title="Выберете город">';
-        echo "<option value=''>Выберете город</option>";
+        $json=[];
         while($row = $result->fetch_assoc()){
             $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
-            echo "<option value=\"{$ter}\">{$ter}</option>";
+            $json["$ter"]=$ter;
         } ;
-        echo "</select>";
-        echo "<br>";
-        return ;
+         echo json_encode($json);
     }
-    
     
     public function qualiTawnsRayons($territory,$terrytoryStr)
     {

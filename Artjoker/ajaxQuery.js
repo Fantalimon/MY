@@ -1,31 +1,41 @@
 
 $(function(){
+    
+    
     var form = $("#myForm");
-    
-    $("#detale").append("<br><select id='selectRayons' disabled><option value=''>Выберете район</option></select><br>");
-    $("#detale").append("<br><select id='selectTowns' disabled><option value=''>Выберете город</option></select><br>");
-    
+    // $("#detale").append("<br><select id='selectRayons' disabled><option value=''>Выберете район</option></select><br>");
+    // $("#detale").append("<br><select id='selectTowns' disabled><option value=''>Выберете город</option></select><br>");
+    // $("#send").text("Введите все данные.......");
+    //
     form.change(function (){
-        var selectTerritory = $('#selectTerritory').val();
-        var selectRayons = $('#selectRayons').val();
-        var selectTowns = $('#selectTowns').val();
-        var formdata=$("#myForm").serialize();
-        $.ajax({
-            type:"POST",
-            url:"registration.php",
-            data:formdata,
-            success: function (data) {
-                $("#detale").html(data);
-                $('#selectTerritory').val(selectTerritory);
-                $('#selectRayons').val(selectRayons);
-                $('#selectTowns').val(selectTowns);
-                $("#yes").html("<h1>Введите все данные.......</h1>");
-            }
-        })
+     var selectTerritory = $('#selectTerritory').val(),
+          selectRayons = $('#selectRayons').val(),
+           selectTowns = $('#selectTowns').val(),
+            formdata=$("#myForm").serialize();
+            $.ajax({
+                type: "POST",
+                url: "registration.php",
+                dataType: "JSON",
+                data: formdata,
+                success: function (data) {
+                    // $("#detale").html(data);
+                    
+                    $('#selectTerritory').val(selectTerritory);
+                    
+                    for (var key in data){
+                        $("#detale").append('<br><select id="selectRayons" name="Rayons" title="Выберете район"> <option value="">Выберете район</option> <option value="'+data[key]+'">'+data[key]+'</option> </select> <br>');
+                    }
+                    
+                 
+                    
+                    // $("#detale").append('<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете район</option> <option value="'+data+'">'+data+'</option> </select> <br>');
+                    
+                    $('#selectRayons').val(selectRayons);
+                    $('#selectTowns').val(selectTowns);
+                }
+            })
+        
 });
-    
-    
-    
     
     
     var button=$("#send");

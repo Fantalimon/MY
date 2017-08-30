@@ -22,19 +22,14 @@ $notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
 
     if ($Territory)
     {
-     $Hint->qualiRayons($Territory);
+      $Hint->qualiRayons($Territory) ;
     }
 
-    if(!$Rayons && $hintingTerrytory!== '80' and $hintingTerrytory!=='85')
+    if($Rayons && $hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
     {
-    }
-    elseif($hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
-    {
-        $Hint->qualiTawns($Territory, $Rayons);
+       $Hint->qualiTawns($Territory, $Rayons);
     }
 
-
-    
     if(!$name or !$email or !$Territory or !$Rayons or !$Towns or !filter_var($email, FILTER_VALIDATE_EMAIL)) {die();}
     else {
         $userData = [
