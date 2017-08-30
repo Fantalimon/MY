@@ -21,12 +21,15 @@ $(function(){
                     // $("#detale").html(data);
                     
                     $('#selectTerritory').val(selectTerritory);
-                    
+                     
+                   var option='';
+                   option = '<br><select id="selectRayons" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
                     for (var key in data){
-                        $("#detale").append('<br><select id="selectRayons" name="Rayons" title="Выберете район"> <option value="">Выберете район</option> <option value="'+data[key]+'">'+data[key]+'</option> </select> <br>');
+                      option+= '<option value="'+data[key]+'">'+data[key]+'</option>';
                     }
+                   option+='</select><br>';
+                    $("#detale").html(option);
                     
-                 
                     
                     // $("#detale").append('<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете район</option> <option value="'+data+'">'+data+'</option> </select> <br>');
                     
