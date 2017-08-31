@@ -20,27 +20,31 @@ $(function(){
                 data: formdata,
                 success: function (data) {
                     $('#selectTerritory').val(selectTerritory);
-                    $('#selectRayons').val(selectRayons);
-                    $('#selectTowns').val(selectTowns);
-                    
-            if(data.towns==undefined) {
+            
+            if(data.rayons) {
                 var optionRayons = '';
                 optionRayons = '<br><select id="selectRayons" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
                 for (var key in data.rayons) {
                     optionRayons += '<option value="' + data.rayons[key] + '">' + data.rayons[key] + '</option>';
                 }
                 optionRayons += '</select><br>';
-                $("#detale").html(optionRayons);
+                $("#detaleRayons").html(optionRayons);
+                $('#selectRayons').val(selectRayons);
             }
-            else {
+            
+           if(data.towns) {
                 var optionTowns = '';
                 optionTowns = '<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете район</option>';
                 for (var town in data.towns) {
                     optionTowns += '<option value="' + data.towns[town] + '">' + data.towns[town] + '</option>'
                 }
                 optionTowns += '</select><br>';
-                $("#detale").html(optionTowns);
+                $("#detaleTowns").html(optionTowns);
+                  $('#selectTowns').val(selectTowns);
             }
+            
+            
+            
                 }
             })
         
