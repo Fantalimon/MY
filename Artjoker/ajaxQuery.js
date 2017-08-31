@@ -1,7 +1,7 @@
 
 $(function(){
     
-    
+  
     var form = $("#myForm");
 
     // $("#detale").append("<br><select id='selectRayons' disabled><option value=''>Выберете район</option></select><br>");
@@ -35,6 +35,7 @@ $(function(){
            if(data.towns) {
                 var optionTowns = '';
                 optionTowns = '<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете район</option>';
+                
                 for (var town in data.towns) {
                     optionTowns += '<option value="' + data.towns[town] + '">' + data.towns[town] + '</option>'
                 }
@@ -42,7 +43,6 @@ $(function(){
                 $("#detaleTowns").html(optionTowns);
                   $('#selectTowns').val(selectTowns);
             }
-            
             
             
                 }

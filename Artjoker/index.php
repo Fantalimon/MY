@@ -34,7 +34,6 @@ $plase=new Places();
         
         <div id="detaleRayons"></div>
         <div id="detaleTowns"></div>
-        
         <br/>
         <button id="send"  title="Отправить данные" >Зарегистрировать</button>
         <br/>
