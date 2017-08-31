@@ -20,15 +20,18 @@ include_once 'autoload.php';
 
 $notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
 
+$response=[];
     if ($Territory)
     {
-      $Hint->qualiRayons($Territory) ;
+      $response['rayons']=$Hint->qualiRayons($Territory) ;
     }
 
-    if($Rayons && $hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
+    if($Rayons and $hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
     {
-       $Hint->qualiTawns($Territory, $Rayons);
+       $response['towns']=$Hint->qualiTawns($Territory, $Rayons);
     }
+    
+echo json_encode($response);
 
     if(!$name or !$email or !$Territory or !$Rayons or !$Towns or !filter_var($email, FILTER_VALIDATE_EMAIL)) {die();}
     else {
@@ -52,6 +55,4 @@ $notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
             }
         }
     }
-
-
 

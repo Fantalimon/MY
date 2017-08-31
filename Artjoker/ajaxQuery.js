@@ -3,6 +3,7 @@ $(function(){
     
     
     var form = $("#myForm");
+
     // $("#detale").append("<br><select id='selectRayons' disabled><option value=''>Выберете район</option></select><br>");
     // $("#detale").append("<br><select id='selectTowns' disabled><option value=''>Выберете город</option></select><br>");
     // $("#send").text("Введите все данные.......");
@@ -18,23 +19,28 @@ $(function(){
                 dataType: "JSON",
                 data: formdata,
                 success: function (data) {
-                    // $("#detale").html(data);
-                    
                     $('#selectTerritory').val(selectTerritory);
-                     
-                   var option='';
-                   option = '<br><select id="selectRayons" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
-                    for (var key in data){
-                      option+= '<option value="'+data[key]+'">'+data[key]+'</option>';
-                    }
-                   option+='</select><br>';
-                    $("#detale").html(option);
-                    
-                    
-                    // $("#detale").append('<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете район</option> <option value="'+data+'">'+data+'</option> </select> <br>');
-                    
                     $('#selectRayons').val(selectRayons);
                     $('#selectTowns').val(selectTowns);
+                    
+            if(data.towns==undefined) {
+                var optionRayons = '';
+                optionRayons = '<br><select id="selectRayons" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
+                for (var key in data.rayons) {
+                    optionRayons += '<option value="' + data.rayons[key] + '">' + data.rayons[key] + '</option>';
+                }
+                optionRayons += '</select><br>';
+                $("#detale").html(optionRayons);
+            }
+            else {
+                var optionTowns = '';
+                optionTowns = '<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете район</option>';
+                for (var town in data.towns) {
+                    optionTowns += '<option value="' + data.towns[town] + '">' + data.towns[town] + '</option>'
+                }
+                optionTowns += '</select><br>';
+                $("#detale").html(optionTowns);
+            }
                 }
             })
         

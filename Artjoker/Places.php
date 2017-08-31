@@ -48,7 +48,7 @@ class Places extends Entyty
                          $ter= htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
                         $json["$ter"]=$ter;
                     } ;
-        echo json_encode($json);
+        return $json;
     }
     
     public function qualiTawns($territory,$terrytoryStr)
@@ -71,7 +71,7 @@ class Places extends Entyty
             $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
             $json["$ter"]=$ter;
         } ;
-         echo json_encode($json);
+         return $json;
     }
     
     public function qualiTawnsRayons($territory,$terrytoryStr)
