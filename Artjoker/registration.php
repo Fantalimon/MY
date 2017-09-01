@@ -10,8 +10,9 @@ include_once 'autoload.php';
     $name = isset($_POST['name']) ? htmlspecialchars(strip_tags(trim($_POST['name']))) : '';
     $email = isset($_POST['email']) ? htmlspecialchars(strip_tags(trim($_POST['email']))) : '';
     $Territory = isset($_POST['Territory']) ? htmlspecialchars(strip_tags(trim($_POST['Territory']))) : '';
-    $Rayons = isset($_POST['Rayons']) ? htmlspecialchars(strip_tags(trim($_POST['Rayons']))) : '';
     $Towns = isset($_POST['Towns']) ? htmlspecialchars(strip_tags(trim($_POST['Towns']))) : '';
+    $Rayons = isset($_POST['Rayons']) ? htmlspecialchars(strip_tags(trim($_POST['Rayons']))) : '';
+    $SMT = isset($_POST['SMT']) ? htmlspecialchars(strip_tags(trim($_POST['SMT']))) : '';
 
     $hintingTerrytory=mb_substr($Territory, 0,2);
 
@@ -22,15 +23,22 @@ $notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
 $response=[];
     if ($Territory)
     {
-      $response['rayons']=$Hint->qualiRayons($Territory) ;
+        $response['towns']=$Hint->qualiTowns($Territory);
+    }
+    if($Rayons)
+    {
+        $response['rayons']=$Hint->qualiRayons($Territory) ;
     }
     if($Rayons and $hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
     {
-       $response['towns']=$Hint->qualiTawns($Territory, $Rayons);
+        $response['smt']=$Hint->qualiSMT($Territory, $Rayons);
     }
 
+    
+    
+    
+    
 echo json_encode($response);
-
 
 if(!$name or !$email or !$Territory or !$Rayons or !$Towns or !filter_var($email, FILTER_VALIDATE_EMAIL)) {die();}
 else {

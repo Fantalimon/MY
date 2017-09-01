@@ -30,7 +30,27 @@ class Places extends Entyty
      
     }
     
-    public function qualiRayons($territory)
+    public function qualiTowns($territory)
+    {
+        $territory=mb_substr($territory, 0,2);
+        $territory=(int)$territory;
+        $territory=$this->clean($territory);
+        $territory=$this->escape($territory);
+        
+        $db = DB::getInstance();
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id = 1";
+        
+        $result=$db->query($query);
+        if (!$result) {die($db->error);}
+        $json=[];
+        while($row = $result->fetch_assoc()){
+            $ter= htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+            $json["$ter"]=$ter;
+        } ;
+        return $json;
+    }
+    
+    public function qualiRayonsTowns($territory)
     {
         $territory=mb_substr($territory, 0,2);
         $territory=(int)$territory;
@@ -39,7 +59,7 @@ class Places extends Entyty
         
         
         $db = DB::getInstance();
-        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id BETWEEN 2 and 3";
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id = 3";
         
         $result=$db->query($query);
         if (!$result) {die($db->error);}
@@ -51,7 +71,28 @@ class Places extends Entyty
         return $json;
     }
     
-    public function qualiTawns($territory,$terrytoryStr)
+    public function qualiRayons($territory)
+    {
+        $territory=mb_substr($territory, 0,2);
+        $territory=(int)$territory;
+        $territory=$this->clean($territory);
+        $territory=$this->escape($territory);
+        
+        
+        $db = DB::getInstance();
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id = 2";
+        
+        $result=$db->query($query);
+        if (!$result) {die($db->error);}
+        $json=[];
+        while($row = $result->fetch_assoc()){
+            $ter= htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+            $json["$ter"]=$ter;
+        } ;
+        return $json;
+    }
+    
+    public function qualiSMT($territory,$terrytoryStr)
     {
         $territory=(int)$territory;
         $territory=$this->clean($territory);
@@ -92,4 +133,9 @@ class Places extends Entyty
         $row = $result->num_rows;
         return $row;
     }
+
+
+//SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id  FROM t_koatuu_tree where reg_id  = 26 and ter_type_id =1 ;
+
+
 }
