@@ -3,24 +3,26 @@ $(function(){
     
   
     var form = $("#myForm");
-
-    // $("#detale").append("<br><select id='selectRayons' disabled><option value=''>Выберете район</option></select><br>");
-    // $("#detale").append("<br><select id='selectTowns' disabled><option value=''>Выберете город</option></select><br>");
-    // $("#send").text("Введите все данные.......");
-    //
+    $("#send").text("Введите все данные.......");
     form.change(function (){
      var selectTerritory = $('#selectTerritory').val(),
           selectRayons = $('#selectRayons').val(),
            selectTowns = $('#selectTowns').val(),
+            inputName = $('#inputName').val(),
+         inputMail = $('#inputMail').val(),
             formdata=$("#myForm").serialize();
+     if (inputName && inputMail && selectTerritory && selectRayons && selectTowns !=''){
+         $('#send').text('Зарегестрировать');
+     }
             $.ajax({
                 type: "POST",
                 url: "registration.php",
                 dataType: "JSON",
                 data: formdata,
                 success: function (data) {
-                    $('#selectTerritory').val(selectTerritory);
-            
+                    
+              $('#selectTerritory').val(selectTerritory);
+                    
             if(data.rayons) {
                 var optionRayons = '';
                 optionRayons = '<br><select id="selectRayons" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
@@ -34,7 +36,7 @@ $(function(){
             
            if(data.towns) {
                 var optionTowns = '';
-                optionTowns = '<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете район</option>';
+                optionTowns = '<br><select id="selectTowns" name="Towns" title="Выберете город"> <option value="">Выберете город</option>';
                 
                 for (var town in data.towns) {
                     optionTowns += '<option value="' + data.towns[town] + '">' + data.towns[town] + '</option>'
@@ -44,26 +46,33 @@ $(function(){
                   $('#selectTowns').val(selectTowns);
             }
             
-            
                 }
             })
-        
 });
     
     
-    var button=$("#send");
-    button.click(function (){
-       var mydata = $("#myForm").serializeArray();
-        $.ajax({
-            type: "POST",
-            url: "registration.php",
-            data: mydata,
-            cache:false,
-            success: function () {
-                $("<h1>Данные успешно отправлены</h1>").replaceAll("#yes");
-            }
-        });
-    });
+    //
+    // $("#send").click(function (){
+    //     $('#myForm').find('input, select').each(function () {
+    //         if ($(this).val()==''){
+    //             $('#yes').text('заполните поля '+$(this).attr('title')+'!');
+    //         }
+    //     });
+    //    var mydata = $("#myForm").serialize();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "registration.php",
+    //         data: mydata,
+    //         cache:false,
+    //         success: function () {
+    //             $("<h1>Данные успешно отправлены</h1>").appendTo("#yes");
+    //         },
+    //         error: function(xhr, ajaxOptions, thrownError) {
+    //             alert(xhr.status);
+    //             alert(thrownError);
+    //         }
+    //     });
+    // });
 
     
 });

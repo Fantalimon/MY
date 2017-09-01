@@ -13,7 +13,7 @@ $plase=new Places();
     
     <title>form</title>
 <script src="js/jquery-3.2.1.js"></script>
-<!--    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>-->
+    
 </head>
 <body>
 <form id="myForm"  method="post" action=" ">
