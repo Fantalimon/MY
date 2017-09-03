@@ -22,8 +22,20 @@ $(function(){
                 success: function (data) {
                     
               $('#selectTerritory').val(selectTerritory);
-                    
-             if(data.rayons) {
+    
+                    if(data.towns) {
+                        var optionTowns = '';
+                        optionTowns = '<br><select id="selectTowns" class="chosen-rtl" name="Towns" title="Выберете город"> <option value="">Выберете город</option>';
+                        for (var town in data.towns) {
+                            optionTowns += '<option value="' + data.towns[town] + '">' + data.towns[town] + '</option>';
+                        }
+                        optionTowns += '</select><br>';
+                        $("#detaleTowns").html(optionTowns);
+                        $('#selectTowns').val(selectTowns);
+                    }
+    
+    
+                    if(data.rayons) {
                 var optionRayons = '';
                 optionRayons = '<br><select id="selectRayons" class="chosen-rtl" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
                 for (var rayon in data.rayons) {
@@ -33,18 +45,7 @@ $(function(){
                 $("#detaleRayons").html(optionRayons);
                 $('#selectRayons').val(selectRayons);
             }
-            
-            if(data.towns) {
-                var optionTowns = '';
-                optionTowns = '<br><select id="selectTowns" class="chosen-rtl" name="Towns" title="Выберете город"> <option value="">Выберете город</option>';
-                for (var town in data.towns) {
-                    optionTowns += '<option value="' + data.towns[town] + '">' + data.towns[town] + '</option>';
-                }
-                optionTowns += '</select><br>';
-                $("#detaleTowns").html(optionTowns);
-                $('#selectTowns').val(selectTowns);
-            }
-            
+                    
            if(data.smt) {
                 var optionSMT = '';
                 optionSMT = '<br><select id="selectSMT" class="chosen-rtl" name="SMT" title="Выберете СМТ"> <option value="">Выберете СМТ</option>';
