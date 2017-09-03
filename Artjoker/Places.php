@@ -50,16 +50,18 @@ class Places extends Entyty
         return $json;
     }
     
-    public function qualiRayonsTowns($territory)
+    public function qualiRayonsTowns($territory,$terrytoryStr)
     {
         $territory=mb_substr($territory, 0,2);
         $territory=(int)$territory;
         $territory=$this->clean($territory);
         $territory=$this->escape($territory);
-        
+        $terrytoryStr=(string)$terrytoryStr;
+        $terrytoryStr=$this->clean($terrytoryStr);
+        $terrytoryStr=$this->escape($terrytoryStr);
         
         $db = DB::getInstance();
-        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id = 3";
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id = 3";
         
         $result=$db->query($query);
         if (!$result) {die($db->error);}
