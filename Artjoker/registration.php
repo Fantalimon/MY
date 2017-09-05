@@ -27,7 +27,7 @@ $response=[];
     }
     if($Towns)
     {
-        $response['rayons']=$Hint->qualiRayonsTowns($Territory,$Towns);
+        $response['rayons']=$Hint->qualiRayons($Territory);
     }
     if($Rayons and $hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
     {

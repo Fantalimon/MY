@@ -38,7 +38,7 @@ class Places extends Entyty
         $territory=$this->escape($territory);
         
         $db = DB::getInstance();
-        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id = 1";
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND t_koatuu_tree.ter_type_id =1";
         
         $result=$db->query($query);
         if (!$result) {die($db->error);}
@@ -61,7 +61,7 @@ class Places extends Entyty
         $terrytoryStr=$this->escape($terrytoryStr);
         
         $db = DB::getInstance();
-        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%' AND t_koatuu_tree.ter_type_id = 3";
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id FROM t_koatuu_tree where reg_id  = ".$territory." AND ter_address LIKE '%".$terrytoryStr."%'AND ( ter_type_id = 3 OR ter_type_id >3)";
         
         $result=$db->query($query);
         if (!$result) {die($db->error);}

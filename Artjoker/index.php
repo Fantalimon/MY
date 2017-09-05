@@ -32,7 +32,6 @@ $plase=new Places();
             <?php  $plase->getReg_id(); ?>
           </select>
         <br/>
-
         <div id="detaleTowns"></div>
         <div id="detaleRayons"></div>
         <div id="detaleSMT"></div>
