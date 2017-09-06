@@ -33,6 +33,7 @@ $plase=new Places();
           </select>
         <br/>
         <div id="detaleTowns"></div>
+        <div id="detaleRayonsTowns"></div>
         <div id="detaleRayons"></div>
         <div id="detaleSMT"></div>
         

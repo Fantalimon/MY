@@ -6,6 +6,7 @@ $(function(){
     form.change(function (){
      var selectTerritory = $('#selectTerritory').val(),
           selectRayons = $('#selectRayons').val(),
+          selectRayonsTowns = $('#selectRayonsTowns').val(),
            selectTowns = $('#selectTowns').val(),
             selectSMT = $('#selectSMT').val(),
              inputName = $('#inputName').val(),
@@ -35,7 +36,18 @@ $(function(){
                     }
     
     
-                    if(data.rayons) {
+                    if(data.rayons_towns) {
+                var optionRayonsTowns = '';
+                        optionRayonsTowns = '<br><select id="selectRayonsTowns" class="chosen-rtl" name="RayonsTowns" title="Выберете район"> <option value="">Выберете район</option>';
+                for (var rayon in data.rayons_towns) {
+                    optionRayonsTowns += '<option value="' + data.rayons_towns[rayon] + '">' + data.rayons_towns[rayon] + '</option>';
+                }
+                        optionRayonsTowns += '</select><br>';
+                $("#detaleRayonsTowns").html(optionRayonsTowns);
+                $('#selectRayonsTowns').val(selectRayonsTowns);
+            }
+            
+            if(data.rayons) {
                 var optionRayons = '';
                 optionRayons = '<br><select id="selectRayons" class="chosen-rtl" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
                 for (var rayon in data.rayons) {
@@ -48,7 +60,7 @@ $(function(){
                     
            if(data.smt) {
                 var optionSMT = '';
-                optionSMT = '<br><select id="selectSMT" class="chosen-rtl" name="SMT" title="Выберете СМТ"> <option value="">Выберете СМТ</option>';
+                optionSMT = '<br><select id="selectSMT" class="chosen-rtl" name="SMT" title="Выберете Село, СМТ, или Деревню"> <option value="">Выберете Село, СМТ, или Деревню</option>';
                 for (var smt in data.smt) {
                     optionSMT += '<option value="' + data.smt[smt] + '">' + data.smt[smt] + '</option>'
                 }

@@ -4,6 +4,7 @@ include_once 'autoload.php';
     $name='';
     $email='';
     $Territory='';
+    $RayonsTowns='';
     $Rayons='';
     $Towns='';
 
@@ -11,6 +12,7 @@ include_once 'autoload.php';
     $email = isset($_POST['email']) ? htmlspecialchars(strip_tags(trim($_POST['email']))) : '';
     $Territory = isset($_POST['Territory']) ? htmlspecialchars(strip_tags(trim($_POST['Territory']))) : '';
     $Towns = isset($_POST['Towns']) ? htmlspecialchars(strip_tags(trim($_POST['Towns']))) : '';
+    $RayonsTowns = isset($_POST['RayonsTowns']) ? htmlspecialchars(strip_tags(trim($_POST['RayonsTowns']))) : '';
     $Rayons = isset($_POST['Rayons']) ? htmlspecialchars(strip_tags(trim($_POST['Rayons']))) : '';
     $SMT = isset($_POST['SMT']) ? htmlspecialchars(strip_tags(trim($_POST['SMT']))) : '';
 
@@ -18,21 +20,42 @@ include_once 'autoload.php';
 
     $Hint=new Places();
 
-$notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
+//$notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
 
 $response=[];
-    if ($Territory)
-    {
-        $response['towns']=$Hint->qualiTowns($Territory);
+
+if($Territory){
+    $response['towns']=$Hint->qualiTowns($Territory);
+    if($Towns){
+        $response['rayons_towns']=$Hint->qualiRayonsTowns($Territory, $Towns);
     }
-    if($Towns)
-    {
-        $response['rayons']=$Hint->qualiRayons($Territory);
+    $response['rayons']=$Hint->qualiRayons($Territory);
+    if($Rayons){
+        $response['smt']=$Hint->qualiSMT($Territory,$Rayons);
     }
-    if($Rayons and $hintingTerrytory!=='80' and $hintingTerrytory!=='85' and $notRayonsTowns!=1)
-    {
-        $response['smt']=$Hint->qualiSMT($Territory, $Rayons);
-    }
+}
+
+
+//    if ($Territory)
+//    {
+//        $response['towns']=$Hint->qualiTowns($Territory);
+//    }
+//    if($Towns)
+//    {
+//        $response['rayons']=$Hint->qualiRayonsTowns($Territory, $Towns);
+//    }
+//    if (empty($Towns)){
+//        $response['rayons']=$Hint->qualiRayons($Territory);
+//    }
+//    if($Rayons){
+//        $response['smt']=$Hint->qualiSMT($Territory,$Rayons);
+   
+//    if($hintingTerrytory =='80' or $hintingTerrytory =='85' )
+//    {
+//    $response['rayons']=$Hint->qualiTawnsRayons($hintingTerrytory);
+//    }
+    
+    // TODO: Сделать поиск по районам в зависимости от выбора города или выбора района области.
 
 echo json_encode($response);
     
