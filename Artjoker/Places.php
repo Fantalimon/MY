@@ -122,18 +122,16 @@ class Places extends Entyty
         $territory=(int)$territory;
         $territory=$this->clean($territory);
         $territory=$this->escape($territory);
-    
-        
         $db = DB::getInstance();
-        $query="SELECT ter_type_id  FROM t_koatuu_tree where reg_id  = ".$territory."  AND t_koatuu_tree.ter_type_id = 3";
+        $query="SELECT ter_name,ter_address,ter_type_id,ter_level,ter_mask,reg_id  FROM t_koatuu_tree where reg_id  = ".$territory."  AND t_koatuu_tree.ter_type_id = 3";
         
    $result=$db->query($query);
-     
         if (!$result) {die($db->error);}
-        $row = $result->num_rows;
-        return $row;
+        $json=[];
+        while($row = $result->fetch_assoc()){
+            $ter= htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+            $json["$ter"]=$ter;
+        } ;
+        return $json;
     }
-    
-
-
 }

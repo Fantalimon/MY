@@ -1,5 +1,6 @@
 <?php
 include_once 'autoload.php';
+session_start();
 
     $name='';
     $email='';
@@ -16,50 +17,38 @@ include_once 'autoload.php';
     $Rayons = isset($_POST['Rayons']) ? htmlspecialchars(strip_tags(trim($_POST['Rayons']))) : '';
     $SMT = isset($_POST['SMT']) ? htmlspecialchars(strip_tags(trim($_POST['SMT']))) : '';
 
-    $hintingTerrytory=mb_substr($Territory, 0,2);
+   
 
     $Hint=new Places();
 
-//$notRayonsTowns=$Hint->qualiTawnsRayons($Territory, $Rayons);
-
 $response=[];
 
+
+
 if($Territory){
+    
+    $hintingTerrytory=mb_substr($Territory, 0,2);
+    
     $response['towns']=$Hint->qualiTowns($Territory);
+    $response['rayons']=$Hint->qualiRayons($Territory);
+    
+    if($hintingTerrytory =='80' or $hintingTerrytory =='85' ) {
+        $response['rayons_towns']=$Hint->qualiTawnsRayons($hintingTerrytory);
+        $response['towns']=null;
+        $response['rayons']=null;
+    }
     if($Towns){
         $response['rayons_towns']=$Hint->qualiRayonsTowns($Territory, $Towns);
     }
-    $response['rayons']=$Hint->qualiRayons($Territory);
     if($Rayons){
         $response['smt']=$Hint->qualiSMT($Territory,$Rayons);
     }
 }
 
-
-//    if ($Territory)
-//    {
-//        $response['towns']=$Hint->qualiTowns($Territory);
-//    }
-//    if($Towns)
-//    {
-//        $response['rayons']=$Hint->qualiRayonsTowns($Territory, $Towns);
-//    }
-//    if (empty($Towns)){
-//        $response['rayons']=$Hint->qualiRayons($Territory);
-//    }
-//    if($Rayons){
-//        $response['smt']=$Hint->qualiSMT($Territory,$Rayons);
-   
-//    if($hintingTerrytory =='80' or $hintingTerrytory =='85' )
-//    {
-//    $response['rayons']=$Hint->qualiTawnsRayons($hintingTerrytory);
-//    }
-    
-    // TODO: Сделать поиск по районам в зависимости от выбора города или выбора района области.
-
 echo json_encode($response);
     
-//
+// TODO: todo jQuery viev contol select menu.
+
 //if(!$name or !$email or !$Territory or !$Rayons or !$Towns or !filter_var($email, FILTER_VALIDATE_EMAIL)) {die();}
 //else {
 //    $userData = [

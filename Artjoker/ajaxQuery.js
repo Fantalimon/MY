@@ -38,7 +38,7 @@ $(function(){
     
                     if(data.rayons_towns) {
                 var optionRayonsTowns = '';
-                        optionRayonsTowns = '<br><select id="selectRayonsTowns" class="chosen-rtl" name="RayonsTowns" title="Выберете район"> <option value="">Выберете район</option>';
+                        optionRayonsTowns = '<br><select id="selectRayonsTowns" class="chosen-rtl" name="RayonsTowns" title="Выберете район Города"> <option value="">Выберете район Города</option>';
                 for (var rayon in data.rayons_towns) {
                     optionRayonsTowns += '<option value="' + data.rayons_towns[rayon] + '">' + data.rayons_towns[rayon] + '</option>';
                 }
@@ -49,7 +49,7 @@ $(function(){
             
             if(data.rayons) {
                 var optionRayons = '';
-                optionRayons = '<br><select id="selectRayons" class="chosen-rtl" name="Rayons" title="Выберете район"> <option value="">Выберете район</option>';
+                optionRayons = '<br><select id="selectRayons" class="chosen-rtl" name="Rayons" title="Выберете район Области"> <option value="">Выберете район Области</option>';
                 for (var rayon in data.rayons) {
                     optionRayons += '<option value="' + data.rayons[rayon] + '">' + data.rayons[rayon] + '</option>';
                 }
@@ -60,7 +60,7 @@ $(function(){
                     
            if(data.smt) {
                 var optionSMT = '';
-                optionSMT = '<br><select id="selectSMT" class="chosen-rtl" name="SMT" title="Выберете Село, СМТ, или Деревню"> <option value="">Выберете Село, СМТ, или Деревню</option>';
+                optionSMT = '<br><select id="selectSMT" class="chosen-rtl" name="SMT" title="Выберете ПГТ,Село,Деревню"> <option value="">Выберете ПГТ,Село,Деревню</option>';
                 for (var smt in data.smt) {
                     optionSMT += '<option value="' + data.smt[smt] + '">' + data.smt[smt] + '</option>'
                 }

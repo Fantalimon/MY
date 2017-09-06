@@ -36,7 +36,6 @@ $plase=new Places();
         <div id="detaleRayonsTowns"></div>
         <div id="detaleRayons"></div>
         <div id="detaleSMT"></div>
-        
         <br/>
         <button id="send"  title="Отправить данные" >Зарегистрировать</button>
         <br/>
