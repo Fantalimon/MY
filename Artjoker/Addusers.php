@@ -55,7 +55,7 @@ class Addusers extends Entyty implements Serializable
      */
     public function setName($name)
     {
-        $this-> name = $name;
+        $this->name = $name;
         return $this;
     }
     

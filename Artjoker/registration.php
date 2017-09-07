@@ -1,6 +1,5 @@
 <?php
 include_once 'autoload.php';
-session_start();
 
     $name='';
     $email='';
@@ -19,12 +18,9 @@ session_start();
 
    
 
-    $Hint=new Places();
+$Hint=new Places();
 
 $response=[];
-
-
-
 if($Territory){
     
     $hintingTerrytory=mb_substr($Territory, 0,2);
@@ -44,28 +40,10 @@ if($Territory){
         $response['smt']=$Hint->qualiSMT($Territory,$Rayons);
     }
 }
-
 echo json_encode($response);
     
-// TODO: todo jQuery viev contol select menu.
 
-//if(!$name or !$email or !$Territory or !$Rayons or !$Towns or !filter_var($email, FILTER_VALIDATE_EMAIL)) {die();}
-//else {
-//    $userData = [
-//        'name' => $name,
-//        'email' => $email,
-//        'territory' => $Territory.' '.$Rayons.' '.$Towns
-//    ];
-//    $user = new Addusers($userData);
-//    $result=$user->getByEmail();
-//    if ($email !== $result['email']){$save=$user->save();}
-//    else{
-//        echo "Уже есть такой пользователь"."<br>";
-//        foreach ($result as $key=>$value){
-//            echo $key.' /--> '.$value."<br>";
-//        }
-//    }
-//}
+
 
  
 

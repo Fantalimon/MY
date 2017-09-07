@@ -8,6 +8,7 @@ $plase=new Places();
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     
     <title>form</title>
@@ -41,7 +42,6 @@ $plase=new Places();
         <br/>
     </fieldset>
 </form>
-
 <div id="yes"></div>
 
 <script src="ajaxQuery.js"></script>

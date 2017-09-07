@@ -1,5 +1,5 @@
-
-$(function(){
+    (function($,undefined){
+    $(function(){
     
     var form = $("#myForm");
     $("#send").text("Введите все данные.......");
@@ -12,9 +12,7 @@ $(function(){
              inputName = $('#inputName').val(),
              inputMail = $('#inputMail').val(),
             formdata=$("#myForm").serialize();
-     if (inputName && inputMail && selectTerritory && selectRayons && selectTowns && selectSMT !=''){
-         $('#send').text('Зарегестрировать');
-     }
+        
             $.ajax({
                 type: "POST",
                 url: "registration.php",
@@ -24,7 +22,7 @@ $(function(){
                     
               $('#selectTerritory').val(selectTerritory);
     
-                    if(data.towns) {
+                        if(data.towns) {
                         var optionTowns = '';
                         optionTowns = '<br><select id="selectTowns" class="chosen-rtl" name="Towns" title="Выберете город"> <option value="">Выберете город</option>';
                         for (var town in data.towns) {
@@ -34,7 +32,6 @@ $(function(){
                         $("#detaleTowns").html(optionTowns);
                         $('#selectTowns').val(selectTowns);
                     }
-    
     
                     if(data.rayons_towns) {
                 var optionRayonsTowns = '';
@@ -46,8 +43,8 @@ $(function(){
                 $("#detaleRayonsTowns").html(optionRayonsTowns);
                 $('#selectRayonsTowns').val(selectRayonsTowns);
             }
-            
-            if(data.rayons) {
+                    
+               if(data.rayons) {
                 var optionRayons = '';
                 optionRayons = '<br><select id="selectRayons" class="chosen-rtl" name="Rayons" title="Выберете район Области"> <option value="">Выберете район Области</option>';
                 for (var rayon in data.rayons) {
@@ -71,39 +68,62 @@ $(function(){
             
                 }
             })
-});
-    
-    
-    //
-    // $("#send").click(function (){
-    //     $('#myForm').find('input, select').each(function () {
-    //         if ($(this).val()==''){
-    //             $('#yes').text('заполните поля '+$(this).attr('title')+'!');
-    //         }
-    //     });
-    //    var mydata = $("#myForm").serialize();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "registration.php",
-    //         data: mydata,
-    //         cache:false,
-    //         success: function () {
-    //             $("<h1>Данные успешно отправлены</h1>").appendTo("#yes");
-    //         },
-    //         error: function(xhr, ajaxOptions, thrownError) {
-    //             alert(xhr.status);
-    //             alert(thrownError);
-    //         }
-    //     });
-    // });
-
-    
-});
-
-
+    });
   
 
+    $("#send").click(function (e){
+        e.preventDefault();
+        $('#send').text('Зарегестрировать');
+       var mydata = $("#myForm").serialize();
+        $.ajax({
+            type: "POST",
+            url: "add.php",
+            dataType: "JSON",
+            data: mydata,
+            cache:false,
+            success: function (data) {
+                $("<h1>Данные успешно отправлены</h1>").appendTo("#yes");
+                $('input, select').val('');
+                
+                if (data.newUser){
+                    var newUser='';
+                    newUser+='<h1>Ура новый пользователь</h1>'
+                    newUser+='<p>';
+                    for( var i=0 in data.newUser){
+                        newUser+=data.newUser[i]+'<br>';
+                    };
+                    newUser+='</p>';
+                    $('#yes').html(newUser);
+                }
+                
+                if(data.oldUser){
+                    var oldUser='';
+                    oldUser+='<h1>Уже есть такой пользователь</h1>'
+                    oldUser+='<p>';
+                    for( var y=0 in data.oldUser){
+                        oldUser+=data.oldUser[y]+'<br>';
+                    };
+                    oldUser+='</p>';
+                    $('#yes').html(oldUser);
+                }
+                
+            }
+        });
+    });
+
     
+    });
+    
+    })(jQuery);
+
+
+// $('#myForm').find('input, select').each(function () {
+//     if ($(this).val()==''){
+//         $('#yes').text('заполните поля '+$(this).attr('title')+'!');
+//     }
+// });
+
+
 /*
     $("#myForm").submit(function() {
         var form = $(this);
