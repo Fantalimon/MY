@@ -19,7 +19,7 @@ $Rayons = isset($_POST['Rayons']) ? htmlspecialchars(strip_tags(trim($_POST['Ray
 $SMT = isset($_POST['SMT']) ? htmlspecialchars(strip_tags(trim($_POST['SMT']))) : '';
 
 
-if (($name and $email and $Territory ) == '') {
+if ((($name and $email and $Territory ) == '')or !filter_var($email,FILTER_VALIDATE_EMAIL)) {
     die();
 } else {
     $userData = [
