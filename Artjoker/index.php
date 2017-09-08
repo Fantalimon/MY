@@ -28,7 +28,7 @@ $plase=new Places();
         <input id="inputMail" type="text" title="почта" name="email" placeholder="ваша почта" />
         <br/>
         <br/>
-          <select id="selectTerritory" class="chosen-rtl" title="Выберите область"  name="Territory"  >
+          <select id="selectTerritory" class="chosen-select" title="Выберите область"  name="Territory"  >
               <option value="">Выберете область</option>
             <?php  $plase->getReg_id(); ?>
           </select>
