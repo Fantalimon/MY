@@ -3,6 +3,7 @@
 include_once 'autoload.php';
 
 $plase=new Places();
+$auto=new Autovalidator();
 
 ?>
 
@@ -30,7 +31,7 @@ $plase=new Places();
         <br/>
           <select id="selectTerritory" class="chosen-select" title="Выберите область"  name="Territory"  >
               <option value="">Выберете область</option>
-            <?php  $plase->getReg_id(); ?>
+            <?php $plase->getReg_id(); ?>
           </select>
         <br/>
         <div id="detaleTowns"></div>
@@ -43,6 +44,58 @@ $plase=new Places();
     </fieldset>
 </form>
 <div id="yes"></div>
+
+<?php
+
+$i=0;
+$a=0;
+$arr=[];
+$auto->getReg();
+
+$now = date("Y-m-d H:i:s");
+echo $now."<br>";
+
+function restart($x,$now)
+{
+    if($x<5){
+        $next= $now + date('s',20);
+        echo ' '.$next."<br>";
+        restart($x+1);
+    };
+};
+restart(0);
+
+    /*$start = microtime(true);
+    while ($i < 2) {
+        
+        $auto->getTer();
+        $name = $auto->Autoname();
+        $mail = $auto->Autoemail() . '@' . $auto->Autodomen() . '.' . $auto->Autoheaddomen();
+        $plase = $auto->AutoqualiOblast() . ' ' . $auto->AutoqualiTowns() . ' ' . $auto->AutoqualiRayons();
+        
+        $arr[$i] = [
+            'name' => $name,
+            'email' => $mail,
+            'territory' => $plase
+        ];
+        $i++;
+    }
+    
+    $end = microtime(true);
+    echo "генирация: " . ($end - $start) . "<br/>";
+    
+    $start2 = microtime(true);
+    foreach ($arr as $key) {
+        $user = new Addusers($key);
+        $user->save();
+    }
+    $end2 = microtime(true);
+    echo "перебор: " . ($end2 - $start2) . "<br/>";
+
+*/
+
+
+?>
 
 <script src="ajaxQuery.js"></script>
 </body>
