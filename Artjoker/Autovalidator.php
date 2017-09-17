@@ -67,54 +67,50 @@ class Autovalidator extends Entyty
         
         return $oblast;
     }
-    
-    public function AutoqualiTowns()
+
+    public function count()
     {
-        $territory=$this->territor;
-        
+
         $db = DB::getInstance();
-        $query = "SELECT ter_name,ter_type_id,reg_id FROM t_koatuu_tree where reg_id  = "
-            . $territory . " AND t_koatuu_tree.ter_type_id =1";
-        
+        $query = "SELECT COUNT(*) FROM users ";
+
         $result = $db->query($query);
         if (!$result) {
             die($db->error);
         }
-        $towns = [];
         while ($row = $result->fetch_assoc()) {
-            $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
-            $towns[] = $ter;
+            $ter = htmlspecialchars($row['COUNT(*)'], ENT_QUOTES, 'UTF-8');
         };
-        $town=$this->escape($this->clean($towns[mt_rand(0, count($towns) - 1)]));
-        return $town;
+        return $ter;
     }
-    
-    public function AutoqualiRayons()
-    {
-        $territory=$this->territor;
-        $db = DB::getInstance();
-        
-        $query = "SELECT ter_name,ter_type_id,reg_id FROM t_koatuu_tree where reg_id  = "
-            . $territory . " AND t_koatuu_tree.ter_type_id = 2";
-        
-        $result = $db->query($query);
-        if (!$result) {
-            die($db->error);
-        }
-        $rayons = [];
-        while ($row = $result->fetch_assoc()) {
-            $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
-            $rayons[] = $ter;
-        };
-        $rayon=$this->escape($this->clean($rayons[mt_rand(0, count($rayons) - 1)]));
-        return $rayon;
-    }
-    
+
+//    public function AutoqualiRayons()
+//    {
+//        $territory=$this->territor;
+//        $db = DB::getInstance();
+//
+//        $query = "SELECT ter_name,ter_type_id,reg_id FROM t_koatuu_tree where reg_id  = "
+//            . $territory . " AND t_koatuu_tree.ter_type_id = 2";
+//
+//        $result = $db->query($query);
+//        if (!$result) {
+//            die($db->error);
+//        }
+//        $rayons = [];
+//        while ($row = $result->fetch_assoc()) {
+//            $ter = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+//            $rayons[] = $ter;
+//        };
+//        $rayon=$this->escape($this->clean($rayons[mt_rand(0, count($rayons) - 1)]));
+//        return $rayon;
+//    }
+//
     public function UnionSelect()
     {
         $territory=$this->territor;
         $db = DB::getInstance();
-        
+//        $start = microtime(true);
+    
         $query = "
 SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory."
 AND `ter_type_id` = 0 AND `ter_pid` <=> NULL
@@ -122,13 +118,22 @@ union
 SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory." AND `ter_type_id` =1
 union
 SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory." AND `ter_type_id`= 2";
-        
+    
+//        $end = microtime(true);
+//        $time = ($end - $start);
+//        $hour = floor($time / 3600);
+//        $min = floor(($time % 3600) / 60);
+//        $sec = ($time % 3600) / 60;
+      
+//        echo "генирация: " .$time. "<br/>";
+    
         $result = $db->query($query);
         if (!$result) {
             die($db->error);
         }
         
         $rayons = [];
+//        $start2 = microtime(true);
         while ($row = $result->fetch_assoc()) {
             
             if ($row['ter_type_id'] == 0) {
@@ -142,6 +147,8 @@ SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = 
                 $rayons['ter_ray'][] = $z;
             }
         }
+//        $end2 = microtime(true);
+//        echo "перебор: " . ($end2 - $start2) . "<br/>";
         
         $rayon = $rayons['ter'][mt_rand(0, count($rayons['ter']) - 1)] . ' ' . $rayons['ter_town'][mt_rand(
                 0, count($rayons['ter_town']) - 1

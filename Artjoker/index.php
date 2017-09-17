@@ -47,9 +47,9 @@ $auto=new Autovalidator();
 
 <?php
 
-$i=0;
-$a=0;
-$arr=[];
+$i = 0;
+$a = 0;
+$arr = [];
 $auto->getReg();
 
 
@@ -67,30 +67,27 @@ $auto->getReg();
 //};
 //
 //restart(0);
-
-  $start = microtime(true);
-    while ($i < 10) {
-
+while ($a < 100) {
+    $start = microtime(true);
+    
+    while ($i < 100) {
+        
         $auto->getTer();
         $name = $auto->Autoname();
         $mail = $auto->Autoemail() . '@' . $auto->Autodomen() . '.' . $auto->Autoheaddomen();
         $plase = $auto->UnionSelect();
-
+        
         $arr[$i] = [
             'name' => $name,
             'email' => $mail,
-            'territory' => $plase
+            'territory' => $plase,
         ];
         $i++;
     }
-
+    
     $end = microtime(true);
-    $time=($end - $start);
-   $hour=floor($time/3600);
-    $min=floor(($time%3600)/60);
-      $sec=($time%3600)/60;
-   
-    echo "генирация: " .$hour.':'.$min.':'.$sec."<br/>";
+    $time = ($end - $start);
+    echo "генирация: " . $time . "<br/>";
     
     $start2 = microtime(true);
     foreach ($arr as $key) {
@@ -99,10 +96,11 @@ $auto->getReg();
     }
     $end2 = microtime(true);
     echo "перебор: " . ($end2 - $start2) . "<br/>";
-
-
-
-
+    $arr[]=null;
+    sleep(5);
+    $a++;
+}
+echo 'В базе вот столько записей'.$auto->count();
 ?>
 
 <script src="ajaxQuery.js"></script>
