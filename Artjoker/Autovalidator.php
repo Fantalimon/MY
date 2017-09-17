@@ -110,7 +110,45 @@ class Autovalidator extends Entyty
         return $rayon;
     }
     
-    
+    public function UnionSelect()
+    {
+        $territory=$this->territor;
+        $db = DB::getInstance();
+        
+        $query = "
+SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory."
+AND `ter_type_id` = 0 AND `ter_pid` <=> NULL
+union
+SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory." AND `ter_type_id` =1
+union
+SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory." AND `ter_type_id`= 2";
+        
+        $result = $db->query($query);
+        if (!$result) {
+            die($db->error);
+        }
+        
+        $rayons = [];
+        while ($row = $result->fetch_assoc()) {
+            
+            if ($row['ter_type_id'] == 0) {
+                $x = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+                $rayons['ter'][] = $x;
+            } elseif ($row['ter_type_id'] == 1) {
+                $y = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+                $rayons['ter_town'][] = $y;
+            } elseif ($row['ter_type_id'] == 2) {
+                $z = htmlspecialchars($row['ter_name'], ENT_QUOTES, 'UTF-8');
+                $rayons['ter_ray'][] = $z;
+            }
+        }
+        
+        $rayon = $rayons['ter'][mt_rand(0, count($rayons['ter']) - 1)] . ' ' . $rayons['ter_town'][mt_rand(
+                0, count($rayons['ter_town']) - 1
+            )] . ' ' . $rayons['ter_ray'][mt_rand(0, count($rayons['ter_ray']) - 1)];
+        
+        return $rayon;
+    }
     
     
     public function Autoname()

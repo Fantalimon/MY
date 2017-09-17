@@ -52,27 +52,30 @@ $a=0;
 $arr=[];
 $auto->getReg();
 
-$now = date("Y-m-d H:i:s");
-echo $now."<br>";
 
-function restart($x,$now)
-{
-    if($x<5){
-        $next= $now + date('s',20);
-        echo ' '.$next."<br>";
-        restart($x+1);
-    };
-};
-restart(0);
+//function restart($x)
+//{
+//
+//    if($x<6){
+//        $now=time();
+//        echo $now."<br>";
+//        $next= $now + strtotime('20 seconds');
+//        echo ' '.$next."<br>";
+//
+//        restart($x+1);
+//    };
+//};
+//
+//restart(0);
 
-    /*$start = microtime(true);
-    while ($i < 2) {
-        
+  $start = microtime(true);
+    while ($i < 10) {
+
         $auto->getTer();
         $name = $auto->Autoname();
         $mail = $auto->Autoemail() . '@' . $auto->Autodomen() . '.' . $auto->Autoheaddomen();
-        $plase = $auto->AutoqualiOblast() . ' ' . $auto->AutoqualiTowns() . ' ' . $auto->AutoqualiRayons();
-        
+        $plase = $auto->UnionSelect();
+
         $arr[$i] = [
             'name' => $name,
             'email' => $mail,
@@ -80,9 +83,14 @@ restart(0);
         ];
         $i++;
     }
-    
+
     $end = microtime(true);
-    echo "генирация: " . ($end - $start) . "<br/>";
+    $time=($end - $start);
+   $hour=floor($time/3600);
+    $min=floor(($time%3600)/60);
+      $sec=($time%3600)/60;
+   
+    echo "генирация: " .$hour.':'.$min.':'.$sec."<br/>";
     
     $start2 = microtime(true);
     foreach ($arr as $key) {
@@ -92,7 +100,7 @@ restart(0);
     $end2 = microtime(true);
     echo "перебор: " . ($end2 - $start2) . "<br/>";
 
-*/
+
 
 
 ?>
