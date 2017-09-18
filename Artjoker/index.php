@@ -49,6 +49,7 @@ $auto=new Autovalidator();
 
 $i = 0;
 $a = 0;
+$q=0;
 $arr = [];
 $auto->getReg();
 
@@ -67,10 +68,9 @@ $auto->getReg();
 //};
 //
 //restart(0);
-while ($a < 100) {
+
     $start = microtime(true);
-    
-    while ($i < 100) {
+    while ($i < 1000) {
         
         $auto->getTer();
         $name = $auto->Autoname();
@@ -82,25 +82,18 @@ while ($a < 100) {
             'email' => $mail,
             'territory' => $plase,
         ];
+        $user = new Addusers($arr[$i]);
+        $user->save();
         $i++;
     }
-    
     $end = microtime(true);
     $time = ($end - $start);
+
+
+
+header("Refresh: 5");
     echo "генирация: " . $time . "<br/>";
-    
-    $start2 = microtime(true);
-    foreach ($arr as $key) {
-        $user = new Addusers($key);
-        $user->save();
-    }
-    $end2 = microtime(true);
-    echo "перебор: " . ($end2 - $start2) . "<br/>";
-    $arr[]=null;
-    sleep(5);
-    $a++;
-}
-echo 'В базе вот столько записей'.$auto->count();
+echo 'В базе вот столько записей '.$auto->count();
 ?>
 
 <script src="ajaxQuery.js"></script>

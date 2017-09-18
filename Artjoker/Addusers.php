@@ -153,9 +153,9 @@ class Addusers extends Entyty implements Serializable
     public function save()
     {
         $db = DB::getInstance();
-        $name = $this->clean($this->escape($this->getName()));
-        $email = $this->clean($this->escape($this->getEmail()));
-        $territory = $this->clean($this->escape($this->getTerritory()));
+        $name = $this->getName();
+        $email = $this->getEmail();
+        $territory = $this->getTerritory();
         
         $query= "INSERT INTO users (`name`,`email`,`territory`) " . "VALUES ('$name','$email','$territory');";
     

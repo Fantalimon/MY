@@ -109,23 +109,14 @@ class Autovalidator extends Entyty
     {
         $territory=$this->territor;
         $db = DB::getInstance();
-//        $start = microtime(true);
     
         $query = "
 SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory."
-AND `ter_type_id` = 0 AND `ter_pid` <=> NULL
-union
+AND `ter_type_id` = 0 
+union ALL
 SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory." AND `ter_type_id` =1
-union
+union ALL
 SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = ".$territory." AND `ter_type_id`= 2";
-    
-//        $end = microtime(true);
-//        $time = ($end - $start);
-//        $hour = floor($time / 3600);
-//        $min = floor(($time % 3600) / 60);
-//        $sec = ($time % 3600) / 60;
-      
-//        echo "генирация: " .$time. "<br/>";
     
         $result = $db->query($query);
         if (!$result) {
@@ -133,7 +124,7 @@ SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = 
         }
         
         $rayons = [];
-//        $start2 = microtime(true);
+        
         while ($row = $result->fetch_assoc()) {
             
             if ($row['ter_type_id'] == 0) {
@@ -147,10 +138,8 @@ SELECT `ter_name`,`ter_type_id`,`reg_id` FROM `t_koatuu_tree` where `reg_id`  = 
                 $rayons['ter_ray'][] = $z;
             }
         }
-//        $end2 = microtime(true);
-//        echo "перебор: " . ($end2 - $start2) . "<br/>";
-        
-        $rayon = $rayons['ter'][mt_rand(0, count($rayons['ter']) - 1)] . ' ' . $rayons['ter_town'][mt_rand(
+    
+        $rayon = $rayons['ter'][0] . ' ' . $rayons['ter_town'][mt_rand(
                 0, count($rayons['ter_town']) - 1
             )] . ' ' . $rayons['ter_ray'][mt_rand(0, count($rayons['ter_ray']) - 1)];
         
