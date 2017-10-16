@@ -3,45 +3,45 @@
 include_once 'autoload.php';
 
 $pagin=new Paginator();
+$pagin->CountBase();
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>form</title>
+    <title>Список</title>
     
+<link href="css/bootstrap.css" rel="stylesheet">
 <script src="js/jquery-3.2.1.js"></script>
     
 </head>
 <body>
-<form id="myForm"  method="post" action=" ">
-    <fieldset title="персональные данные">
-        <legend>Ваши данные</legend>
-        <br/>
-        <input id="inputName" type="text" title="ФИО" name="name" placeholder="ФИО"  />
-        <br/>
-        <br/>
-        <input id="inputMail" type="text" title="почта" name="email" placeholder="ваша почта" />
-        <br/>
-        <br/>
-        <br/>
-        <button id="send"  title="Отправить данные" >Зарегистрировать</button>
-        <br/>
-    </fieldset>
-</form>
-<div id="yes"><?php
-    $pagin->getCountBase();
+
+
+
+
+
+<div id="yes">
+    
+    <?php
     echo "<div style=' text-align: center;'>";
-    for($i = 1; $i <= $pagin->paginate; $i++) {
-        echo "<a href=" .'adminpanel.php'."?page=".$i.">".$i."</a> ";
+    for ($i = 1; $i <= $pagin->paginate; $i++) {
+        echo "<a href=" . 'adminpanel.php' . "?page=" . $i . ">" . $i . "</a> ";
     }
     echo "</div>";
-?></div>
+    
+    ?>
+</div>
 
 
-<script src="ajaxQuery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/ajaxQuery.js"></script>
+
 </body>
 </html>
 

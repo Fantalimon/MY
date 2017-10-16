@@ -1,0 +1,107 @@
+<!--Модальлное окно регистрации -->
+<div id="BoxReg" role="dialog" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Заголовок модального окна -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Поле для регистрации.</h4>
+            </div>
+            <!-- Основное содержимое модального окна -->
+            <div class="modal-body">
+
+                <form id="formreg" class="form-horizontal" method="post"  role="form">
+
+                    <div class="form-group">
+                        <label for="inputregName" class="col-xs-4 control-label">Ваше имя</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="regname" class="form-control" id="inputregName" placeholder="Анатолий Максимович" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregLogin" class="col-xs-4 control-label">Ваш Login</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="reglogin" class="form-control" id="inputregLogin" placeholder="anatolich"  >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregPhone" class="col-xs-4 control-label">Контактный телефон</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="regphone" class="form-control" id="inputregPhone" placeholder="Введите  ваш номер телефона" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregAge" class="col-xs-4 control-label">Ваш возраст</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="regage" class="form-control" id="inputregAge" placeholder="Введите  ваш возраст" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregPlace" class="col-xs-4 control-label">Откуда вы?</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="regplace" class="form-control" id="inputregPlace" placeholder="Введите  ваш город" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregOrg" class="col-xs-4 control-label">Ваша организация</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="regorg" class="form-control" id="inputregOrg" placeholder="Укр Перила" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregWork" class="col-xs-4 control-label">Кем вы работаете?</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="regwork" class="form-control" id="inputregWork" placeholder="Например: Инженер" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregMail" class="col-xs-4 control-label">Ваша почта</label>
+                        <div class="col-xs-7">
+                            <input type="text" name="regmail" class="form-control" id="inputregMail" placeholder="anatoliy-ukrperila@gmail.com" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregPassworld" class="col-xs-4 control-label">Ваш пароль</label>
+                        <div class="col-xs-7">
+                            <input type="password" name="regpassworld" class="form-control" id="inputregPassworld" placeholder="Не менее чем 7 символов" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputregPassworldConferm" class="col-xs-4 control-label">Подтвердите пароль</label>
+                        <div class="col-xs-7">
+                            <input type="password" name="regpassworldconferm" class="form-control" id="inputregPassworldConferm" placeholder="Не менее чем 7 символов" >
+                        </div>
+                    </div>
+
+                    <!-- Футер модального окна -->
+                    <div class="modal-footer">
+                        <button id="sendreg"  class="btn btn-primary">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HTML-код модального окна -->
+<div id="SenksReg" class="modal"  role="dialog" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- Основное содержимое модального окна -->
+            <div class="modal-body bysenks">
+                <h5>Спасибо, данные сохранены,<br> вы можете их отредактировать или просмотреть список абитуриентов.</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Конец модального окна регистрации -->
