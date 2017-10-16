@@ -3,7 +3,7 @@ require_once 'autoload.php';
 
 class Addusers extends Entyty implements Serializable
 {
-
+    
     
     /**
      * @var string
@@ -13,12 +13,33 @@ class Addusers extends Entyty implements Serializable
     /**
      * @var string
      */
-    private $email;
+    private $seurname;
     
     /**
      * @var string
      */
-    private $territory;
+    private $sex;
+    
+    /**
+     * @var string
+     */
+    private $group;
+    /**
+     * @var string
+     */
+    private $email;
+    /**
+     * @var string
+     */
+    private $balls;
+    /**
+     * @var string
+     */
+    private $berd_year;
+    /**
+     * @var string
+     */
+    private $place;
     
     
     /**
@@ -31,11 +52,26 @@ class Addusers extends Entyty implements Serializable
         if (isset($userData['name'])) {
             $this->setName($userData['name']);
         }
+        if (isset($userData['seurname'])) {
+            $this->setSeurname($userData['seurname']);
+        }
+        if (isset($userData['sex'])) {
+            $this->setSex($userData['sex']);
+        }
+        if (isset($userData['group'])) {
+            $this->setGroup($userData['group']);
+        }
         if (isset($userData['email'])) {
             $this->setEmail($userData['email']);
         }
-        if (isset($userData['territory'])) {
-            $this->setTerritory($userData['territory']);
+        if (isset($userData['balls'])) {
+            $this->setBalls($userData['balls']);
+        }
+        if (isset($userData['berd_year'])) {
+            $this->setBerdYear($userData['berd_year']);
+        }
+        if (isset($userData['place'])) {
+            $this->setPlace($userData['place']);
         }
     }
     
@@ -59,6 +95,72 @@ class Addusers extends Entyty implements Serializable
         return $this;
     }
     
+    
+    /**
+     * @return string
+     */
+    public function getSeurname()
+    {
+        return $this->seurname;
+    }
+    
+    /**
+     * @param string $seurname
+     *
+     * @return $this
+     */
+    public function setSeurname($seurname)
+    {
+        $this->seurname = $seurname;
+        return $this;
+    }
+    
+    
+        
+    /**
+     * @return string
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+    
+    /**
+     * @param string $sex
+     *
+     * @return $this
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+        return $this;
+    }
+    
+    
+       
+        
+    /**
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+    
+    /**
+     * @param string $group
+     *
+     * @return $this
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+        return $this;
+    }
+    
+    
+    
+    
     /**
      * @return string
      */
@@ -77,22 +179,67 @@ class Addusers extends Entyty implements Serializable
         $this->email = $email;
         return $this;
     }
-      /**
+    
+    
+    
+    
+    /**
      * @return string
      */
-    public function getTerritory()
+    public function getBalls()
     {
-        return $this->territory;
+        return $this->balls;
     }
     
     /**
-     * @param string $territory
+     * @param string $balls
      *
      * @return $this
      */
-    public function setTerritory($territory)
+    public function setBalls($balls)
     {
-        $this->territory = $territory;
+        $this->balls = $balls;
+        return $this;
+    }
+    
+      
+    /**
+     * @return string
+     */
+    public function getBerdYear()
+    {
+        return $this->berd_year;
+    }
+    
+    /**
+     * @param string $berd_year
+     *
+     * @return $this
+     */
+    public function setBerdYear($berd_year)
+    {
+        $this->berd_year = $berd_year;
+        return $this;
+    }
+    
+    
+
+      /**
+     * @return string
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+    
+    /**
+     * @param string $place
+     *
+     * @return $this
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
         return $this;
     }
     
@@ -107,11 +254,17 @@ class Addusers extends Entyty implements Serializable
     {
         return [
             'name' => $this->getName(),
+            'seurname'=>$this->getSeurname(),
+            'sex'=>$this->getSex(),
+            'group'=>$this->getGroup(),
             'email' => $this->getEmail(),
-            'territory' => $this->getTerritory()
+            'balls'=>$this->getBalls(),
+            'berd_year'=>$this->getBerdYear(),
+            'place' => $this->getPlace()
         ];
     }
     
+
     /**
      * String representation of object
      *
@@ -141,8 +294,13 @@ class Addusers extends Entyty implements Serializable
         $userInfo = unserialize($serialized);
         $this
             ->setName($userInfo['name'])
+            ->setSeurname($userInfo['seurname'])
+            ->setSex($userInfo['sex'])
+            ->setGroup($userInfo['group'])
             ->setEmail($userInfo['email'])
-            ->setTerritory($userInfo['territory']);
+            ->setBalls($userInfo['balls'])
+            ->setBerdYear($userInfo['berd_year'])
+            ->setPlace($userInfo['place']);
     }
     
     /**
@@ -154,10 +312,15 @@ class Addusers extends Entyty implements Serializable
     {
         $db = DB::getInstance();
         $name = $this->getName();
+        $seurname=$this->getSeurname();
+        $sex=$this->getSex();
+        $group=$this->getGroup();
         $email = $this->getEmail();
-        $territory = $this->getTerritory();
+        $balls=$this->getBalls();
+        $berd_year=$this->getBerdYear();
+        $place = $this->getPlace();
         
-        $query= "INSERT INTO users (`name`,`email`,`territory`) " . "VALUES ('$name','$email','$territory');";
+        $query= "INSERT INTO users (`name`,`seurname`,`sex`,`group`,`email`,`balls`,`berd_year`,`place`) " . "VALUES ('$name','$seurname','$sex','$group','$email','$balls','$berd_year','$place');";
     
         $result=$db->query($query);
         if (!$result) {die($db->error);}
@@ -168,12 +331,11 @@ class Addusers extends Entyty implements Serializable
     {
         $db = DB::getInstance();
         $email =$this->clean($this->escape($this->getEmail()));
-        $query="SELECT `id`,`name`,`email`,`territory` FROM `users` WHERE email = '$email' LIMIT 1";
+        $query="SELECT `id`,`name`,`seurname`,`sex`,`group`,`email`,`balls`,`berd_year`,`place` FROM `users` WHERE email = '$email' LIMIT 1";
         $result=$db->query($query);
         if (!$result) {die($db->error);}
         $row = $result->fetch_assoc();
         return $row;
-        
     }
     
     

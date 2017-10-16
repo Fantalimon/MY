@@ -1,6 +1,10 @@
 <?php
 trait DB
 {
+    private function __construct()
+    {
+    }
+    
     /**
      * @var null|mysqli
      */
@@ -26,7 +30,7 @@ trait DB
         
         return self::$link;
     }
-    
+
     /**
      * Clean a value from space and html tags.
      *
@@ -49,5 +53,12 @@ trait DB
     public function escape($value)
     {
         return self::getInstance()->real_escape_string($value);
+    }
+    
+    private function __clone()
+    {
+    }
+    private function __wakeup()
+    {
     }
 }
