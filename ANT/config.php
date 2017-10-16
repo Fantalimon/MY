@@ -3,6 +3,9 @@ $config = parse_ini_file('config.ini', true);
 
 // define site domain
 define('SITE', $config['domain']);
+// page in list
+define('PAGEINLIST', $config['pageinlist']);
+
 
 // define DB configuration
 $configDb = $config['db'];

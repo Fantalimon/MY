@@ -18,29 +18,29 @@ $Rayons = isset($_POST['Rayons']) ? htmlspecialchars(strip_tags(trim($_POST['Ray
 $SMT = isset($_POST['SMT']) ? htmlspecialchars(strip_tags(trim($_POST['SMT']))) : '';
 
 
-$Hint = new Places();
-
-$response = [];
-if ($Territory) {
-    
-    $hintingTerrytory = mb_substr($Territory, 0, 2);
-    
-    $response['towns'] = $Hint->qualiTowns($Territory);
-    $response['rayons'] = $Hint->qualiRayons($Territory);
-    
-    if ($hintingTerrytory == '80' or $hintingTerrytory == '85') {
-        $response['rayons_towns'] = $Hint->qualiTawnsRayons($hintingTerrytory);
-        $response['towns'] = null;
-        $response['rayons'] = null;
-    }
-    if ($Towns) {
-        $response['rayons_towns'] = $Hint->qualiRayonsTowns($Territory, $Towns);
-    }
-    if ($Rayons) {
-        $response['smt'] = $Hint->qualiSMT($Territory, $Rayons);
-    }
-}
-echo json_encode($response);
+//$Hint = new Places();
+//
+//$response = [];
+//if ($Territory) {
+//
+//    $hintingTerrytory = mb_substr($Territory, 0, 2);
+//
+//    $response['towns'] = $Hint->qualiTowns($Territory);
+//    $response['rayons'] = $Hint->qualiRayons($Territory);
+//
+//    if ($hintingTerrytory == '80' or $hintingTerrytory == '85') {
+//        $response['rayons_towns'] = $Hint->qualiTawnsRayons($hintingTerrytory);
+//        $response['towns'] = null;
+//        $response['rayons'] = null;
+//    }
+//    if ($Towns) {
+//        $response['rayons_towns'] = $Hint->qualiRayonsTowns($Territory, $Towns);
+//    }
+//    if ($Rayons) {
+//        $response['smt'] = $Hint->qualiSMT($Territory, $Rayons);
+//    }
+//}
+//echo json_encode($response);
     
 
 
