@@ -2,8 +2,7 @@
 
 include_once 'autoload.php';
 
-$pagin=new Paginator();
-$pagin->CountBase();
+
 
 ?>
 
@@ -26,20 +25,8 @@ $pagin->CountBase();
 
 
 
-<div id="yes">
-    
-    <?php
-    echo "<div style=' text-align: center;'>";
-    for ($i = 1; $i <= $pagin->paginate; $i++) {
-        echo "<a href=" . 'adminpanel.php' . "?page=" . $i . ">" . $i . "</a> ";
-    }
-    echo "</div>";
-    
-    ?>
-</div>
-
-
 <script src="js/bootstrap.js"></script>
+<script src="js/registration.js"></script>
 <script src="js/ajaxQuery.js"></script>
 
 </body>
