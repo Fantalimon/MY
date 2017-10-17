@@ -1,3 +1,4 @@
+
 <!--Модальлное окно регистрации -->
 <div id="Reg" role="dialog" class="modal" tabindex="-1">
     <div class="modal-dialog">
@@ -7,9 +8,19 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h4 class="modal-title">Поле для регистрации.</h4>
             </div>
+    
+            <?php if (!empty($_SESSION['error_register'])) : ?>
+                <div class="alert alert-danger">
+                    <?php
+                    $message = $_SESSION['error_register'];
+                    echo $message;
+                    ?>
+                </div>
+            <?php endif ?>
+            
             <!-- Основное содержимое модального окна -->
             <div class="modal-body">
-
+                
                 <form id="formreg" class="form-horizontal" method="post"  role="form">
 
                     <div class="form-group">

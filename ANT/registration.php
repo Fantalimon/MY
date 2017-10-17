@@ -10,6 +10,7 @@ $balls = '';
 $berd_year='';
 $place='';
 $userData=[];
+$error='';
 
 $name = isset($_POST['name']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['name']))), 0,20,'UTF-8') : '';
 $seurname = isset($_POST['seurname']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['seurname']))),0,20,'UTF-8') : '';
@@ -33,6 +34,7 @@ if(preg_match('/^[\wа-яёії]{3,20}$/i', $name)===1){
     $userData['name']=$name;
 }else{
     $userData['name']='ОШИБКА';
+    $error='Не корректное имя';
 }
 
 
@@ -40,6 +42,7 @@ if(preg_match('/^[\wа-яёії]{3,20}$/i', $seurname)===1){
     $userData['seurname']=$seurname;
 }else{
     $userData['seurname']='ОШИБКА';
+    $error='Не корректное отчество';
 }
 
 
@@ -47,6 +50,7 @@ if(preg_match('/^0|1$/', $sex)===1){
     $userData['sex']=$sex;
 }else{
     $userData['sex']='ОШИБКА';
+    $error='Не корректный пол';
 }
 
 
@@ -54,6 +58,7 @@ if(preg_match('/^[\wа-яёії0-9]{2,5}$/i', $group)===1){
     $userData['group']=$group;
 }else{
     $userData['group']='ОШИБКА';
+    $error='Не корректная группа';
 }
 
 
@@ -61,6 +66,7 @@ if(preg_match('/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/i', $email)===
     $userData['email']=$email;
 }else{
     $userData['email']='ОШИБКА';
+    $error='Не корректная почта';
 }
 
 
@@ -68,6 +74,7 @@ if(preg_match('/^[0-9]{1,3}$/', $balls)===1){
     $userData['balls']=$balls;
 }else{
     $userData['balls']='ОШИБКА';
+    $error='Не корректные быллы';
 }
 
 
@@ -75,6 +82,7 @@ if(preg_match('/^[0-9]{4}$/', $berd_year)===1){
     $userData['berd_year']=$berd_year;
 }else{
     $userData['berd_year']='ОШИБКА';
+    $error='Не корректный год рождения';
 }
 
 
@@ -82,12 +90,12 @@ if(preg_match('/^[\wа-яёії]{3,20}$/i', $place)===1){
     $userData['place']=$place;
 }else{
     $userData['place']='ОШИБКА';
+    $error='Не корректный город';
 }
 
 
 if (in_array('ОШИБКА', $userData,true)){
-    header('location : http://127.0.0.3/sit.my/MY_DZ/ANT/');
-    echo "<h1>".'ERROR 460'."</h1>";
+echo json_encode($userData);
 }else{
     (new Addusers($userData))->save();
 };

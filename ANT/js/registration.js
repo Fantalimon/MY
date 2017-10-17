@@ -157,6 +157,7 @@
         });
     
     
+       
         $('#sendreg').click(
             function (e) {
                 e.preventDefault();
@@ -179,7 +180,7 @@
                 var place = $('#place').val();
                 
                 
-            
+                //
                 // is_name(name);
                 // is_seurname(seurname);
                 // is_sex(sex);
@@ -188,7 +189,7 @@
                 // is_balls(balls);
                 // is_berd_year(berd_year);
                 // is_place(place);
-                
+                //
             
                 
                 if (error == 0) {
