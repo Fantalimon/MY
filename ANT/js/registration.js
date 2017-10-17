@@ -57,7 +57,7 @@
         }
     
     function is_mail(email) {
-            if(mail.match(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/gi)==null){
+            if(email.match(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/gi)==null){
                 $('#email').css('border', 'red 1px solid');
                 error = 2;
                 return;
@@ -79,7 +79,6 @@
                 $('#balls').css('border', '');
                 return patern.test(balls);
             }
-        
         }
         
     function is_berd_year(berd_year) {
@@ -163,59 +162,59 @@
                 e.preventDefault();
             
                 error = 0;
-                // var name = $('#name').val();
-                //
-                // var seurname = $('#seurname').val();
-                //
-                // var sex = $('#formreg input:checked').serialize();
-                //
-                // var group = $('#group').val();
-                //
-                // var email = $('#email').val();
-                //
-                // var balls = $('#balls').val();
-                //
-                // var berd_year = $('#berd_year').val();
-                //
-                // var place = $('#place').val();
+                var name = $('#name').val();
+
+                var seurname = $('#seurname').val();
+
+                var sex = $('#formreg input:checked').serialize();
+
+                var group = $('#group').val();
+
+                var email = $('#email').val();
+
+                var balls = $('#balls').val();
+
+                var berd_year = $('#berd_year').val();
+
+                var place = $('#place').val();
                 
             
-                // is_name(name);
-                // is_seurname(seurname);
-                // is_sex(sex);
-                // is_group(group);
-                // is_mail(email);
-                // is_balls(balls);
-                // is_berd_year(berd_year);
-                // is_place(place);
+                is_name(name);
+                is_seurname(seurname);
+                is_sex(sex);
+                is_group(group);
+                is_mail(email);
+                is_balls(balls);
+                is_berd_year(berd_year);
+                is_place(place);
                 
                
             
             
             
                 if (error == 0) {
-                    // $.ajax({
-                    //     url: 'reg.php',
-                    //     data: {
-                    //         name: name,
-                    //         seurname: seurname,
-                    //         sex: sex,
-                    //         group: group,
-                    //         email: email,
-                    //         balls: balls,
-                    //         berd_year: berd_year,
-                    //         place: place,
-                    //     },
-                    //     type: 'POST',
-                    //     cache: false,
-                    //     dataType:'json',
-                    //     beforesend: (inputnull()),
-                    //     error: (function (jqXHR, exception) {
-                    //         getErrorMessage(jqXHR, exception)
-                    //     }),
-                    //     complete: (clearInputform(myform)),
-                    //
-                    // });
+                    $.ajax({
+                        url: 'reg.php',
+                        data: {
+                            name: name,
+                            seurname: seurname,
+                            sex: sex,
+                            group: group,
+                            email: email,
+                            balls: balls,
+                            berd_year: berd_year,
+                            place: place,
+                        },
+                        type: 'POST',
+                        cache: false,
+                        dataType:'json',
+                        beforesend: (inputnull()),
+                        error: (function (jqXHR, exception) {
+                            getErrorMessage(jqXHR, exception)
+                        }),
+                        complete: (clearInputform(myform)),
+
+                    });
                 
                     $('#Reg').modal('hide');
                     $('#SenksReg').modal('show');

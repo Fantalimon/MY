@@ -45,14 +45,16 @@
                             <input type="text" name="reggroup" class="form-control" id="group" placeholder="Введите вашу группу" >
                         </div>
                     </div>
-
+                    
+                    
                     <div class="form-group">
                         <label for="email" class="col-xs-4 control-label">Ваша почта</label>
                         <div class="col-xs-7">
                             <input type="text" name="regemail" class="form-control" id="email" placeholder="anatoliy-ukrperila@gmail.com" >
                         </div>
                     </div>
-
+                    
+                    
                     <div class="form-group">
                         <label for="balls" class="col-xs-4 control-label">Ваши баллы</label>
                         <div class="col-xs-7">
@@ -62,14 +64,14 @@
 
 
                     <div class="form-group">
-                        <label for="berd_year" class="col-xs-4 control-label">Ваша год рождения</label>
+                        <label for="berd_year" class="col-xs-4 control-label">Ваш год рождения</label>
                         <div class="col-xs-7">
                             <input type="text" name="regberd_year" class="form-control" id="berd_year" placeholder="1990" >
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="place" class="col-xs-4 control-label">Ваша город</label>
+                        <label for="place" class="col-xs-4 control-label">Ваш город</label>
                         <div class="col-xs-7">
                             <input type="text" name="regplace" class="form-control" id="place" placeholder="Харьков" >
                         </div>
