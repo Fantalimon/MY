@@ -15,7 +15,7 @@ $error='';
 $name = isset($_POST['name']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['name']))), 0,20,'UTF-8') : '';
 $seurname = isset($_POST['seurname']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['seurname']))),0,20,'UTF-8') : '';
 $sex = isset($_POST['sex']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['sex']))), 0,1,'UTF-8')  : '';
-$group = isset($_POST['group']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['group']))), 0,4,'UTF-8')  : '';
+$group = isset($_POST['group']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['group']))), 0,5,'UTF-8')  : '';
 $email = isset($_POST['email']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['email']))), 0,40,'UTF-8')  : '';
 $balls = isset($_POST['balls']) ?  mb_substr(htmlspecialchars(strip_tags(trim($_POST['balls']))), 0,4,'UTF-8') : '';
 $berd_year = isset($_POST['berd_year']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['berd_year']))), 0,4,'UTF-8') : '';
@@ -30,7 +30,7 @@ $balls=(int)$balls;
 $berd_year=(string)$berd_year;
 $place=(string)$place;
 
-if(preg_match('/\D/i', $name)===1){
+if(preg_match('/^[\wа-яёії]{2,20}/iu', $name)===1){
     $userData['name']=$name;
 }else{
     $userData['name']='ОШИБКА';
@@ -38,7 +38,7 @@ if(preg_match('/\D/i', $name)===1){
 }
 
 
-if(preg_match('/\D/i', $seurname)===1){
+if(preg_match('/^[\wа-яёії]{2,20}/iu', $seurname)===1){
     $userData['seurname']=$seurname;
 }else{
     $userData['seurname']='ОШИБКА';
@@ -54,7 +54,7 @@ if(preg_match('/^0|1$/', $sex)===1){
 }
 
 
-if(preg_match('/^[\wа-яёії0-9]{2,5}$/i', $group)===1){
+if(preg_match('/^[\wа-яёії0-9]{2,5}$/iu', $group)===1){
     $userData['group']=$group;
 }else{
     $userData['group']='ОШИБКА';
@@ -86,7 +86,7 @@ if(preg_match('/^[0-9]{4}$/', $berd_year)===1){
 }
 
 
-if(preg_match('/\D/i', $place)===1){
+if(preg_match('/^[\wа-яёії]{2,20}/iu', $place)===1){
     $userData['place']=$place;
 }else{
     $userData['place']='ОШИБКА';

@@ -19,7 +19,7 @@ include_once 'autoload.php';
 </head>
 <body>
 
-
+<?php include_once 'html_tamplate/htmlautoload.php'?>
 
 
 
