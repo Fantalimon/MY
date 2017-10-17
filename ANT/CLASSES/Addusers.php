@@ -311,14 +311,14 @@ class Addusers extends Entyty implements Serializable
     public function save()
     {
         $db = DB::getInstance();
-        $name = $this->getName();
-        $seurname=$this->getSeurname();
-        $sex=$this->getSex();
-        $group=$this->getGroup();
-        $email = $this->getEmail();
-        $balls=$this->getBalls();
-        $berd_year=$this->getBerdYear();
-        $place = $this->getPlace();
+        $name = $this->escape($this->clean($this->getName()));
+        $seurname= $this->escape($this->clean($this->getSeurname()));
+        $sex= $this->escape($this->clean($this->getSex()));
+        $group= $this->escape($this->clean($this->getGroup()));
+        $email =  $this->escape($this->clean($this->getEmail()));
+        $balls= $this->escape($this->clean($this->getBalls()));
+        $berd_year= $this->escape($this->clean($this->getBerdYear()));
+        $place =  $this->escape($this->clean($this->getPlace()));
         
         $query= "INSERT INTO users (`name`,`seurname`,`sex`,`group`,`email`,`balls`,`berd_year`,`place`) " . "VALUES ('$name','$seurname','$sex','$group','$email','$balls','$berd_year','$place');";
     
