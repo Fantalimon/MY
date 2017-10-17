@@ -9,15 +9,7 @@
                 <h4 class="modal-title">Поле для регистрации.</h4>
             </div>
     
-            <?php if (!empty($_SESSION['error_register'])) : ?>
-                <div class="alert alert-danger">
-                    <?php
-                    $message = $_SESSION['error_register'];
-                    echo $message;
-                    ?>
-                </div>
-            <?php endif ?>
-            
+        
             <!-- Основное содержимое модального окна -->
             <div class="modal-body">
                 
