@@ -166,7 +166,7 @@
 
                 var seurname = $('#seurname').val();
 
-                var sex = $('#formreg input:checked').serialize();
+                var sex = $('#formreg input:checked').val();
 
                 var group = $('#group').val();
 
@@ -194,7 +194,7 @@
             
                 if (error == 0) {
                     $.ajax({
-                        url: 'reg.php',
+                        url: 'registration.php',
                         data: {
                             name: name,
                             seurname: seurname,

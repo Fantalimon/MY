@@ -2,48 +2,45 @@
 include_once 'autoload.php';
 
 $name = '';
+$seurname = '';
+$sex = '';
+$group = '';
 $email = '';
-$Territory = '';
-$RayonsTowns = '';
-$Rayons = '';
-$Towns = '';
-$SMT='';
+$balls = '';
+$berd_year='';
+$place='';
 
-$name = isset($_POST['name']) ? htmlspecialchars(strip_tags(trim($_POST['name']))) : '';
+$name = isset($_POST['name']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['name']))), $start) : '';
+$seurname = isset($_POST['seurname']) ? htmlspecialchars(strip_tags(trim($_POST['seurname']))) : '';
+$sex = isset($_POST['sex']) ? htmlspecialchars(strip_tags(trim($_POST['sex']))) : '';
+$group = isset($_POST['group']) ? htmlspecialchars(strip_tags(trim($_POST['group']))) : '';
 $email = isset($_POST['email']) ? htmlspecialchars(strip_tags(trim($_POST['email']))) : '';
-$Territory = isset($_POST['Territory']) ? htmlspecialchars(strip_tags(trim($_POST['Territory']))) : '';
-$Towns = isset($_POST['Towns']) ? htmlspecialchars(strip_tags(trim($_POST['Towns']))) : '';
-$RayonsTowns = isset($_POST['RayonsTowns']) ? htmlspecialchars(strip_tags(trim($_POST['RayonsTowns']))) : '';
-$Rayons = isset($_POST['Rayons']) ? htmlspecialchars(strip_tags(trim($_POST['Rayons']))) : '';
-$SMT = isset($_POST['SMT']) ? htmlspecialchars(strip_tags(trim($_POST['SMT']))) : '';
+$balls = isset($_POST['balls']) ? htmlspecialchars(strip_tags(trim($_POST['balls']))) : '';
+$berd_year = isset($_POST['berd_year']) ? htmlspecialchars(strip_tags(trim($_POST['berd_year']))) : '';
+$place = isset($_POST['place']) ? htmlspecialchars(strip_tags(trim($_POST['place']))) : '';
 
 
-//$Hint = new Places();
-//
-//$response = [];
-//if ($Territory) {
-//
-//    $hintingTerrytory = mb_substr($Territory, 0, 2);
-//
-//    $response['towns'] = $Hint->qualiTowns($Territory);
-//    $response['rayons'] = $Hint->qualiRayons($Territory);
-//
-//    if ($hintingTerrytory == '80' or $hintingTerrytory == '85') {
-//        $response['rayons_towns'] = $Hint->qualiTawnsRayons($hintingTerrytory);
-//        $response['towns'] = null;
-//        $response['rayons'] = null;
-//    }
-//    if ($Towns) {
-//        $response['rayons_towns'] = $Hint->qualiRayonsTowns($Territory, $Towns);
-//    }
-//    if ($Rayons) {
-//        $response['smt'] = $Hint->qualiSMT($Territory, $Rayons);
-//    }
-//}
-//echo json_encode($response);
-    
 
+function great_file($name,$seurname,$sex,$group,$email,$balls,$berd_year,$place)
+{
+    $date = date("Y-M-d H:i:s");
+    $handle = 'REGISTRATION.txt';
+    $string = $date . ' name :' . ' > [ ' . $name . ' ]' . PHP_EOL;
+    $string .= $date . ' seurname :' . ' > [ ' . $seurname . ' ]' . PHP_EOL;
+    $string .= $date . ' sex :' . ' > [ ' . $sex . ' ]' . PHP_EOL;
+    $string .= $date . ' group :' . ' > [ ' .$group  . ' ]' . PHP_EOL;
+    $string .= $date . ' email :' . ' > [ ' . $email . ' ]' . PHP_EOL;
+    $string .= $date . ' balls :' . ' > [ ' . $balls . ' ]' . PHP_EOL;
+    $string .= $date . ' berd_year :' . ' > [ ' . $berd_year . ' ]' . PHP_EOL;
+    $string .= $date . ' place :' . ' > [ ' . $place. ' ]' . PHP_EOL;
+    $string.=PHP_EOL;
+    $text = fopen($handle, 'w+');
+    fwrite($text, $string);
+    fclose($text);
+    return;
+}
 
+great_file($name, $seurname, $sex, $group, $email, $balls, $berd_year, $place);
 
  
 
