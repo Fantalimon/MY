@@ -9,7 +9,10 @@ class Scroll extends Entyty
        if (!$result) {die($db->error);}
        $json=[];
        while ($row=$result->fetch_assoc()){
-           $json[]=$row;
+           $json['name']=$row['name'];
+           $json['seurname']=$row['seurname'];
+           $json['group']=$row['group'];
+           $json['balls']=$row['balls'];
        }
       return $json;
    }
