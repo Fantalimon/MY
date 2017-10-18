@@ -15,9 +15,22 @@ $seurnameDESC = $field->show((new Query())->order('seurname')->DESC()->bild());
 $mygroupASC = $field->show((new Query())->order('mygroup')->ASK()->bild());
 $mygroupDESC = $field->show((new Query())->order('mygroup')->DESC()->bild());
 
-$json=[];
+$response=[];
 
-echo json_encode($json);
+$response['nameASC']=$nameASC;
+$response['nameDESC']=$nameDESC;
+
+$response['ballsASC']=$ballsASC;
+$response['ballsDESC']=$ballsDESC;
+
+$response['seurnameASC']=$seurnameASC;
+$response['seurnameDESC']=$seurnameDESC;
+
+$response['mygroupASC']=$mygroupASC;
+$response['mygroupDESC']=$mygroupDESC;
+
+//echo json_encode($response);
+
 
 ?>
 
@@ -25,10 +38,10 @@ echo json_encode($json);
     <table class="table text-center">
         <thead>
         <tr>
-            <th><span id="nameUP">&#9650;</span>Имя<span id="nameDOUN">&#9660;</span></th>
-            <th><span id="seurnameUP">&#9650;</span>Фамилия<span id="seurnameDOUN">&#9660;</span></th>
-            <th><span id="mygroupUP">&#9650;</span>Группа<span id="mygroupDOUN">&#9660;</span></th>
-            <th><span id="ballsUP">&#9650;</span>Баллы<span id="ballsDOUN">&#9660;</span></th>
+            <th><a id="nameUP">&#9650;</a>Имя<a id="nameDOUN">&#9660;</a></th>
+            <th><a id="seurnameUP">&#9650;</a>Фамилия<a id="seurnameDOUN">&#9660;</a></th>
+            <th><a id="mygroupUP">&#9650;</a>Группа<a id="mygroupDOUN">&#9660;</a></th>
+            <th><a id="ballsUP">&#9650;</a>Баллы<a id="ballsDOUN">&#9660;</a></th>
         </tr>
         </thead>
         <tbody>
