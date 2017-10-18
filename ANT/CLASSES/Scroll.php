@@ -13,10 +13,10 @@ class Scroll extends Entyty
         if (!$result) {
             die($db->error);
         }
-        $json = [];
+        $data = [];
         while ($row = $result->fetch_assoc()) {
-            $json[] = $row;
+            $data[] = $row;
         }
-        return $json;
+        return $data;
     }
 }
