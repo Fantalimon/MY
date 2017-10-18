@@ -1,9 +1,9 @@
 <?php
 trait DB
 {
-    private function __construct()
-    {
-    }
+//    private function __construct()
+//    {
+//    }
     
     /**
      * @var null|mysqli

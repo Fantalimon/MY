@@ -1,4 +1,5 @@
 <?php
+require_once 'autoload.php';
 
 class Scroll extends Entyty
 {
@@ -7,13 +8,15 @@ class Scroll extends Entyty
        $query="SELECT `name`, `seurname`,`group`,`balls` FROM users ORDER BY balls DESC";
        $result=$db->query($query);
        if (!$result) {die($db->error);}
-       $json=[];
+//       $json=[];
        while ($row=$result->fetch_assoc()){
-           $json['name']=$row['name'];
-           $json['seurname']=$row['seurname'];
-           $json['group']=$row['group'];
-           $json['balls']=$row['balls'];
+//           $json['name']=$row['name'];
+//           $json['seurname']=$row['seurname'];
+//           $json['group']=$row['group'];
+//           $json['balls']=$row['balls'];
+           
        }
-      return $json;
+       return $row;
+//      return $json;
    }
 }
