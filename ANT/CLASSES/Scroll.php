@@ -4,7 +4,6 @@ require_once 'autoload.php';
 
 class Scroll extends Entyty
 {
-    public $Wquery=' ORDER BY balls DESC';
     
     public function show($wquery)
     {
@@ -16,7 +15,7 @@ class Scroll extends Entyty
         }
         $json = [];
         while ($row = $result->fetch_assoc()) {
-            $json[] = [$row['name'],$row['seurname'],$row['mygroup'],$row['balls']];
+            $json[] = $row;
         }
         return $json;
     }
