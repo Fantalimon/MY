@@ -16,7 +16,7 @@ class Scroll extends Entyty
         }
         $json = [];
         while ($row = $result->fetch_assoc()) {
-            $json[] = [$row['name'],$row['seurname'],$row['group'],$row['balls']];
+            $json[] = [$row['name'],$row['seurname'],$row['mygroup'],$row['balls']];
         }
         return $json;
     }
