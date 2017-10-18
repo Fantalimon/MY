@@ -44,15 +44,15 @@
         
     }
     
-    function is_group(group) {
+    function is_group(mygroup) {
         let patern = (/^[\wа-яёії0-9]{2,5}$/gi);
-        if((patern.test(group))==false){
+        if((patern.test(mygroup))==false){
             $('#group').css('border', 'red 1px solid');
             error = 2;
             return;
         }else{
             $('#group').css('border', '');
-            return patern.test(group);
+            return patern.test(mygroup);
         }
         }
     
@@ -169,7 +169,7 @@
 
                 var sex = $('#formreg input:checked').val();
 
-                var group = $('#group').val();
+                var mygroup = $('#group').val();
 
                 var email = $('#email').val();
 
@@ -184,7 +184,7 @@
                 // is_name(name);
                 // is_seurname(seurname);
                 // is_sex(sex);
-                // is_group(group);
+                // is_group(mygroup);
                 // is_mail(email);
                 // is_balls(balls);
                 // is_berd_year(berd_year);
@@ -199,7 +199,7 @@
                             name: name,
                             seurname: seurname,
                             sex: sex,
-                            group: group,
+                            mygroup: mygroup,
                             email: email,
                             balls: balls,
                             berd_year: berd_year,

@@ -15,7 +15,7 @@ $error=[];
 $name = isset($_POST['name']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['name']))), 0,20,'UTF-8') : '';
 $seurname = isset($_POST['seurname']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['seurname']))),0,20,'UTF-8') : '';
 $sex = isset($_POST['sex']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['sex']))), 0,1,'UTF-8')  : '';
-$group = isset($_POST['group']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['group']))), 0,5,'UTF-8')  : '';
+$mygroup = isset($_POST['mygroup']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['mygroup']))), 0,5,'UTF-8')  : '';
 $email = isset($_POST['email']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['email']))), 0,40,'UTF-8')  : '';
 $balls = isset($_POST['balls']) ?  mb_substr(htmlspecialchars(strip_tags(trim($_POST['balls']))), 0,4,'UTF-8') : '';
 $berd_year = isset($_POST['berd_year']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['berd_year']))), 0,4,'UTF-8') : '';
@@ -24,7 +24,7 @@ $place = isset($_POST['place']) ? mb_substr(htmlspecialchars(strip_tags(trim($_P
 $name=(string)$name;
 $seurname=(string)$seurname;
 $sex=(int)$sex;
-$group=(string)$group;
+$mygroup=(string)$mygroup;
 $email=(string)$email;
 $balls=(int)$balls;
 $berd_year=(string)$berd_year;
@@ -54,11 +54,11 @@ if(preg_match('/^0|1$/', $sex)===1){
 }
 
 
-if(preg_match('/^[\wа-яёії0-9]{2,5}$/iu', $group)===1){
-    $userData['group']=$group;
+if(preg_match('/^[\wа-яёії0-9]{2,5}$/iu', $mygroup)===1){
+    $userData['mygroup']=$mygroup;
 }else{
-    $userData['group']='ОШИБКА';
-    $error['group']='Не корректная группа';
+    $userData['mygroup']='ОШИБКА';
+    $error['mygroup']='Не корректная группа';
 }
 
 
