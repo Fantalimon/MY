@@ -1,13 +1,26 @@
+
+
 <?php
-$users=new Scroll();
-$all=$users->show();
+require_once 'autoload.php';
+
+$wquery=(new Query())->order('name')->ASK()->bild();
+
 echo "<pre>";
-    var_dump( $all );
+    var_dump( $wquery  );
 echo "</pre>";
+
+$field=new Scroll();
+
+$nameASC=$field->show($wquery);
+
+echo "<pre>";
+    var_dump( $nameASC );
+echo "</pre>";
+
+
 ?>
 
 <div class="container-fluid col-sm-offset-2 col-sm-8 ">
-    <div class="table-responsive">
         <table class="table text-center">
             <thead>
             <tr>
@@ -39,4 +52,3 @@ echo "</pre>";
             </tbody>
         </table>
     </div>
-</div>

@@ -1,12 +1,16 @@
 <?php
+
 require_once 'autoload.php';
 
 class Scroll extends Entyty
 {
-    public function show()
+    public $Wquery=' ORDER BY balls DESC';
+    
+    
+    public function show($wquery)
     {
         $db = DB::getInstance();
-        $query = "SELECT `name`, `seurname`,`group`,`balls` FROM users ORDER BY balls DESC";
+        $query="SELECT `name`, `seurname`,`group`,`balls` FROM users".$wquery;
         $result = $db->query($query);
         if (!$result) {
             die($db->error);
@@ -16,6 +20,5 @@ class Scroll extends Entyty
             $json[] = [$row['name'],$row['seurname'],$row['group'],$row['balls']];
         }
         return $json;
-        
     }
 }
