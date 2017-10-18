@@ -1,7 +1,9 @@
 <?php
 $users=new Scroll();
 $all=$users->show();
-
+echo "<pre>";
+    var_dump( $all );
+echo "</pre>";
 ?>
 
 <div class="container-fluid col-sm-offset-2 col-sm-8 ">
