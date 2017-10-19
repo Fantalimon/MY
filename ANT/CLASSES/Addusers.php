@@ -58,8 +58,8 @@ class Addusers extends Entyty implements Serializable
         if (isset($userData['sex'])) {
             $this->setSex($userData['sex']);
         }
-        if (isset($userData['group'])) {
-            $this->setGroup($userData['group']);
+        if (isset($userData['mygroup'])) {
+            $this->setGroup($userData['mygroup']);
         }
         if (isset($userData['email'])) {
             $this->setEmail($userData['email']);
@@ -256,7 +256,7 @@ class Addusers extends Entyty implements Serializable
             'name' => $this->getName(),
             'seurname'=>$this->getSeurname(),
             'sex'=>$this->getSex(),
-            'group'=>$this->getGroup(),
+            'mygroup'=>$this->getGroup(),
             'email' => $this->getEmail(),
             'balls'=>$this->getBalls(),
             'berd_year'=>$this->getBerdYear(),
@@ -296,7 +296,7 @@ class Addusers extends Entyty implements Serializable
             ->setName($userInfo['name'])
             ->setSeurname($userInfo['seurname'])
             ->setSex($userInfo['sex'])
-            ->setGroup($userInfo['group'])
+            ->setGroup($userInfo['mygroup'])
             ->setEmail($userInfo['email'])
             ->setBalls($userInfo['balls'])
             ->setBerdYear($userInfo['berd_year'])
@@ -314,13 +314,13 @@ class Addusers extends Entyty implements Serializable
         $name = $this->escape($this->clean($this->getName()));
         $seurname= $this->escape($this->clean($this->getSeurname()));
         $sex= $this->escape($this->clean($this->getSex()));
-        $group= $this->escape($this->clean($this->getGroup()));
+        $mygroup= $this->escape($this->clean($this->getGroup()));
         $email =  $this->escape($this->clean($this->getEmail()));
         $balls= $this->escape($this->clean($this->getBalls()));
         $berd_year= $this->escape($this->clean($this->getBerdYear()));
         $place =  $this->escape($this->clean($this->getPlace()));
         
-        $query= "INSERT INTO users (`name`,`seurname`,`sex`,`group`,`email`,`balls`,`berd_year`,`place`) " . "VALUES ('$name','$seurname','$sex','$group','$email','$balls','$berd_year','$place');";
+        $query= "INSERT INTO users (`name`,`seurname`,`sex`,`mygroup`,`email`,`balls`,`berd_year`,`place`) " . "VALUES ('$name','$seurname','$sex','$mygroup','$email','$balls','$berd_year','$place');";
     
         $result=$db->query($query);
         if (!$result) {die($db->error);}
