@@ -3,31 +3,45 @@ require_once 'autoload.php';
 
 $field = new Scroll();
 
-$nameASC = $field->show((new Query())->order('name')->ASC()->bild());
-$nameDESC = $field->show((new Query())->order('name')->DESC()->bild());
-
-$ballsASC = $field->show((new Query())->order('balls')->ASC()->bild());
-$ballsDESC = $field->show((new Query())->order('balls')->DESC()->bild());
-
-$seurnameASC = $field->show((new Query())->order('seurname')->ASC()->bild());
-$seurnameDESC = $field->show((new Query())->order('seurname')->DESC()->bild());
-
-$mygroupASC = $field->show((new Query())->order('mygroup')->ASC()->bild());
-$mygroupDESC = $field->show((new Query())->order('mygroup')->DESC()->bild());
-
-
+$status='';
 $response=[];
 
-$response['nameASC']=$nameASC;
-$response['nameDESC']=$nameDESC;
+$status = isset($_POST['status']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['status']))), 0,20,'UTF-8') : '';
 
-$response['ballsASC']=$ballsASC;
-$response['ballsDESC']=$ballsDESC;
-
-$response['seurnameASC']=$seurnameASC;
-$response['seurnameDESC']=$seurnameDESC;
-
-$response['mygroupASC']=$mygroupASC;
-$response['mygroupDESC']=$mygroupDESC;
+switch ($status){
+    case 'nameUP':
+        $response['nameASC'] = $field->show((new Query())->order('name')->ASC()->bild());
+        break;
+        
+       case 'nameDOUN':
+           $response['nameDESC']= $field->show((new Query())->order('name')->DESC()->bild());
+        break;
+        
+        case 'ballsUP':
+            $response['ballsASC'] = $field->show((new Query())->order('balls')->ASC()->bild());
+        break;
+        
+        case 'ballsDOUN':
+            $response['ballsDESC'] = $field->show((new Query())->order('balls')->DESC()->bild());
+        break;
+        
+        case 'mygroupUP':
+            $response['mygroupASC'] = $field->show((new Query())->order('mygroup')->ASC()->bild());
+        break;
+        
+        case 'mygroupDOUN':
+            $response['mygroupDESC'] = $field->show((new Query())->order('mygroup')->DESC()->bild());
+        break;
+        
+        case 'seurnameUP':
+            $response['seurnameASC'] = $field->show((new Query())->order('seurname')->ASC()->bild());
+        break;
+        
+        case 'seurnameDOUN':
+            $response['seurnameDESC'] = $field->show((new Query())->order('seurname')->DESC()->bild());
+        break;
+    default:
+        $response['ballsDESC'] = $field->show((new Query())->order('balls')->DESC()->bild());
+}
 
 echo json_encode($response);

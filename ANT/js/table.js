@@ -55,6 +55,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'nameUP'},
                         cache: false,
                         dataType: 'json',
                         success: (function (data) {
@@ -78,6 +79,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'nameDOUN'},
                         cache: false,
                         dataType: 'json',
                         success: (function (data) {
@@ -101,6 +103,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'ballsUP'},
                         cache: false,
                         dataType: 'json',
                         success: (function (data) {
@@ -124,6 +127,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'ballsDOUN'},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.ballsDESC) {
@@ -149,6 +153,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'mygroupUP'},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.mygroupASC) {
@@ -174,11 +179,12 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'mygroupDOUN'},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.mygroupDESC) {
                                 let user = '';
-                                let ctn = data.mygroupASC.length;
+                                let ctn = data.mygroupDESC.length;
                                 for (let i = 0; i < ctn; i++) {
                                     user += '<tr>';
                                     user += '<td>' + data.mygroupDESC[i]['name'] + '</td>';
@@ -199,6 +205,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'seurnameUP'},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.seurnameASC) {
@@ -224,6 +231,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
+                        data:{status:'seurnameDOUN'},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.seurnameDESC) {
