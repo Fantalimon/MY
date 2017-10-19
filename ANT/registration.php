@@ -1,6 +1,5 @@
 <?php
 
-
 include_once 'autoload.php';
 
 $name = '';
@@ -105,6 +104,7 @@ echo json_encode($error);
     
     if($result==true){
         $_SESSION['userdata']=serialize($user);
+        header('location: ' . SITE);
     }
     
 };

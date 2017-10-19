@@ -1,7 +1,5 @@
 <?php
-
 include_once 'autoload.php';
-
 ?>
 
 <!DOCTYPE html>

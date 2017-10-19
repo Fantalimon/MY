@@ -5,7 +5,7 @@ $config = parse_ini_file('config.ini', true);
 define('SITE', $config['domain']);
 // page in list
 define('PAGEINLIST', $config['pageinlist']);
-
+define('BASE_PATH', realpath(__DIR__));
 
 // define DB configuration
 $configDb = $config['db'];

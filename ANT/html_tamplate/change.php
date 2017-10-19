@@ -1,6 +1,23 @@
 <?php
-
-$chuser=unserialize($_SESSION['userdata']);
+include_once BASE_PATH.'/autoload.php';
+if(!isset($_SESSION['userdata'])){
+    $name='';
+    $seurname='';
+    $mygroup='';
+    $mail='';
+    $balls='';
+    $berd_year='';
+    $place='';
+}else {
+    $user = unserialize($_SESSION['userdata']);
+    $name = $user->getName();
+    $seurname = $user->getSeurname();
+    $mygroup = $user->getGroup();
+    $mail = $user->getEmail();
+    $balls = $user->getBalls();
+    $berd_year = $user->getBerdYear();
+    $place = $user->getPlace();
+}
 
 ?>
 
@@ -23,14 +40,14 @@ $chuser=unserialize($_SESSION['userdata']);
                     <div class="form-group">
                         <label for="name" class="col-xs-4 control-label">Ваше имя</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regname" class="form-control" id="name" placeholder="<?php echo $chuser['name'] ?> ">
+                            <input type="text" name="regname" class="form-control" id="name" placeholder="<?php echo $name ?>">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="seurname" class="col-xs-4 control-label">Ваша Фамилия</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regseurname" class="form-control" id="seurname" placeholder="Фахртдинов"  >
+                            <input type="text" name="regseurname" class="form-control" id="seurname" placeholder="<?php echo $seurname; ?>"  >
                         </div>
                     </div>
                     
@@ -50,7 +67,7 @@ $chuser=unserialize($_SESSION['userdata']);
                     <div class="form-group">
                         <label for="group" class="col-xs-4 control-label">Ваша група</label>
                         <div class="col-xs-7">
-                            <input type="text" name="reggroup" class="form-control" id="group" placeholder="Введите вашу группу" >
+                            <input type="text" name="reggroup" class="form-control" id="group" placeholder="<?php echo $mygroup; ?>" >
                         </div>
                     </div>
                     
@@ -58,7 +75,7 @@ $chuser=unserialize($_SESSION['userdata']);
                     <div class="form-group">
                         <label for="email" class="col-xs-4 control-label">Ваша почта</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regemail" class="form-control" id="email" placeholder="anatoliy-ukrperila@gmail.com" >
+                            <input type="text" name="regemail" class="form-control" id="email" placeholder="<?php echo $mail; ?>" >
                         </div>
                     </div>
                     
@@ -66,7 +83,7 @@ $chuser=unserialize($_SESSION['userdata']);
                     <div class="form-group">
                         <label for="balls" class="col-xs-4 control-label">Ваши баллы</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regballs" class="form-control" id="balls" placeholder="200" >
+                            <input type="text" name="regballs" class="form-control" id="balls" placeholder="<?php echo $balls; ?>" >
                         </div>
                     </div>
                     
@@ -74,14 +91,14 @@ $chuser=unserialize($_SESSION['userdata']);
                     <div class="form-group">
                         <label for="berd_year" class="col-xs-4 control-label">Ваш год рождения</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regberd_year" class="form-control" id="berd_year" placeholder="1990" >
+                            <input type="text" name="regberd_year" class="form-control" id="berd_year" placeholder="<?php echo $berd_year; ?>" >
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="place" class="col-xs-4 control-label">Ваш город</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regplace" class="form-control" id="place" placeholder="Харьков" >
+                            <input type="text" name="regplace" class="form-control" id="place" placeholder="<?php echo $place; ?>" >
                         </div>
                     </div>
                     
