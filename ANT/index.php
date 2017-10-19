@@ -16,7 +16,7 @@ include_once 'autoload.php';
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/mystyle.css" rel="stylesheet">
 <script src="js/jquery-3.2.1.js"></script>
-    
+
 </head>
 <body>
 
@@ -27,9 +27,9 @@ include_once 'autoload.php';
 
 <script src="js/bootstrap.js"></script>
 <script src="js/registration.js"></script>
+<script src="js/change.js"></script>
 <script src="js/ajaxQuery.js"></script>
 <script src="js/table.js"></script>
-
 </body>
 </html>
 

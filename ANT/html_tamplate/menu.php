@@ -2,7 +2,7 @@
     <div class="navbar">
         <div class="navbar-form navbar-fixed-top">
             <button id="Sing" type="button" class="btn btn-sm btn-primary">Регистрация</button>
-            <button type="button" class="btn btn-sm btn-danger">Редактирование</button>
+            <button id="Rerayt" type="button" class="btn btn-sm btn-danger">Редактирование</button>
 
             <form class="navbar-right" role="search">
                 <div class="form-group">

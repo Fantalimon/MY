@@ -331,7 +331,7 @@ class Addusers extends Entyty implements Serializable
     {
         $db = DB::getInstance();
         $email =$this->clean($this->escape($this->getEmail()));
-        $query="SELECT `id`,`name`,`seurname`,`sex`,`group`,`email`,`balls`,`berd_year`,`place` FROM `users` WHERE email = '$email' LIMIT 1";
+        $query="SELECT `id`,`name`,`seurname`,`sex`,`mygroup`,`email`,`balls`,`berd_year`,`place` FROM `users` WHERE email = '$email' LIMIT 1";
         $result=$db->query($query);
         if (!$result) {die($db->error);}
         $row = $result->fetch_assoc();

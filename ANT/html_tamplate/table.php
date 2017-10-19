@@ -1,8 +1,3 @@
-<?php
-require_once 'autoload.php';
-
-?>
-
 <div class="container-fluid col-sm-offset-2 col-sm-8 ">
     <table class="table text-center">
         <thead>
