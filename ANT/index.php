@@ -14,6 +14,7 @@ include_once 'autoload.php';
     <title>Список</title>
     
 <link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/mystyle.css" rel="stylesheet">
 <script src="js/jquery-3.2.1.js"></script>
     
 </head>
