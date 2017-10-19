@@ -3,7 +3,7 @@
         
         var error = '';
         
-        var myform=$('#formreg');
+        var myform=$('#formchange');
         
         
         function is_name(name) {
@@ -111,7 +111,7 @@
         
         
         function inputnull() {
-            $('#formreg').find('input').each(function () {
+            $('#formchange').find('input').each(function () {
                 if (!$(this).val()) {
                     $(this).css('border', 'red 1px solid');
                     error = 1;
@@ -158,26 +158,26 @@
         
         
         
-        $('#sendreg').click(
+        $('#chsendreg').click(
             function (e) {
                 e.preventDefault();
                 
                 error = 0;
-                var name = $('#name').val();
+                var name = $('#chname').val();
                 
-                var seurname = $('#seurname').val();
+                var seurname = $('#chseurname').val();
                 
-                var sex = $('#formreg input:checked').val();
+                var sex = $('#formchange input:checked').val();
                 
-                var mygroup = $('#group').val();
+                var mygroup = $('#chgroup').val();
                 
-                var email = $('#email').val();
+                var email = $('#chemail').val();
                 
-                var balls = $('#balls').val();
+                var balls = $('#chballs').val();
                 
-                var berd_year = $('#berd_year').val();
+                var berd_year = $('#chberd_year').val();
                 
-                var place = $('#place').val();
+                var place = $('#chplace').val();
                 
                 
                 
@@ -194,7 +194,7 @@
                 
                 if (error == 0) {
                     $.ajax({
-                        url: 'registration.php',
+                        url: 'revrite.php',
                         data: {
                             name: name,
                             seurname: seurname,
@@ -216,10 +216,10 @@
                         
                     });
                     
-                    $('#Reg').modal('hide');
-                    $('#SenksReg').modal('show');
+                    $('#Change').modal('hide');
+                    $('#SenksChange').modal('show');
                     setTimeout(function () {
-                        $('#SenksReg').modal('hide')
+                        $('#SenksChange').modal('hide')
                     }, 3000);
                 }
             });

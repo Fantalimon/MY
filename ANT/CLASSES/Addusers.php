@@ -4,6 +4,10 @@ require_once 'autoload.php';
 class Addusers extends Entyty implements Serializable
 {
     
+    /**
+     * @var int
+     */
+    private $id;
     
     /**
      * @var string
@@ -75,6 +79,26 @@ class Addusers extends Entyty implements Serializable
         }
     }
     
+    
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * @param int $id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        
+        return $this;
+    }
     
     /**
      * @return string
@@ -253,6 +277,7 @@ class Addusers extends Entyty implements Serializable
     public function getUserInfo()
     {
         return [
+            'id' => $this->getId(),
             'name' => $this->getName(),
             'seurname'=>$this->getSeurname(),
             'sex'=>$this->getSex(),
@@ -293,6 +318,7 @@ class Addusers extends Entyty implements Serializable
     {
         $userInfo = unserialize($serialized);
         $this
+            ->setId($userInfo['id'])
             ->setName($userInfo['name'])
             ->setSeurname($userInfo['seurname'])
             ->setSex($userInfo['sex'])
@@ -324,6 +350,8 @@ class Addusers extends Entyty implements Serializable
     
         $result=$db->query($query);
         if (!$result) {die($db->error);}
+        
+        $this->setId($db->insert_id);
         return true;
     }
     

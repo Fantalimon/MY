@@ -26,7 +26,6 @@ include_once 'autoload.php';
 <script src="js/bootstrap.js"></script>
 <script src="js/registration.js"></script>
 <script src="js/change.js"></script>
-<script src="js/ajaxQuery.js"></script>
 <script src="js/table.js"></script>
 </body>
 </html>

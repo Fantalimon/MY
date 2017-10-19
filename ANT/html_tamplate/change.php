@@ -40,26 +40,26 @@ if(!isset($_SESSION['userdata'])){
                     <div class="form-group">
                         <label for="name" class="col-xs-4 control-label">Ваше имя</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regname" class="form-control" id="name" placeholder="<?php echo $name ?>">
+                            <input type="text" name="regname" class="form-control" id="chname" placeholder="<?php echo $name ?>">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="seurname" class="col-xs-4 control-label">Ваша Фамилия</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regseurname" class="form-control" id="seurname" placeholder="<?php echo $seurname; ?>"  >
+                            <input type="text" name="regseurname" class="form-control" id="chseurname" placeholder="<?php echo $seurname; ?>"  >
                         </div>
                     </div>
                     
                     <div class="form-group" id="sex">
                         <label for="sexm" class="col-sm-4 col-sm-offset-2 radio">Мужчина</label>
                         <div class="col-sm-1">
-                            <input type="radio" name="regsex" class="form-control " id="sexm" value="1" checked/>
+                            <input type="radio" name="regsex" class="form-control " id="chsexm" value="1" checked/>
                         </div>
                         
                         <label for="sexw" class="col-sm-4 col-sm-offset-2 radio">Женщина</label>
                         <div class="col-sm-1">
-                            <input type="radio" name="regsex" class="form-control " id="sexw" value="0"/>
+                            <input type="radio" name="regsex" class="form-control " id="chsexw" value="0"/>
                         </div>
                     
                     </div>
@@ -67,7 +67,7 @@ if(!isset($_SESSION['userdata'])){
                     <div class="form-group">
                         <label for="group" class="col-xs-4 control-label">Ваша група</label>
                         <div class="col-xs-7">
-                            <input type="text" name="reggroup" class="form-control" id="group" placeholder="<?php echo $mygroup; ?>" >
+                            <input type="text" name="reggroup" class="form-control" id="chgroup" placeholder="<?php echo $mygroup; ?>" >
                         </div>
                     </div>
                     
@@ -75,7 +75,7 @@ if(!isset($_SESSION['userdata'])){
                     <div class="form-group">
                         <label for="email" class="col-xs-4 control-label">Ваша почта</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regemail" class="form-control" id="email" placeholder="<?php echo $mail; ?>" >
+                            <input type="text" name="regemail" class="form-control" id="chemail" placeholder="<?php echo $mail; ?>" >
                         </div>
                     </div>
                     
@@ -83,7 +83,7 @@ if(!isset($_SESSION['userdata'])){
                     <div class="form-group">
                         <label for="balls" class="col-xs-4 control-label">Ваши баллы</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regballs" class="form-control" id="balls" placeholder="<?php echo $balls; ?>" >
+                            <input type="text" name="regballs" class="form-control" id="chballs" placeholder="<?php echo $balls; ?>" >
                         </div>
                     </div>
                     
@@ -91,21 +91,21 @@ if(!isset($_SESSION['userdata'])){
                     <div class="form-group">
                         <label for="berd_year" class="col-xs-4 control-label">Ваш год рождения</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regberd_year" class="form-control" id="berd_year" placeholder="<?php echo $berd_year; ?>" >
+                            <input type="text" name="regberd_year" class="form-control" id="chberd_year" placeholder="<?php echo $berd_year; ?>" >
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="place" class="col-xs-4 control-label">Ваш город</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regplace" class="form-control" id="place" placeholder="<?php echo $place; ?>" >
+                            <input type="text" name="regplace" class="form-control" id="chplace" placeholder="<?php echo $place; ?>" >
                         </div>
                     </div>
                     
                     
                     <!-- Футер модального окна -->
                     <div class="modal-footer">
-                        <button id="sendreg"  class="btn btn-primary">Отправить</button>
+                        <button id="chsendreg"  class="btn btn-primary">Отправить</button>
                     </div>
                 </form>
             
