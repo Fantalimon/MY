@@ -2,12 +2,12 @@
 require_once 'autoload.php';
 class Query
 {
-    public $ASK;
+    public $ASC;
     public $DESC;
     public $order;
     
-    public function ASK(){
-        $this->ASK=' ASK';
+    public function ASC(){
+        $this->ASC=' ASC';
         return $this;
     }
     public function DESC(){
@@ -31,7 +31,7 @@ class Query
             default:
                 $field = 'mygroup';
         }
-        $this->order=' ORDER BY '.$field;
+        $this->order=' ORDER BY '." $field ";
         return $this;
     }
     

@@ -2,21 +2,23 @@
 require_once 'autoload.php';
 class Sort
 {
-    protected $order ;
-    protected $ASK ;
-    protected $DESC ;
+    protected $order;
+    protected $ASC;
+    protected $DESC;
     
     public function __construct(Query $builder)
     {
       $this->order=$builder->order;
-      $this->ASK=$builder->ASK;
+      $this->ASC=$builder->ASC;
       $this->DESC=$builder->DESC;
     }
+    
     public function __toString()
     {
-        $str="$this->order";
-        if(!empty($this->ASK)){$str.="$this->DESC";}
-        else{$str.="$this->ASK";}
-     return $str;
+            $str="$this->order";
+            $str .= "$this->DESC";
+            $str .= "$this->ASC";
+            
+        return $str;
     }
 }
