@@ -97,7 +97,14 @@ if(preg_match('/^[\wа-яёії]{2,20}/iu', $place)===1){
 if (in_array('ОШИБКА', $userData,true)){
 echo json_encode($error);
 }else{
-    (new Addusers($userData))->save();
+    
+    $user=new Addusers($userData);
+    $result=$user->save();
+    
+    if($result==true){
+        $_SESSION['userdata']=serialize($user);
+    }
+    
 };
 
 
