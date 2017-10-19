@@ -1,3 +1,9 @@
+<?php
+
+$chuser=unserialize($_SESSION['userdata']);
+
+?>
+
 
 <!--Модальлное окно изменений -->
 <div id="Change" role="dialog" class="modal" tabindex="-1">
@@ -17,7 +23,7 @@
                     <div class="form-group">
                         <label for="name" class="col-xs-4 control-label">Ваше имя</label>
                         <div class="col-xs-7">
-                            <input type="text" name="regname" class="form-control" id="name" placeholder="Анатолий" >
+                            <input type="text" name="regname" class="form-control" id="name" placeholder="<?php echo $chuser['name'] ?> ">
                         </div>
                     </div>
                     
