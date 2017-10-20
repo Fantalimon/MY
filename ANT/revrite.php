@@ -13,7 +13,8 @@ $place='';
 $userData=[];
 $error=[];
 
-$id=$_SESSION['id'];
+
+$id = isset($_POST['id']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['id']))), 0,10,'UTF-8') : '';
 $name = isset($_POST['name']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['name']))), 0,20,'UTF-8') : '';
 $seurname = isset($_POST['seurname']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['seurname']))),0,20,'UTF-8') : '';
 $sex = isset($_POST['sex']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['sex']))), 0,1,'UTF-8')  : '';
@@ -33,7 +34,15 @@ $balls=(int)$balls;
 $berd_year=(string)$berd_year;
 $place=(string)$place;
 
-$userData['id']=$id;
+
+
+
+if(preg_match('/^[0-9]{1,10}$/', $id)===1){
+    $userData['id']=$id;
+}else{
+    $userData['id']='ОШИБКА';
+    $error['id']='Не корректный айди';
+}
 
 if(preg_match('/^[\wа-яёії]{2,20}/iu', $name)===1){
     $userData['name']=$name;

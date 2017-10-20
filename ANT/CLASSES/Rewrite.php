@@ -1,11 +1,87 @@
 <?php
 require_once 'autoload.php';
-class Rewrite extends Addusers
+class Rewrite extends Entyty implements Serializable
 {
+    
+    
     /**
      * @var int
      */
     private $id;
+    
+    /**
+     * @var string
+     */
+    private $name;
+    
+    /**
+     * @var string
+     */
+    private $seurname;
+    
+    /**
+     * @var string
+     */
+    private $sex;
+    
+    /**
+     * @var string
+     */
+    private $group;
+    /**
+     * @var string
+     */
+    private $email;
+    /**
+     * @var string
+     */
+    private $balls;
+    /**
+     * @var string
+     */
+    private $berd_year;
+    /**
+     * @var string
+     */
+    private $place;
+    
+    
+    /**
+     * User constructor.
+     *
+     * @param $userData
+     */
+    public function __construct($userData)
+    {
+        if (isset($userData['id'])) {
+            $this->setId($userData['id']);
+        }
+        if (isset($userData['name'])) {
+            $this->setName($userData['name']);
+        }
+        if (isset($userData['seurname'])) {
+            $this->setSeurname($userData['seurname']);
+        }
+        if (isset($userData['sex'])) {
+            $this->setSex($userData['sex']);
+        }
+        if (isset($userData['mygroup'])) {
+            $this->setGroup($userData['mygroup']);
+        }
+        if (isset($userData['email'])) {
+            $this->setEmail($userData['email']);
+        }
+        if (isset($userData['balls'])) {
+            $this->setBalls($userData['balls']);
+        }
+        if (isset($userData['berd_year'])) {
+            $this->setBerdYear($userData['berd_year']);
+        }
+        if (isset($userData['place'])) {
+            $this->setPlace($userData['place']);
+        }
+    }
+    
     
     /**
      * @return int
@@ -26,6 +102,175 @@ class Rewrite extends Addusers
         
         return $this;
     }
+    
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    /**
+     * @param string $username
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+    
+    
+    /**
+     * @return string
+     */
+    public function getSeurname()
+    {
+        return $this->seurname;
+    }
+    
+    /**
+     * @param string $seurname
+     *
+     * @return $this
+     */
+    public function setSeurname($seurname)
+    {
+        $this->seurname = $seurname;
+        return $this;
+    }
+    
+    
+    
+    /**
+     * @return string
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+    
+    /**
+     * @param string $sex
+     *
+     * @return $this
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+        return $this;
+    }
+    
+    
+    
+    
+    /**
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+    
+    /**
+     * @param string $group
+     *
+     * @return $this
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+        return $this;
+    }
+    
+    
+    
+    
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+    
+    /**
+     * @param string $email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        return $this;
+    }
+    
+    
+    
+    
+    /**
+     * @return string
+     */
+    public function getBalls()
+    {
+        return $this->balls;
+    }
+    
+    /**
+     * @param string $balls
+     *
+     * @return $this
+     */
+    public function setBalls($balls)
+    {
+        $this->balls = $balls;
+        return $this;
+    }
+    
+    
+    /**
+     * @return string
+     */
+    public function getBerdYear()
+    {
+        return $this->berd_year;
+    }
+    
+    /**
+     * @param string $berd_year
+     *
+     * @return $this
+     */
+    public function setBerdYear($berd_year)
+    {
+        $this->berd_year = $berd_year;
+        return $this;
+    }
+    
+    
+    
+    /**
+     * @return string
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+    
+    /**
+     * @param string $place
+     *
+     * @return $this
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+        return $this;
+    }
+    
+    
     
     /**
      * Get user info.

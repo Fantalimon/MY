@@ -102,6 +102,10 @@ echo json_encode($error);
     $user=new Addusers($userData);
     $result=$user->save();
     
+    echo "<pre>";
+        var_dump( $user );
+    echo "</pre>";
+    
     if($result==true){
         $_SESSION['userdata']=serialize($user);
 //        header('location: ' . SITE);

@@ -1,6 +1,7 @@
 <?php
 include_once BASE_PATH.'/autoload.php';
 if(!isset($_SESSION['userdata'])){
+    $id='';
     $name='';
     $seurname='';
     $mygroup='';
@@ -10,7 +11,7 @@ if(!isset($_SESSION['userdata'])){
     $place='';
 }else {
     $user = unserialize($_SESSION['userdata']);
-    $_SESSION['id']=$user->getId();
+    $id=$user->getId();
     $name = $user->getName();
     $seurname = $user->getSeurname();
     $mygroup = $user->getGroup();
@@ -18,6 +19,10 @@ if(!isset($_SESSION['userdata'])){
     $balls = $user->getBalls();
     $berd_year = $user->getBerdYear();
     $place = $user->getPlace();
+    
+    echo "<pre>";
+        var_dump($user);
+    echo "</pre>";
 }
 
 ?>
@@ -41,6 +46,7 @@ if(!isset($_SESSION['userdata'])){
                     <div class="form-group">
                         <label for="name" class="col-xs-4 control-label">Ваше имя</label>
                         <div class="col-xs-7">
+                            <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
                             <input type="text" name="regname" class="form-control" id="chname" placeholder="<?php echo $name ?>">
                         </div>
                     </div>

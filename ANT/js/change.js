@@ -163,6 +163,8 @@
                 e.preventDefault();
                 
                 error = 0;
+                var id = $('#id').val();
+                
                 var name = $('#chname').val();
                 
                 var seurname = $('#chseurname').val();
@@ -196,6 +198,7 @@
                     $.ajax({
                         url: 'revrite.php',
                         data: {
+                            id: id,
                             name: name,
                             seurname: seurname,
                             sex: sex,
