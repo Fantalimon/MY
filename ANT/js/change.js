@@ -9,11 +9,11 @@
         function is_name(name) {
             let patern = (/^[\wа-яёії]{3,25}$/gi);
             if((patern.test(name))==false){
-                $('#name').css('border', 'red 1px solid');
+                $('#chname').css('border', 'red 1px solid');
                 error = 2;
                 return;
             }else{
-                $('#name').css('border', '');
+                $('#chname').css('border', '');
                 return patern.test(name);
             }
         }
@@ -21,11 +21,11 @@
         function is_seurname(seurname) {
             let patern = (/^[\wа-яёії]{3,25}$/gi);
             if((patern.test(seurname))==false){
-                $('#seurname').css('border', 'red 1px solid');
+                $('#chseurname').css('border', 'red 1px solid');
                 error = 2;
                 return;
             }else{
-                $('#seurname').css('border', '');
+                $('#chseurname').css('border', '');
                 return patern.test(seurname);
             }
             
@@ -34,11 +34,11 @@
         function is_sex(sex) {
             let patern = (/^0|1$/g);
             if((patern.test(sex))==false){
-                $('#sex').css('border', 'red 1px solid');
+                $('#chsex').css('border', 'red 1px solid');
                 error = 2;
                 return;
             }else{
-                $('#sex').css('border', '');
+                $('#chsex').css('border', '');
                 return patern.test(sex);
             }
             
@@ -47,23 +47,23 @@
         function is_group(mygroup) {
             let patern = (/^[\wа-яёії0-9]{2,5}$/gi);
             if((patern.test(mygroup))==false){
-                $('#group').css('border', 'red 1px solid');
+                $('#chgroup').css('border', 'red 1px solid');
                 error = 2;
                 return;
             }else{
-                $('#group').css('border', '');
+                $('#chgroup').css('border', '');
                 return patern.test(mygroup);
             }
         }
         
         function is_mail(email) {
             if(email.match(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/gi)==null){
-                $('#email').css('border', 'red 1px solid');
+                $('#chemail').css('border', 'red 1px solid');
                 error = 2;
                 return;
             }
             else{
-                $('#email').css('border', '');
+                $('#chemail').css('border', '');
                 email=email.match(/^([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$/gi).join('');
                 return email;
             }
@@ -72,11 +72,11 @@
         function is_balls(balls) {
             let patern = (/^[0-9]{1,3}$/g);
             if((patern.test(balls))==false){
-                $('#balls').css('border', 'red 1px solid');
+                $('#chballs').css('border', 'red 1px solid');
                 error = 2;
                 return;
             }else{
-                $('#balls').css('border', '');
+                $('#chballs').css('border', '');
                 return patern.test(balls);
             }
         }
@@ -84,11 +84,11 @@
         function is_berd_year(berd_year) {
             let patern = (/^[0-9]{4}$/g);
             if((patern.test(berd_year))==false){
-                $('#berd_year').css('border', 'red 1px solid');
+                $('#chberd_year').css('border', 'red 1px solid');
                 error = 2;
                 return;
             }else{
-                $('#berd_year').css('border', '');
+                $('#chberd_year').css('border', '');
                 return patern.test(berd_year);
             }
             
@@ -96,12 +96,12 @@
         
         function is_place(place) {
             if(place.match(/\D/gi)==null){
-                $('#place').css('border', 'red 1px solid');
+                $('#chplace').css('border', 'red 1px solid');
                 error = 2;
                 return ;
             }
             else{
-                $('#place').css('border', '');
+                $('#chplace').css('border', '');
                 place=place.match(/\D/gi).join('');
                 return place;
             }

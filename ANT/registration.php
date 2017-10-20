@@ -104,7 +104,7 @@ echo json_encode($error);
     
     if($result==true){
         $_SESSION['userdata']=serialize($user);
-        header('location: ' . SITE);
+//        header('location: ' . SITE);
     }
     
 };

@@ -1,7 +1,7 @@
 <?php
 
 include_once 'autoload.php';
-
+$id='';
 $name = '';
 $seurname = '';
 $sex = '';
@@ -13,6 +13,7 @@ $place='';
 $userData=[];
 $error=[];
 
+$id=$_SESSION['id'];
 $name = isset($_POST['name']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['name']))), 0,20,'UTF-8') : '';
 $seurname = isset($_POST['seurname']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['seurname']))),0,20,'UTF-8') : '';
 $sex = isset($_POST['sex']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['sex']))), 0,1,'UTF-8')  : '';
@@ -22,6 +23,7 @@ $balls = isset($_POST['balls']) ?  mb_substr(htmlspecialchars(strip_tags(trim($_
 $berd_year = isset($_POST['berd_year']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['berd_year']))), 0,4,'UTF-8') : '';
 $place = isset($_POST['place']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['place']))), 0,20,'UTF-8')  : '';
 
+$id=(int)$id;
 $name=(string)$name;
 $seurname=(string)$seurname;
 $sex=(int)$sex;
@@ -30,6 +32,8 @@ $email=(string)$email;
 $balls=(int)$balls;
 $berd_year=(string)$berd_year;
 $place=(string)$place;
+
+$userData['id']=$id;
 
 if(preg_match('/^[\wа-яёії]{2,20}/iu', $name)===1){
     $userData['name']=$name;
@@ -101,12 +105,19 @@ if (in_array('ОШИБКА', $userData,true)){
     
     $user=new Rewrite($userData);
     $result=$user->save();
+    
     echo "<pre>";
         var_dump( $user );
     echo "</pre>";
+    
+    echo "<pre>";
+        var_dump( $result );
+    echo "</pre>";
+    
+    
     if($result==true){
         $_SESSION['userdata']=serialize($user);
-        header('location: ' . SITE);
+//        header('location: ' . SITE);
     }
     
 };

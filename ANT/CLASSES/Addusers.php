@@ -53,6 +53,9 @@ class Addusers extends Entyty implements Serializable
      */
     public function __construct($userData)
     {
+        if (isset($userData['id'])) {
+            $this->setId($userData['id']);
+        }
         if (isset($userData['name'])) {
             $this->setName($userData['name']);
         }

@@ -10,6 +10,7 @@ if(!isset($_SESSION['userdata'])){
     $place='';
 }else {
     $user = unserialize($_SESSION['userdata']);
+    $_SESSION['id']=$user->getId();
     $name = $user->getName();
     $seurname = $user->getSeurname();
     $mygroup = $user->getGroup();
