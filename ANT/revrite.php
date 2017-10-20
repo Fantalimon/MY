@@ -13,8 +13,9 @@ $place='';
 $userData=[];
 $error=[];
 
+$user = unserialize($_SESSION['userdata']);
+$id=$user->getId();
 
-$id = isset($_POST['id']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['id']))), 0,10,'UTF-8') : '';
 $name = isset($_POST['name']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['name']))), 0,20,'UTF-8') : '';
 $seurname = isset($_POST['seurname']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['seurname']))),0,20,'UTF-8') : '';
 $sex = isset($_POST['sex']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['sex']))), 0,1,'UTF-8')  : '';
@@ -114,15 +115,6 @@ if (in_array('ОШИБКА', $userData,true)){
     
     $user=new Rewrite($userData);
     $result=$user->save();
-    
-    echo "<pre>";
-        var_dump( $user );
-    echo "</pre>";
-    
-    echo "<pre>";
-        var_dump( $result );
-    echo "</pre>";
-    
     
     if($result==true){
         $_SESSION['userdata']=serialize($user);
