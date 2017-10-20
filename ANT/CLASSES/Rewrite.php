@@ -1,11 +1,48 @@
 <?php
-require_once 'autoload.php';
+require_once BASE_PATH.'autoload.php';
 class Rewrite extends Addusers
 {
     /**
      * @var int
      */
     private $id;
+    
+    
+    
+    /**
+     * User constructor.
+     *
+     * @param $userData
+     */
+    public function __construct($userData)
+    {
+       
+        if (isset($userData['name'])) {
+            $this->setName($userData['name']);
+        }
+        if (isset($userData['seurname'])) {
+            $this->setSeurname($userData['seurname']);
+        }
+        if (isset($userData['sex'])) {
+            $this->setSex($userData['sex']);
+        }
+        if (isset($userData['mygroup'])) {
+            $this->setGroup($userData['mygroup']);
+        }
+        if (isset($userData['email'])) {
+            $this->setEmail($userData['email']);
+        }
+        if (isset($userData['balls'])) {
+            $this->setBalls($userData['balls']);
+        }
+        if (isset($userData['berd_year'])) {
+            $this->setBerdYear($userData['berd_year']);
+        }
+        if (isset($userData['place'])) {
+            $this->setPlace($userData['place']);
+        }
+    }
+    
     
     /**
      * @return int
