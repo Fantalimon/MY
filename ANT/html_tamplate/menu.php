@@ -9,11 +9,11 @@
                     echo "<button id=\"Rerayt\" type=\"button\" class=\"btn btn-sm btn-danger\">Редактирование</button>";
                 }
             ?>
-            <form class="navbar-right" role="search">
+            <form class="navbar-right"  role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control input-sm" placeholder="что ищем?">
+                    <input id="find" type="text" class="form-control input-sm" placeholder="что ищем?">
                 </div>
-                <button type="submit" class="btn btn-sm btn-success">Искать</button>
+                <button id="tofind" type="submit" class="btn btn-sm btn-success">Искать</button>
             </form>
 
         </div>

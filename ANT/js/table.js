@@ -48,14 +48,17 @@
             })
         });
         
-        $('#nameUP,#nameDOUN,#ballsUP,#ballsDOUN,#mygroupUP,#mygroupDOUN,#seurnameUP,#seurnameDOUN').click(
+        $('#nameUP,#nameDOUN,#ballsUP,#ballsDOUN,#mygroupUP,#mygroupDOUN,#seurnameUP,#seurnameDOUN, #tofind').click(
             function (e) {
                 e.preventDefault();
+                if(this.id=='tofind') {
+                    var find = $('#find').val();
+                }
                 if (this.id == 'nameUP') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'nameUP'},
+                        data:{status:'nameUP',find:find},
                         cache: false,
                         dataType: 'json',
                         success: (function (data) {
@@ -79,7 +82,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'nameDOUN'},
+                        data:{status:'nameDOUN',find:find},
                         cache: false,
                         dataType: 'json',
                         success: (function (data) {
@@ -103,7 +106,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'ballsUP'},
+                        data:{status:'ballsUP',find:find},
                         cache: false,
                         dataType: 'json',
                         success: (function (data) {
@@ -127,7 +130,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'ballsDOUN'},
+                        data:{status:'ballsDOUN',find:find},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.ballsDESC) {
@@ -153,7 +156,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'mygroupUP'},
+                        data:{status:'mygroupUP',find:find},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.mygroupASC) {
@@ -179,7 +182,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'mygroupDOUN'},
+                        data:{status:'mygroupDOUN',find:find},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.mygroupDESC) {
@@ -205,7 +208,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'seurnameUP'},
+                        data:{status:'seurnameUP',find:find},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.seurnameASC) {
@@ -231,7 +234,7 @@
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
-                        data:{status:'seurnameDOUN'},
+                        data:{status:'seurnameDOUN',find:find},
                         dataType: 'json',
                         success: (function (data) {
                             if (data.seurnameDESC) {

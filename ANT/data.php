@@ -1,12 +1,25 @@
 <?php
 require_once 'autoload.php';
 
-$field = new Scroll();
-
 $status='';
+$find='';
 $response=[];
 
+
+
+$find = isset($_POST['find']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['find']))), 0,20,'UTF-8') : '';
+
+
 $status = isset($_POST['status']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['status']))), 0,20,'UTF-8') : '';
+
+
+if(!empty($find)){
+    $field=new Find($find);
+}else {
+    $field = new Scroll();
+}
+
+
 
 switch ($status){
     case 'nameUP':

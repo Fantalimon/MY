@@ -18,8 +18,6 @@ class Rewrite extends Addusers
         $query= "UPDATE `users` SET `name`='$name',`seurname`='$seurname',`sex`='$sex',`mygroup`='$mygroup',
 `balls`=$balls,`berd_year`='$berd_year',`place`='$place',`email`='$email' WHERE `id`='$id' LIMIT 1";
         
-        echo $query;
-        
         $result=$db->query($query);
         if (!$result) {die($db->error);}
         
