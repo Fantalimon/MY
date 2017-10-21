@@ -1,3 +1,4 @@
+<div class="row">
 <div class="container-fluid col-xs-offset-2 col-xs-10 ">
     <div class="navbar">
         <div class="navbar-form navbar-fixed-top">
@@ -18,4 +19,5 @@
 
         </div>
     </div>
+</div>
 </div>

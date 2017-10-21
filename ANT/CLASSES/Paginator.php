@@ -12,7 +12,7 @@ class Paginator
         if (!$result) {die($db->error);}
             $row = $result->fetch_array();
             $ctn= $row[0];
-            $paginate=ceil($ctn/1);
+            $paginate=ceil($ctn/10);
             $paginate=(int)$paginate;
         return $this->paginate=$paginate;
     }

@@ -18,10 +18,9 @@ include_once 'autoload.php';
 </head>
 <body>
 
+<div class="container">
 <?php include_once 'html_tamplate/htmlautoload.php'?>
-
-
-
+</div>
 
 <script src="js/bootstrap.js"></script>
 <script src="js/registration.js"></script>

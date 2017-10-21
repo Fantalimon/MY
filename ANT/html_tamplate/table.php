@@ -1,3 +1,4 @@
+<div class="row">
 <div class="container-fluid col-sm-offset-2 col-sm-8 ">
     <table class="table text-center">
         <thead>
@@ -13,3 +14,5 @@
         </tbody>
     </table>
 </div>
+</div>
+

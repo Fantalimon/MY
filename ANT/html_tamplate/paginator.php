@@ -1,4 +1,5 @@
-<div class="navbar text-center">
+<div class="row">
+<div class="navbar text-center ">
     <div class="navbar-form navbar-fixed-bottom">
         <ul class="pagination">
             <li><a href="#">&laquo;</a></li>
@@ -13,6 +14,4 @@ for ($i = 1; $i <= $pagin->paginate; $i++) {
         </ul>
     </div>
 </div>
-
-
-
+</div>
