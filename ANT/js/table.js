@@ -21,7 +21,8 @@
             console.log(msg);
         }
     
-    
+      
+        
     
         $.ajax({
             url: 'data.php',
@@ -48,13 +49,15 @@
             })
         });
         
-        $('#nameUP,#nameDOUN,#ballsUP,#ballsDOUN,#mygroupUP,#mygroupDOUN,#seurnameUP,#seurnameDOUN, #tofind').click(
+        
+        
+        $('#nameUP,#nameDOUN,#ballsUP,#ballsDOUN,#mygroupUP,#mygroupDOUN,#seurnameUP,#seurnameDOUN,#tofind').click(
             function (e) {
                 e.preventDefault();
-                if(this.id=='tofind') {
+                
                     var find = $('#find').val();
-                }
-                if (this.id == 'nameUP') {
+                   
+                if (this.id == 'nameUP' || this.id=='tofind') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
@@ -78,7 +81,7 @@
                             getErrorMessage(jqXHR, exception)
                         })
                     });
-                } else if (this.id == 'nameDOUN') {
+                } else if (this.id == 'nameDOUN' || this.id=='tofind') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
@@ -102,7 +105,7 @@
                             getErrorMessage(jqXHR, exception)
                         })
                     });
-                } else if (this.id == 'ballsUP') {
+                } else if (this.id == 'ballsUP' || this.id=='tofind') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
@@ -126,7 +129,7 @@
                             getErrorMessage(jqXHR, exception)
                         })
                     });
-                } else if (this.id == 'ballsDOUN') {
+                } else if (this.id == 'ballsDOUN'|| this.id=='tofind') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
@@ -152,7 +155,7 @@
                             getErrorMessage(jqXHR, exception)
                         })
                     });
-                } else if (this.id == 'mygroupUP') {
+                } else if (this.id == 'mygroupUP' || this.id=='tofind' ) {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
@@ -178,7 +181,7 @@
                             getErrorMessage(jqXHR, exception)
                         })
                     });
-                } else if (this.id == 'mygroupDOUN') {
+                } else if (this.id == 'mygroupDOUN'|| this.id=='tofind') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
@@ -204,7 +207,7 @@
                             getErrorMessage(jqXHR, exception)
                         })
                     });
-                } else if (this.id == 'seurnameUP') {
+                } else if (this.id == 'seurnameUP' || this.id=='tofind') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',
@@ -230,7 +233,7 @@
                             getErrorMessage(jqXHR, exception)
                         })
                     });
-                } else if (this.id == 'seurnameDOUN') {
+                } else if (this.id == 'seurnameDOUN' || this.id=='tofind') {
                     $.ajax({
                         url: 'data.php',
                         type: 'POST',

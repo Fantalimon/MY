@@ -29,7 +29,6 @@ class Find extends Scroll
         $find=$this->escape($this->clean($this->getFind()));
         $query="SELECT `name`, `seurname`,`mygroup`,`balls` FROM users WHERE `name` LIKE '%".$find."%' OR `seurname` LIKE '%".$find."%' OR `mygroup` LIKE '%".$find."%' OR `balls` LIKE '%".$find."%'".$wquery;
         
-        echo $query;
         
         $result = $db->query($query);
         if (!$result) {
