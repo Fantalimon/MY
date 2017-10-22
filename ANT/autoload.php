@@ -16,8 +16,8 @@ require_once 'CLASSES/Addusers.php';
 require_once 'CLASSES/Rewrite.php';
 
 require_once 'CLASSES/Paginator.php';
+
 require_once 'CLASSES/Scroll.php';
 require_once 'CLASSES/Sort.php';
 require_once 'CLASSES/Query.php';
-
 require_once 'CLASSES/Find.php';
