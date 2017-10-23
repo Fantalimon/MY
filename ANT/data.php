@@ -5,15 +5,10 @@ $status='';
 $find='';
 $response=[];
 
+$page = isset($_GET['page']) ? mb_substr(htmlspecialchars(strip_tags(trim($_GET['page']))), 0, 20, 'UTF-8') : 1;
 
-$page = isset($_GET['page']) ? mb_substr(
-    htmlspecialchars(strip_tags(trim($_GET['page']))), 0, 20, 'UTF-8'
-) : 1;
 
 $pageinlist = PAGEINLIST;
-
-
-
 
 
 $find = isset($_POST['find']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['find']))), 0,20,'UTF-8') : '';
@@ -21,7 +16,15 @@ $find = isset($_POST['find']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POS
 
 $status = isset($_POST['status']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['status']))), 0,20,'UTF-8') : '';
 
+echo "<pre>";
+    var_dump( $_GET['page'] );
+echo "</pre>";exit;
 
+echo "<pre>";
+    var_dump( $field = new Scroll($page, $pageinlist),
+              $field->show(((new Query())->order('name')->ASC()->bild()))
+);
+echo "</pre>";exit;
 
 
 if(!empty($find)){
@@ -64,7 +67,7 @@ switch ($status){
             $response['seurnameDESC'] = $field->show(((new Query())->order('seurname')->DESC()->bild()));
         break;
     default:
-             $response['ballsDESC'] = $field->show(((new Query())->order('balls')->DESC()->bild())) ;
+             $response['ballsDESC'] = $field->show(((new Query())->order('balls')->DESC()->bild()));
        
 }
 

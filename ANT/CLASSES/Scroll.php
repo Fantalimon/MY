@@ -89,6 +89,7 @@ class Scroll extends Entyty
         $query="SELECT `name`, `seurname`,`mygroup`,`balls` FROM users "."$wquery"." LIMIT "." $start ".","."$pageinlist";
         
         
+        echo $query."<br>"."<br>";
         
         $result = $db->query($query);
         if (!$result) {
