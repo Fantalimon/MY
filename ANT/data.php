@@ -64,7 +64,8 @@ switch ($status){
             $response['seurnameDESC'] = $field->show(((new Query())->order('seurname')->DESC()->bild()));
         break;
     default:
-        $response['ballsDESC'] = $field->show(((new Query())->order('balls')->DESC()->bild()));
+             $response['ballsDESC'] = $field->show(((new Query())->order('balls')->DESC()->bild())) ;
+       
 }
 
 echo json_encode($response);

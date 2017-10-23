@@ -63,6 +63,12 @@ class Paginator extends Entyty
     
     public function Limit()
     {
+        $page2right='';
+        $page2left='';
+        $page1left='';
+        $page1right='';
+        $nextpage='';
+        $pervpage='';
         
         $page = $this->escape($this->clean($this->getPage()));
         $pageinlist = $this->escape($this->clean($this->getPageinList()));
@@ -78,7 +84,20 @@ class Paginator extends Entyty
             $page = $total;
         }
         
-        $start = $page * $pageinlist - $pageinlist;
+        // Проверяем нужны ли стрелки назад
+        if ($page != 1) $pervpage = '<a href= ./?page=1><<</a> <a href= ./?page='. ($page - 1) .'><</a> ';
+// Проверяем нужны ли стрелки вперед
+        if ($page != $total) $nextpage = ' <a href= ./?page='. ($page + 1) .'>></a> 
+                                   <a href= ./?page=' .$total. '>>></a>';
+
+// Находим две ближайшие станицы с обоих краев, если они есть
+        if($page - 2 > 0) $page2left = ' <a href= ./?page='. ($page - 2) .'>'. ($page - 2) .'</a>  ';
+        if($page - 1 > 0) $page1left = '<a href= ./?page='. ($page - 1) .'>'. ($page - 1) .'</a>  ';
+        if($page + 2 <= $total) $page2right = '  <a href= ./?page='. ($page + 2) .'>'. ($page + 2) .'</a>';
+        if($page + 1 <= $total) $page1right = '  <a href= ./?page='. ($page + 1) .'>'. ($page + 1) .'</a>';
+
+// Вывод меню
+        return '<li>'.$pervpage.$page2left.$page1left.'<span>'.$page.'</span>'.$page1right.$page2right.$nextpage.'</li>';
     
     }
     

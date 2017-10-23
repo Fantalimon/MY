@@ -12,9 +12,8 @@
                 
                 $paginate=new Paginator($page, $pageinlist);
                 $paginate->CountBase();
-                echo "<pre>";
-                    var_dump( $paginate );
-                echo "</pre>";
+                echo $paginate->Limit();
+                
                 ?>
             </ul>
     </div>

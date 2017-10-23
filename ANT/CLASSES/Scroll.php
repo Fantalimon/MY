@@ -89,6 +89,7 @@ class Scroll extends Entyty
         $query="SELECT `name`, `seurname`,`mygroup`,`balls` FROM users "."$wquery"." LIMIT "." $start ".","."$pageinlist";
         
         
+        
         $result = $db->query($query);
         if (!$result) {
             die($db->error);
@@ -98,5 +99,7 @@ class Scroll extends Entyty
             $data[] = $row;
         }
         return $data;
+        
+        
     }
 }
