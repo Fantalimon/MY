@@ -102,43 +102,12 @@ echo json_encode($error);
     $user=new Addusers($userData);
     $result=$user->save();
     
-    echo "<pre>";
-        var_dump( $user );
-    echo "</pre>";
     
     if($result==true){
         $_SESSION['userdata']=serialize($user);
-//        setcookie('userdata',$value,strtotime('10 year')+time());
+      setcookie('sit',session_id(),strtotime('10 year'));
 //        header('location: ' . SITE);
     }
     
 };
-
-
-
-
-//
-//function great_file($name,$seurname,$sex,$group,$email,$balls,$berd_year,$place)
-//{
-//    $date = date("Y-M-d H:i:s");
-//    $handle = 'REGISTRATION.txt';
-//    $string = $date . ' name :' . ' > [ ' . $name . ' ]' . PHP_EOL;
-//    $string .= $date . ' seurname :' . ' > [ ' . $seurname . ' ]' . PHP_EOL;
-//    $string .= $date . ' sex :' . ' > [ ' . $sex . ' ]' . PHP_EOL;
-//    $string .= $date . ' group :' . ' > [ ' .$group  . ' ]' . PHP_EOL;
-//    $string .= $date . ' email :' . ' > [ ' . $email . ' ]' . PHP_EOL;
-//    $string .= $date . ' balls :' . ' > [ ' . $balls . ' ]' . PHP_EOL;
-//    $string .= $date . ' berd_year :' . ' > [ ' . $berd_year . ' ]' . PHP_EOL;
-//    $string .= $date . ' place :' . ' > [ ' . $place. ' ]' . PHP_EOL;
-//    $string.=PHP_EOL;
-//    $text = fopen($handle, 'w+');
-//    fwrite($text, $string);
-//    fclose($text);
-//    return;
-//}
-//
-//great_file($name, $seurname, $sex, $group, $email, $balls, $berd_year, $place);
-
- 
-
 

@@ -8,7 +8,6 @@ include_once 'autoload.php';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Список</title>
     
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -19,7 +18,7 @@ include_once 'autoload.php';
 <body>
 
 <div class="container">
-<?php include_once 'html_tamplate/htmlautoload.php'?>
+<?php require_once 'HTML/html_autoload.php'?>
 </div>
 
 <script src="js/bootstrap.js"></script>

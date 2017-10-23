@@ -1,5 +1,5 @@
 <?php
-require_once 'autoload.php';
+require_once BASE_PATH.'/autoload.php';
 class Sort
 {
     protected $order;

@@ -16,16 +16,6 @@ $find = isset($_POST['find']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POS
 
 $status = isset($_POST['status']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['status']))), 0,20,'UTF-8') : '';
 
-echo "<pre>";
-    var_dump( $_GET['page'] );
-echo "</pre>";exit;
-
-echo "<pre>";
-    var_dump( $field = new Scroll($page, $pageinlist),
-              $field->show(((new Query())->order('name')->ASC()->bild()))
-);
-echo "</pre>";exit;
-
 
 if(!empty($find)){
     $field=new Find($find);
@@ -70,6 +60,11 @@ switch ($status){
              $response['ballsDESC'] = $field->show(((new Query())->order('balls')->DESC()->bild()));
        
 }
+
+echo "<pre>";
+    var_dump( $field->Limit() );
+echo "</pre>";
+
 
 echo json_encode($response);
 

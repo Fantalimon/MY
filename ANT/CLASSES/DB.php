@@ -4,10 +4,6 @@ trait DB
     
     private static $instance;
     
-//    private function __construct()
-//    {
-//    }
-//
     /**
      * @var null|mysqli
      */
