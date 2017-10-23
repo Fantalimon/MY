@@ -8,7 +8,6 @@ class Paginator extends Entyty
     public $page;
     public $pageinlist;
     
-    public $limit;
     
     public function getPage()
     {
@@ -35,15 +34,17 @@ class Paginator extends Entyty
     }
     
     
-//    public function __construct($page, $pageinlist)
-//    {
-//        if (isset($page)) {
-//            $this->setPage($page);
-//        }
-//        if (isset($pageinlist)) {
-//            $this->setPageinList($pageinlist);
-//        }
-//    }
+    
+    public function __construct($page,$pageinlist)
+    {
+    
+        if (isset($page)) {
+            $this->setPage($page);
+        }
+        if (isset($pageinlist)) {
+            $this->setPageinList($pageinlist);
+        }
+    }
     
     
     public function CountBase()
@@ -67,7 +68,7 @@ class Paginator extends Entyty
         $pageinlist = $this->escape($this->clean($this->getPageinList()));
 
         
-        $total = ceil($this->ctn / $pageinlist);
+        $total = ceil(self::CountBase()/ $pageinlist);
         $total = (int) $total;
         
         if (empty($page) or ($page < 0)) {

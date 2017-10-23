@@ -13,6 +13,9 @@ $page = isset($_GET['page']) ? mb_substr(
 $pageinlist = PAGEINLIST;
 
 
+
+
+
 $find = isset($_POST['find']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['find']))), 0,20,'UTF-8') : '';
 
 
