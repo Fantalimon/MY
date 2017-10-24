@@ -27,7 +27,8 @@
             total,
             url = '';
     
-        
+        console.log(10/3);
+        console.log(7%3);
     
         $.ajax({
             url: 'data.php',
@@ -54,9 +55,11 @@
                     data.pages['page'] = Number(data.pages['page']);
                     data.pages['total'] = Number(data.pages['total']);
         
-                    page = data.pages['page'];
+                    // page = data.pages['page'];
+                    page = 6;
+                    
                     total = data.pages['total'];
-        
+                    
                     if (page != 1) {
                         url += '<li id="page2left">';
                         url += '<a >';
@@ -64,7 +67,7 @@
                         url += '</a>';
                         url += '</li>';
                     }
-                    if(page > page+1)
+                    if(page > 1)
                     {
                         url += '<li id="page1left">';
                         url += '<a >';
@@ -73,23 +76,28 @@
                         url += '</li>';
                     }
                     
-                    for (var x = 1; x < 4; x++) {
-                        if (x == page) {
+                    
+                    
                             url += '<li class="active">';
                             url += '<a>';
                             url += page;
                             url += '</a>';
                             url += '</li>';
-                        } else {
+                    
                             url += '<li>';
                             url += '<a>';
-                            url += x;
+                            url += page+1;
                             url += '</a>';
                             url += '</li>';
-                        }
-                    }
+                            
+                            url += '<li>';
+                            url += '<a>';
+                            url += page+2;
+                            url += '</a>';
+                            url += '</li>';
+                    
         
-                    if (page != total-1) {
+                    if (page < total-1) {
                         url += '<li id="page1reigth">';
                         url += '<a >';
                         url += '>';
@@ -133,7 +141,6 @@
                 page = page - 1;
             }
     
-            console.log(page);
             
             $.ajax({
                 url: 'data.php',
