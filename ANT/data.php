@@ -5,7 +5,7 @@ $status='';
 $find='';
 $response=[];
 
-$page = isset($_GET['page']) ? mb_substr(htmlspecialchars(strip_tags(trim($_GET['page']))), 0, 20, 'UTF-8') : 1;
+$page = isset($_POST['page']) ? mb_substr(htmlspecialchars(strip_tags(trim($_POST['page']))), 0, 20, 'UTF-8') : 1;
 
 
 $pageinlist = PAGEINLIST;
@@ -61,10 +61,7 @@ switch ($status){
        
 }
 
-echo "<pre>";
-    var_dump( $field->Limit() );
-echo "</pre>";
-
+$response['pages']=$field->Pages();
 
 echo json_encode($response);
 

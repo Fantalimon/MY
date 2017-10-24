@@ -1,11 +1,8 @@
 <div class="row">
     <div class="navbar text-center ">
         <ul class="navbar-form navbar-fixed-bottom">
-            <ul class="pagination">
-                <?php
-                
-                
-                ?>
+            <ul id="page" class="pagination">
+            
             </ul>
     </div>
 </div>

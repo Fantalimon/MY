@@ -21,7 +21,12 @@
             console.log(msg);
         }
     
-      
+    
+    
+        var page,
+            total,
+            url = '';
+    
         
     
         $.ajax({
@@ -29,6 +34,7 @@
             type: 'POST',
             dataType: 'json',
             success: (function (data) {
+                
                 if (data.ballsDESC) {
                     let user = '';
                     let ctn = data.ballsDESC.length;
@@ -43,14 +49,107 @@
                     
                     $('tbody').html(user);
                 }
+    
+                if (data.pages) {
+                    data.pages['page'] = Number(data.pages['page']);
+                    data.pages['total'] = Number(data.pages['total']);
+        
+                    page = data.pages['page'];
+                    total = data.pages['total'];
+        
+                    if (page != 1) {
+                        url += '<li id="page2left">';
+                        url += '<a >';
+                        url += '<<';
+                        url += '</a>';
+                        url += '</li>';
+                    }
+                    if(page > page+1)
+                    {
+                        url += '<li id="page1left">';
+                        url += '<a >';
+                        url += '<';
+                        url += '</a>';
+                        url += '</li>';
+                    }
+                    
+                    for (var x = 1; x < 4; x++) {
+                        if (x == page) {
+                            url += '<li class="active">';
+                            url += '<a>';
+                            url += page;
+                            url += '</a>';
+                            url += '</li>';
+                        } else {
+                            url += '<li>';
+                            url += '<a>';
+                            url += x;
+                            url += '</a>';
+                            url += '</li>';
+                        }
+                    }
+        
+                    if (page != total-1) {
+                        url += '<li id="page1reigth">';
+                        url += '<a >';
+                        url += '>';
+                        url += '</a>';
+                        url += '</li>';
+                    }
+                    
+                    if(page!=total) {
+                        url += '<li id="page2reigth">';
+                        url += '<a >';
+                        url += '>>';
+                        url += '</a>';
+                        url += '</li>';
+                    }
+                    
+                    $('#page').html(url);
+                }
+                
             }),
             error: (function (jqXHR, exception) {
                 getErrorMessage(jqXHR, exception)
             })
         });
+    
         
+    
+        $('#page2reigth,#page1reigth,#page1left,#page2left').click(function (e) {
         
-        
+            e.preventDefault();
+            
+            if(this.id=='page2reigth'){
+                page = page + 2;
+            }
+            if(this.id=='page1reigth'){
+                page = page + 1;
+            }
+            if(this.id=='page2left'){
+                page = page - 2;
+            }
+            if(this.id=='page1left'){
+                page = page - 1;
+            }
+    
+            console.log(page);
+            
+            $.ajax({
+                url: 'data.php',
+                type: 'POST',
+                dataType: 'json',
+                data:{page:page},
+                error: (function (jqXHR, exception) {
+                    getErrorMessage(jqXHR, exception)
+                })
+            });
+            
+        });
+    
+    
+    
+    
         $('#nameUP,#nameDOUN,#ballsUP,#ballsDOUN,#mygroupUP,#mygroupDOUN,#seurnameUP,#seurnameDOUN,#tofind').click(
             function (e) {
                 e.preventDefault();
